@@ -1,0 +1,12 @@
+{
+  "HomePage": {
+    "description": "Description",
+    "title": "The main page"
+  },
+  "Metadata": {
+    "HomePage": {
+      "description": "SCK - The house begins with us!"
+    },
+    "title": "The main page"
+  }
+}

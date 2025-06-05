@@ -1,0 +1,12 @@
+{
+  "HomePage": {
+    "description": "Описание",
+    "title": "Главная страница"
+  },
+  "Metadata": {
+    "HomePage": {
+      "description": "SCK - дом начинается с нас!",
+      "title": "Главная страница"
+    }
+  }
+}
