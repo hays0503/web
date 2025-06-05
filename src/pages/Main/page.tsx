@@ -1,6 +1,7 @@
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
 import { Footer } from "@/widgets/Footer";
+import { Header } from "@/widgets/Header";
 import LayoutMain from "@/widgets/LayoutMain/ui/LayoutMain";
 import { NavigationLinks } from "@/widgets/NavigationLinks";
 import { Text } from "@chakra-ui/react";
@@ -32,12 +33,16 @@ const Content = () => {
 
 export default async function HomePage() {
 	return (
-		<LayoutMain
-			HChangeCity={<ChangeCity />}
-			HChangeLang={<ChangeLang />}
-			HNavigationLinks={<NavigationLinks />}
-			Footer={<Footer />}
-		>
+    <LayoutMain
+      Header={
+        <Header
+          ChangeCity={<ChangeCity/>}
+          ChangeLang={<ChangeLang/>}
+          NavigationLinks={<NavigationLinks/>}
+        />
+      }
+      Footer={<Footer />}
+    >
 			<Content />
 		</LayoutMain>
 	);
