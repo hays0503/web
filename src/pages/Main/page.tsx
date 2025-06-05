@@ -1,3 +1,4 @@
+"use server";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
 import { Footer } from "@/widgets/Footer";
@@ -23,7 +24,7 @@ export async function generateMetadata({
 }
 
 
-const Content = () => {
+const Content = async() => {
 	return (
 		<Text>
 			Главная

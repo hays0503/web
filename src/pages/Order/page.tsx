@@ -1,3 +1,4 @@
+"use server";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
 import { CreateOrder } from "@/features/CreateOrder/ui";
@@ -21,7 +22,7 @@ export async function generateMetadata({
 	};
 }
 
-export default function OrderPage() {
+export default async function OrderPage() {
 	return (
 		<LayoutMain
 			Header={
