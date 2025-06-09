@@ -73,7 +73,7 @@ const items = [
 const MethodOfObtainingForm = () => {
 	const cityEn = useCityParams().cityEn;
 	const [valueDelivery, setValueDelivery] = useState<string | null>("Доставка");
-  const [valueService, setValueService] = useState<string | null>("");
+	const [valueService, setValueService] = useState<string | null>("");
 	return (
 		<Box w={"100%"} fontFamily="body">
 			<Box
@@ -106,30 +106,76 @@ const MethodOfObtainingForm = () => {
 				</Flex>
 				<Flex w={"100%"} direction={"column"} gap={"20px"} p={"20px"}>
 					<Text>{cityEn}</Text>
-					<SegmentGroup.Root
-						value={valueDelivery}
-						onValueChange={(e) => setValueDelivery(e.value)}
-						style={{ height: "50px" }}
+					<Box
+						display={{
+							sm: "none", // ~480px
+							md: "contents", // ~768px
+							lg: "contents", // ~992px
+							xl: "contents", // ~1280px
+							"2xl": "contents", // ~1536px
+						}}
 					>
-						<SegmentGroup.Indicator
-							style={{
-								margin: "auto",
-							}}
-						/>
-						<SegmentGroup.Items
-							items={["Доставка", "Самовывоз"]}
-							style={{
-								margin: "auto",
-								height: "50px",
-								paddingLeft: "22.5%",
-								paddingRight: "22.5%",
-							}}
-							// _checked={{
-							// 	bg: "gray.800",
-							// 	color: "white",
-							// }}
-						/>
-					</SegmentGroup.Root>
+						<SegmentGroup.Root
+							value={valueDelivery}
+							onValueChange={(e) => setValueDelivery(e.value)}
+							style={{ height: "50px" }}
+							orientation="horizontal"
+						>
+							<SegmentGroup.Indicator
+								style={{
+									margin: "auto",
+								}}
+							/>
+							<SegmentGroup.Items
+								items={["Доставка", "Самовывоз"]}
+								style={{
+									margin: "auto",
+									height: "50px",
+									paddingLeft: "22.5%",
+									paddingRight: "22.5%",
+								}}
+								// _checked={{
+								// 	bg: "gray.800",
+								// 	color: "white",
+								// }}
+							/>
+						</SegmentGroup.Root>
+					</Box>
+					<Box
+						display={{
+							sm: "contents", // ~480px
+							md: "none", // ~768px
+							lg: "none", // ~992px
+							xl: "none", // ~1280px
+							"2xl": "none", // ~1536px
+						}}
+					>
+						<SegmentGroup.Root
+							value={valueDelivery}
+							onValueChange={(e) => setValueDelivery(e.value)}
+							style={{ height: "100px" }}
+							orientation="vertical"
+						>
+							<SegmentGroup.Indicator
+								style={{
+									margin: "auto",
+								}}
+							/>
+							<SegmentGroup.Items
+								items={["Доставка", "Самовывоз"]}
+								style={{
+									// margin: "auto",
+									height: "100px",
+									// paddingLeft: "42%",
+									// paddingRight: "45%",
+								}}
+								// _checked={{
+								// 	bg: "gray.800",
+								// 	color: "white",
+								// }}
+							/>
+						</SegmentGroup.Root>
+					</Box>
 					<RadioGroup.Root
 						value={valueService}
 						onValueChange={(e) => setValueService(e.value)}
