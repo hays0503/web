@@ -11,7 +11,7 @@
     "check-outdated-packages": "bunx npm-check-updates -u"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.19.2",
+    "@chakra-ui/react": "^3.20.0",
     "@emotion/react": "^11.14.0",
     "next": "^15.4.0-canary.67",
     "next-intl": "^4.1.0",
@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "typescript": "^5.8.3",
-    "@types/node": "^22.15.29",
+    "@types/node": "^22.15.30",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
     "eslint": "^9.28.0",

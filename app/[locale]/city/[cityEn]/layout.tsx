@@ -5,7 +5,6 @@ import { setRequestLocale } from "next-intl/server";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/shared/style/globals.css";
 import { Metadata } from "next";
-import { ProviderClient } from "@/app/Provider";
 import { getCity } from "@/app/Api/City";
 import { MappedCityType } from "@/app/Api/City/type/MappedCity";
 import { ResponseMappedCityType } from "@/app/Api/City/route/route";
@@ -71,7 +70,7 @@ export default async function LocaleLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<NextIntlClientProvider>
-					<ProviderClient>{children}</ProviderClient>
+					{children}
 				</NextIntlClientProvider>
 			</body>
 		</html>

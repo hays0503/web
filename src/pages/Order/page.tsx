@@ -1,4 +1,5 @@
 "use server";
+import { ProviderClient } from "@/app/Provider";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
 import { CreateOrder } from "@/features/CreateOrder/ui";
@@ -24,17 +25,19 @@ export async function generateMetadata({
 
 export default async function OrderPage() {
 	return (
-		<LayoutMain
-			Header={
-				<Header
-					ChangeCity={<ChangeCity/>}
-					ChangeLang={<ChangeLang/>}
-					NavigationLinks={<NavigationLinks/>}
-				/>
-			}
-			Footer={<Footer />}
-		>
-			<CreateOrder />
-		</LayoutMain>
+		<ProviderClient>
+			<LayoutMain
+				Header={
+					<Header
+						ChangeCity={<ChangeCity />}
+						ChangeLang={<ChangeLang />}
+						NavigationLinks={<NavigationLinks />}
+					/>
+				}
+				Footer={<Footer />}
+			>
+				<CreateOrder />
+			</LayoutMain>
+		</ProviderClient>
 	);
 }

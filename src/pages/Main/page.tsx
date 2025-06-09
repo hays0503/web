@@ -1,4 +1,5 @@
 "use server";
+import { ProviderClient } from "@/app/Provider";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
 import { Footer } from "@/widgets/Footer";
@@ -23,28 +24,26 @@ export async function generateMetadata({
 	};
 }
 
-
-const Content = async() => {
-	return (
-		<Text>
-			Главная
-		</Text>
-	);
+const Content = async () => {
+	return <Text>Главная</Text>;
 };
 
 export default async function HomePage() {
 	return (
-    <LayoutMain
-      Header={
-        <Header
-          ChangeCity={<ChangeCity/>}
-          ChangeLang={<ChangeLang/>}
-          NavigationLinks={<NavigationLinks/>}
-        />
-      }
-      Footer={<Footer />}
-    >
-			<Content />
-		</LayoutMain>
+		<ProviderClient>
+			<LayoutMain
+				Header={
+					<Header
+						ChangeCity={<ChangeCity />}
+						ChangeLang={<ChangeLang />}
+						NavigationLinks={<NavigationLinks />}
+					/>
+				}
+				Footer={<Footer />}
+			>
+				<Content />
+			</LayoutMain>
+		</ProviderClient>
+    
 	);
 }
