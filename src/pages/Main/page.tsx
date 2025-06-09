@@ -1,3 +1,4 @@
+"use server"
 import { ProviderClient } from "@/app/Provider";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
@@ -27,7 +28,6 @@ const Content = async () => {
 	return <Text>Главная</Text>;
 };
 
-export const experimental_ppr = true;
 
 export default async function HomePage() {
 	return (

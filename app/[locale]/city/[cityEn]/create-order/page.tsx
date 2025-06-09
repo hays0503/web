@@ -1,1 +1,3 @@
-export { default,generateMetadata,experimental_ppr } from "@/pages/Order/page";
+export { default,generateMetadata } from "@/pages/Order/page";
+
+export const experimental_ppr = true;
