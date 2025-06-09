@@ -28,7 +28,7 @@ export default function NavigationLinks() {
 			label: (
 				<Group gap={1}>
 					<Image asChild alt="logo">
-						<NextImage src="/logo.svg" alt="logo" width={45} height={35} />
+						<NextImage src="/logo/logo.svg" alt="logo" width={45} height={35} />
 					</Image>
 					<Text>SCK.Club</Text>
 				</Group>
@@ -39,7 +39,7 @@ export default function NavigationLinks() {
 		{ label: "Гарантии", href: "warranty" },
 		{ label: "Оплата", href: "payment" },
 		{ label: "Пункты выдачи", href: "pickup-points" },
-    { label: "Сотрудничество", href: "cooperation" },
+		{ label: "Сотрудничество", href: "cooperation" },
 		{ label: "+7 705 655 00 00", href: "tel:+7 705 655 00 00" },
 	];
 

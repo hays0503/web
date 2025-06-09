@@ -7,7 +7,7 @@ const theme = {
 			colors: {
 				Body: {
 					Background: {
-						value: { base: "#f2f2f2", _dark: "#0d0d0d" },
+						value: { base: "#f2f2f2", _dark: "black" },
 						description: "Главный фон страницы",
 					},
 					ColorText: {
