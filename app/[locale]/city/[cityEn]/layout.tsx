@@ -29,12 +29,14 @@ export async function generateStaticParams(): Promise<
 		const citiesEn = (await citiesEnResponse.json()) as ResponseMappedCityType;
 
 		if (citiesEn && citiesEn.results) {
-			return citiesEn.results.flatMap((city: MappedCityType) =>
+			const result = citiesEn.results.flatMap((city: MappedCityType) =>
 				locales.map((locale) => ({
 					cityEn: city.en,
 					locale,
 				}))
 			);
+      console.log(result);
+      return result;
 		}
 	}
 
