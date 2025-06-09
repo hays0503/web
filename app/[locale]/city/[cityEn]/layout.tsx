@@ -35,7 +35,6 @@ export async function generateStaticParams(): Promise<
 					locale,
 				}))
 			);
-      console.log(result);
       return result;
 		}
 	}
@@ -47,8 +46,6 @@ export const metadata: Metadata = {
 	title: "SCK",
 	description: "SCK - дом начинается с нас !",
 };
-
-export const experimental_ppr = true;
 
 export default async function LocaleLayout({
 	children,

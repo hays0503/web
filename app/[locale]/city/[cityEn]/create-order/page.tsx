@@ -1,1 +1,1 @@
-export { default } from "@/pages/Order/page";
+export { default,generateMetadata,experimental_ppr } from "@/pages/Order/page";

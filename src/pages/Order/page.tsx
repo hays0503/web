@@ -1,4 +1,3 @@
-"use server";
 import { ProviderClient } from "@/app/Provider";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
@@ -22,6 +21,8 @@ export async function generateMetadata({
 		description: t("description"),
 	};
 }
+
+export const experimental_ppr = true;
 
 export default async function OrderPage() {
 	return (
