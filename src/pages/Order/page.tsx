@@ -23,8 +23,6 @@ export async function generateMetadata({
 	};
 }
 
-export const experimental_ppr = true;
-
 export default async function OrderPage() {
 	return (
 		<ProviderClient>
