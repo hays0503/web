@@ -1,3 +1,3 @@
-export * from "./ColorMode"
-export * from "./DefaultLoading"
-export * from "./LinkSCK"
+export * from "./ColorMode";
+export * from "./DefaultLoading/DefaultLoading";
+export * from "./LinkSCK";

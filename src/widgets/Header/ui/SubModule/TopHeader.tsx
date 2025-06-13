@@ -1,5 +1,6 @@
 "use client";
 
+import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import { Flex, Group } from "@chakra-ui/react";
 
 interface TopHeaderProps {
@@ -14,6 +15,7 @@ export default function TopHeader({
 	NavigationLinks,
 }: TopHeaderProps) {
 	return (
+    <ErrorBoundaryLogger contextMessage="Ошибка на уровне TopHeader" fallbackUI={<div>Ошибка на уровне TopHeader</div>}>
 		<Flex
 			wrap={"wrap"}
 			justify={"space-between"}
@@ -31,5 +33,6 @@ export default function TopHeader({
 			</Group>
 			{NavigationLinks}
 		</Flex>
+    </ErrorBoundaryLogger>
 	);
 }

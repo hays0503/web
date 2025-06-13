@@ -8,6 +8,7 @@ const FetcherCity = async (): Promise<rawCity[]> => {
   try {
     const response = await defaultFetcher<rawCity[]>(url, {
       ...UrlRevalidateV1.getCities,
+      // cache:"force-cache"
     });
     return response;
   } catch (error) {

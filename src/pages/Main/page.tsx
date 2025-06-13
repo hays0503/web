@@ -1,5 +1,4 @@
 "use server"
-import { ProviderClient } from "@/app/Provider";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
 import { Footer } from "@/widgets/Footer";
@@ -30,9 +29,7 @@ const Content = async () => {
 
 
 export default async function HomePage() {
-	return (
-		<ProviderClient>
-			<LayoutMain
+	return (<LayoutMain
 				Header={
 					<Header
 						ChangeCity={<ChangeCity />}
@@ -44,6 +41,5 @@ export default async function HomePage() {
 			>
 				<Content />
 			</LayoutMain>
-		</ProviderClient>
 	);
 }

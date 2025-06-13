@@ -20,7 +20,7 @@ const theme = {
 					// Заголовок верхняя часть
 					Top: {
 						Background: {
-							value: { base: "#f2f2f2", _dark: "#0d0d0d" },
+							value: { base: "#f2f2f2", _dark: "black" },
 							description: "Задний фон заголовка",
 						},
 						ButtonBackground: {
@@ -75,7 +75,7 @@ const theme = {
 								description: "Задний фон Блок с текстом и полем поиска",
 							},
 							SCKText: {
-								...MotifColor,
+								value: { base: MotifColor.value.base, _dark: "white" },
 								description: "Цвет текста SCK",
 							},
 							InputSearch: {
@@ -99,7 +99,7 @@ const theme = {
 						// Кнопки (Войти,Избранное,Корзина)
 						Buttons: {
 							Background: {
-								...{value:{...MotifColor.value,_dark:"colors.gray.600"}},
+								...{ value: { ...MotifColor.value, _dark: "colors.gray.600" } },
 								description: "Задний фон в поле поиска",
 							},
 							Color: {
@@ -138,27 +138,27 @@ const theme = {
 							},
 						},
 					},
-          // Заголовок Навигация
-          Bottom:{
-            Background: {
-              value: { base: "#e6e6e6", _dark: "#e6e6e6" },
-              description: "Навигация фон",
-            },
-            ColorText: {
-              value: { base: "black", _dark: "white" },
-              description: "Навигация цвет текста",
-            },
-            Category:{
-              Background: {
-                ...MotifColor,
-                description: "Навигация фон",
-              },
-              ColorText: {
-                value: { base: "white", _dark: "white" },
-                description: "Навигация цвет текста",
-              },
-            }
-          }
+					// Заголовок Навигация
+					Bottom: {
+						Background: {
+							value: { base: "#e6e6e6", _dark: "#e6e6e6" },
+							description: "Навигация фон",
+						},
+						ColorText: {
+							value: { base: "black", _dark: "white" },
+							description: "Навигация цвет текста",
+						},
+						Category: {
+							Background: {
+								...MotifColor,
+								description: "Навигация фон",
+							},
+							ColorText: {
+								value: { base: "white", _dark: "white" },
+								description: "Навигация цвет текста",
+							},
+						},
+					},
 				},
 				// Контент страницы
 				Content: {

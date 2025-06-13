@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { getCity } from "@/app/Api";
 import { MappedCityType } from "@/app/Api/City/type/MappedCity";
 import { ResponseMappedCityType } from "@/app/Api/City/route/route";
+import { ProviderClient } from "@/app/Provider";
 
 
 
@@ -30,6 +31,6 @@ export const generateMetadata = async (): Promise<Metadata> => ({
 });
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
-  return <>{children}</>;
+  return <ProviderClient>{children}</ProviderClient>;
 }
 export default Layout

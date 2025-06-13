@@ -1,3 +1,4 @@
+"use client";
 import { ReactNode } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 
@@ -7,17 +8,17 @@ type LayoutMainProps = {
 	readonly Footer: React.ReactNode;
 };
 
-export default function LayoutMain({
-	children,
-  Header,
-	Footer,
-}: LayoutMainProps) {
+function LayoutMain({ children, Header, Footer }: LayoutMainProps) {
 	return (
-		<Flex direction="column" minH="100vh" w="100dvw" bg="Body.Background" color="Body.ColorText">
+		<Flex
+			direction="column"
+			minH="100vh"
+			w="100dvw"
+			bg="Body.Background"
+			color="Body.ColorText"
+		>
 			{/* Header */}
-			<Box as="header">
-        {Header}
-			</Box>
+			<Box as="header">{Header}</Box>
 
 			{/* Content */}
 			<Box as="main" bg="Content.Background" color="Content.ColorText">
@@ -37,3 +38,5 @@ export default function LayoutMain({
 		</Flex>
 	);
 }
+
+export default LayoutMain;

@@ -1,3 +1,4 @@
+"use server";
 import { VStack } from "@chakra-ui/react";
 import TopHeader from "./SubModule/TopHeader";
 import CenterHeader from "./SubModule/CenterHeader";
@@ -9,7 +10,7 @@ interface HeaderProps {
 	readonly NavigationLinks: React.ReactNode;
 }
 
-export default function Header({
+export default async function Header({
 	ChangeCity,
 	ChangeLang,
 	NavigationLinks,

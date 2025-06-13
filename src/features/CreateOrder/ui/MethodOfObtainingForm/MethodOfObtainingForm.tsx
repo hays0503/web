@@ -1,5 +1,6 @@
 "use client";
 import { useCityParams } from "@/shared/hooks";
+import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import {
 	Box,
 	Flex,
@@ -11,70 +12,31 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 
-const items = [
-	{
-		label: (
-			<Flex gap={"10px"} justify={"center"} align={"center"}>
-				<Text>Курьером SCK</Text>
-				<Image
-					src="/logo/logo.svg"
-					alt="sck-delivery"
-					width={100}
-					height={50}
-				/>
-			</Flex>
-		),
-		value: "1",
-	},
-	{
-		label: (
-			<Flex gap={"10px"} justify={"center"} align={"center"}>
-				<Text>CDEK</Text>
-				<Image
-					src="/logo/CDEK_logo.svg"
-					alt="CDEK-delivery"
-					width={100}
-					height={50}
-				/>
-			</Flex>
-		),
-		value: "2",
-	},
-	{
-		label: (
-			<Flex gap={"10px"} justify={"center"} align={"center"}>
-				<Text>Kazpost</Text>
-				<Image
-					src="/logo/Kazpost_Logo.svg"
-					alt="Kazpost-delivery"
-					width={100}
-					height={50}
-				/>
-			</Flex>
-		),
-		value: "3",
-	},
-	{
-		label: (
-			<Flex gap={"10px"} justify={"center"} align={"center"}>
-				<Text>EMS</Text>
-				<Image
-					src="/logo/EMS-Logo.png"
-					alt="EMS-delivery"
-					width={100}
-					height={50}
-				/>
-			</Flex>
-		),
-		value: "4",
-	},
+const deliveryOptions = [
+	{ name: "Курьером SCK", logo: "logo.svg", alt: "sck-delivery", value: "1" },
+	{ name: "CDEK", logo: "CDEK_logo.svg", alt: "CDEK-delivery", value: "2" },
+	{ name: "Kazpost", logo: "Kazpost_Logo.svg", alt: "Kazpost-delivery", value: "3" },
+	{ name: "EMS", logo: "EMS-Logo.png", alt: "EMS-delivery", value: "4" },
 ];
+
+const renderLabel = (name: string, logo: string, alt: string) => (
+	<Flex gap="10px" justify="center" align="center">
+		<Text>{name}</Text>
+		<Image src={`/logo/${logo}`} alt={alt} width={100} height={50} />
+	</Flex>
+);
+
+const items = deliveryOptions.map(({ name, logo, alt, value }) => ({
+	label: renderLabel(name, logo, alt),
+	value,
+}));
 
 const MethodOfObtainingForm = () => {
 	const cityEn = useCityParams().cityEn;
 	const [valueDelivery, setValueDelivery] = useState<string | null>("Доставка");
 	const [valueService, setValueService] = useState<string | null>("");
 	return (
+    <ErrorBoundaryLogger contextMessage="Ошибка на уровне MethodOfObtainingForm" fallbackUI={<div>Ошибка на уровне MethodOfObtainingForm</div>} >
 		<Box w={"100%"} fontFamily="body">
 			<Box
 				w={"100%"}
@@ -108,11 +70,11 @@ const MethodOfObtainingForm = () => {
 					<Text>{cityEn}</Text>
 					<Box
 						display={{
-							sm: "none", // ~480px
-							md: "contents", // ~768px
-							lg: "contents", // ~992px
-							xl: "contents", // ~1280px
-							"2xl": "contents", // ~1536px
+							sm: "none", 
+							md: "contents",
+							lg: "contents",
+							xl: "contents",
+							"2xl": "contents",
 						}}
 					>
 						<SegmentGroup.Root
@@ -143,11 +105,11 @@ const MethodOfObtainingForm = () => {
 					</Box>
 					<Box
 						display={{
-							sm: "contents", // ~480px
-							md: "none", // ~768px
-							lg: "none", // ~992px
-							xl: "none", // ~1280px
-							"2xl": "none", // ~1536px
+							sm: "contents",
+							md: "none", 
+							lg: "none", 
+							xl: "none", 
+							"2xl": "none",
 						}}
 					>
 						<SegmentGroup.Root
@@ -164,10 +126,7 @@ const MethodOfObtainingForm = () => {
 							<SegmentGroup.Items
 								items={["Доставка", "Самовывоз"]}
 								style={{
-									// margin: "auto",
 									height: "100px",
-									// paddingLeft: "42%",
-									// paddingRight: "45%",
 								}}
 								// _checked={{
 								// 	bg: "gray.800",
@@ -194,6 +153,7 @@ const MethodOfObtainingForm = () => {
 				</Flex>
 			</Box>
 		</Box>
+    </ErrorBoundaryLogger>
 	);
 };
 export default MethodOfObtainingForm;

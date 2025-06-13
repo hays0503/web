@@ -1,6 +1,7 @@
 "use client";
 
 import { ColorModeButton, LinkSCK } from "@/shared/ui";
+// import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import {
 	Box,
 	Flex,
@@ -44,48 +45,53 @@ export default function NavigationLinks() {
 	];
 
 	return (
-		<Box as="nav">
-			{/* Desktop */}
-			<Flex display={{ base: "none", md: "flex" }} as="ol" gap={4}>
-				{links.map((link) => (
-					<Link as="li" asChild key={link.href}>
-						<LinkSCK href={link.href}>{link.label}</LinkSCK>
-					</Link>
-				))}
-				<ColorModeButton />
-			</Flex>
+		// <ErrorBoundaryLogger
+		// 	contextMessage="Ошибка на уровне NavigationLinks"
+		// 	fallbackUI={<div>Ошибка на уровне NavigationLinks</div>}
+		// >
+			<Box as="nav">
+				{/* Desktop */}
+				<Flex display={{ base: "none", md: "flex" }} as="ol" gap={4}>
+					{links.map((link) => (
+						<Link as="li" asChild key={link.href}>
+							<LinkSCK href={link.href}>{link.label}</LinkSCK>
+						</Link>
+					))}
+					<ColorModeButton />
+				</Flex>
 
-			{/* Mobile toggle button */}
-			<Menu.Root>
-				<Menu.Trigger asChild>
-					<IconButton
-						aria-label="Открыть меню"
-						variant="outline"
-						display={{ base: "inline-flex", md: "none" }}
-						onClick={toggleMenu}
-						mt={2}
-					>
-						{isOpen ? <IoCloseCircleOutline /> : <FaHamburger />}
-					</IconButton>
-				</Menu.Trigger>
+				{/* Mobile toggle button */}
+				<Menu.Root>
+					<Menu.Trigger asChild>
+						<IconButton
+							aria-label="Открыть меню"
+							variant="outline"
+							display={{ base: "inline-flex", md: "none" }}
+							onClick={toggleMenu}
+							mt={2}
+						>
+							{isOpen ? <IoCloseCircleOutline /> : <FaHamburger />}
+						</IconButton>
+					</Menu.Trigger>
 
-				<Portal>
-					<Menu.Positioner>
-						<Menu.Content>
-							{links.map((link) => (
-								<Menu.Item key={link.href} asChild value={link.href}>
-									<Link asChild>
-										<LinkSCK href={link.href}>{link.label}</LinkSCK>
-									</Link>
+					<Portal>
+						<Menu.Positioner>
+							<Menu.Content>
+								{links.map((link) => (
+									<Menu.Item key={link.href} asChild value={link.href}>
+										<Link asChild>
+											<LinkSCK href={link.href}>{link.label}</LinkSCK>
+										</Link>
+									</Menu.Item>
+								))}
+								<Menu.Item asChild value="Тема">
+									<ColorModeButton />
 								</Menu.Item>
-							))}
-							<Menu.Item asChild value="Тема">
-								<ColorModeButton />
-							</Menu.Item>
-						</Menu.Content>
-					</Menu.Positioner>
-				</Portal>
-			</Menu.Root>
-		</Box>
+							</Menu.Content>
+						</Menu.Positioner>
+					</Portal>
+				</Menu.Root>
+			</Box>
+		// </ErrorBoundaryLogger>
 	);
 }

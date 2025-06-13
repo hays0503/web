@@ -13,7 +13,7 @@ const ProviderClient: React.FC<ProviderClientProps> = ({
 	return (
 		<Provider>
 			<ProviderCity>{children}</ProviderCity>
-		</Provider>
+	  </Provider>
 	);
 };
 

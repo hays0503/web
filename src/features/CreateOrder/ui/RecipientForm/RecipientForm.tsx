@@ -1,5 +1,5 @@
 "use client";
-
+// import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import InputField from "@/shared/ui/InputField/InputField";
 import {
 	Box,
@@ -11,11 +11,19 @@ import {
 	Fieldset,
 } from "@chakra-ui/react";
 import React from "react";
+// import { useErrorBoundary } from "react-error-boundary";
 import { withMask } from "use-mask-input";
 
 const RecipientForm = () => {
+	// const { showBoundary } = useErrorBoundary();
+
 	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
+		try {
+			throw new Error("error agagag");
+		} catch {
+			// showBoundary(error);
+		}
 		console.log("Form submitted", e);
 	};
 
@@ -38,7 +46,7 @@ const RecipientForm = () => {
 				overflow="hidden"
 				_dark={{
 					bg: "transparent",
-          border: "1px solid var(--chakra-colors-gray-700)",
+					border: "1px solid var(--chakra-colors-gray-700)",
 				}}
 			>
 				<Flex
@@ -124,11 +132,11 @@ const RecipientForm = () => {
 									}}
 									bg="gray.300"
 									color="gray.600"
-                  _dark={{
-                    bg: "gray.900",
-                    color: "white",
-                    _hover: { bg: "gray.800" },
-                  }}
+									_dark={{
+										bg: "gray.900",
+										color: "white",
+										_hover: { bg: "gray.800" },
+									}}
 									borderRadius="4px"
 									px="24px"
 									py="12px"

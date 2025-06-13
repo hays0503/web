@@ -1,6 +1,7 @@
 
 
 const defaultFetcher = async <T>(url: string, options?: RequestInit): Promise<T> => {
+  console.log("\ndefaultFetcher url:", url);
   try {
     const response = await fetch(url, options);
 

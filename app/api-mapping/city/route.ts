@@ -1,0 +1,1 @@
+export { getCity as GET } from '@/app/Api/City'
