@@ -1,0 +1,7 @@
+name: New prompt
+version: 0.0.1
+schema: v1
+prompts:
+  - name: Придумать название для комита
+    description: Придумать название для комита
+    prompt: Придумай название для комита для github на двух языках Rus и Eng.

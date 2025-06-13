@@ -1,13 +1,14 @@
-"use server"
+"use server";
 import { ChangeCity } from "@/features/ChangeCity";
 import { ChangeLang } from "@/features/ChangeLang";
+import { DefaultLoading } from "@/shared/ui/DefaultLoading";
 import { Footer } from "@/widgets/Footer";
 import { Header } from "@/widgets/Header";
-import LayoutMain from "@/widgets/LayoutMain/ui/LayoutMain";
+import { LayoutMain } from "@/widgets/LayoutMain";
+import { LayoutTemp } from "@/widgets/LayoutTemp";
 import { NavigationLinks } from "@/widgets/NavigationLinks";
-import { Text } from "@chakra-ui/react";
 import { getTranslations } from "next-intl/server";
-import React from "react";
+import { Suspense } from "react";
 
 export async function generateMetadata({
 	params,
@@ -23,23 +24,34 @@ export async function generateMetadata({
 	};
 }
 
-const Content = async () => {
-	return <Text>Главная</Text>;
-};
-
-
-export default async function HomePage() {
-	return (<LayoutMain
-				Header={
-					<Header
-						ChangeCity={<ChangeCity />}
-						ChangeLang={<ChangeLang />}
-						NavigationLinks={<NavigationLinks />}
-					/>
-				}
-				Footer={<Footer />}
-			>
-				<Content />
-			</LayoutMain>
+export default async function OrderPage() {
+	return (
+		<LayoutMain
+			// LayoutImage="Main.webp"
+			Header={
+				<Header
+					ChangeCity={
+						<Suspense
+							fallback={<DefaultLoading info="ChangeLang" w="20px" h="20px" />}
+						>
+							<ChangeCity />
+						</Suspense>
+					}
+					ChangeLang={
+						<Suspense fallback={<DefaultLoading info="ChangeLang" />}>
+							<ChangeLang />
+						</Suspense>
+					}
+					NavigationLinks={
+						<Suspense fallback={<DefaultLoading info="NavigationLinks" />}>
+							<NavigationLinks />
+						</Suspense>
+					}
+				/>
+			}
+			Footer={<Footer />}
+		>
+      {""}
+		</LayoutMain>
 	);
 }

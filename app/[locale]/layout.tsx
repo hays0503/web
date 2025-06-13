@@ -1,8 +1,8 @@
 "use server";
 import { routing } from "@/i18n/routing";
+import { montserrat } from "@/shared/style/theme";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
-import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 
 export async function generateStaticParams(): Promise<{ locale: string }[]> {
@@ -11,15 +11,8 @@ export async function generateStaticParams(): Promise<{ locale: string }[]> {
 	return locales.map((locale) => ({ locale }));
 }
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
 
 export default async function LocaleLayout({
   children,
@@ -40,7 +33,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning={true}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${montserrat} antialiased`}
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

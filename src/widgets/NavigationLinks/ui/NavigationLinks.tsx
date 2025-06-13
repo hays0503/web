@@ -1,7 +1,7 @@
 "use client";
 
 import { ColorModeButton, LinkSCK } from "@/shared/ui";
-// import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
+import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import {
 	Box,
 	Flex,
@@ -45,10 +45,10 @@ export default function NavigationLinks() {
 	];
 
 	return (
-		// <ErrorBoundaryLogger
-		// 	contextMessage="Ошибка на уровне NavigationLinks"
-		// 	fallbackUI={<div>Ошибка на уровне NavigationLinks</div>}
-		// >
+		<ErrorBoundaryLogger
+			contextMessage="Ошибка на уровне NavigationLinks"
+			fallbackUI={<div>Ошибка на уровне NavigationLinks</div>}
+		>
 			<Box as="nav">
 				{/* Desktop */}
 				<Flex display={{ base: "none", md: "flex" }} as="ol" gap={4}>
@@ -92,6 +92,6 @@ export default function NavigationLinks() {
 					</Portal>
 				</Menu.Root>
 			</Box>
-		// </ErrorBoundaryLogger>
+		</ErrorBoundaryLogger>
 	);
 }

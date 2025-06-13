@@ -85,7 +85,6 @@ const BottomHeader: React.FC = () => {
 				borderRadius="full"
 				px="4"
 				fontWeight="bold"
-				_hover={{ bg: "purple.700" }}
 				flexShrink={0}
 				style={{
 					borderEndEndRadius: 0,

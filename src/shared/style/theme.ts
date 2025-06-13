@@ -1,13 +1,41 @@
-const SCKYellow = "#FBD504";
-const MotifColor = { value: { base: "#593795", _dark: "black" } };
+import { SystemConfig } from "@chakra-ui/react";
+import { Montserrat } from "next/font/google";
+export const montserrat = Montserrat({
+	weight: ["300", "400", "500", "600", "700", "800", "900"],
+	subsets: ["latin", "cyrillic"],
+	display: "swap",
+	fallback: ["Arial", "sans-serif"],
+});
 
-const theme = {
+const MainBackgroundColor = "transparent"; //MainBackgroundColor
+const MainBackgroundColorDark = "transparent"; //MainBackgroundColorDark
+const SCKYellow = "#FBD504";
+const MotifColor = { value: { base: "#a484dc", _dark: "white" } };
+const WhiteAndBlack = { value: { base: "white", _dark: "black" } };
+const BlackAndWhite = { value: { base: "black", _dark: "white" } };
+const theme: SystemConfig = {
 	theme: {
+		tokens: {
+			fonts: {
+				heading: {
+					value: `Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+				},
+				body: {
+					value: `Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+				},
+				mono: {
+					value: `Montserrat,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace`,
+				},
+			},
+		},
 		semanticTokens: {
 			colors: {
 				Body: {
 					Background: {
-						value: { base: "#f2f2f2", _dark: "black" },
+						value: {
+							base: MainBackgroundColor,
+							_dark: MainBackgroundColorDark,
+						},
 						description: "Главный фон страницы",
 					},
 					ColorText: {
@@ -20,7 +48,10 @@ const theme = {
 					// Заголовок верхняя часть
 					Top: {
 						Background: {
-							value: { base: "#f2f2f2", _dark: "black" },
+							value: {
+								base: MainBackgroundColor,
+								_dark: MainBackgroundColorDark,
+							},
 							description: "Задний фон заголовка",
 						},
 						ButtonBackground: {
@@ -38,30 +69,30 @@ const theme = {
 						// Выбор города виджет
 						ChangeCity: {
 							LocationIcon: {
-								...MotifColor,
+								...WhiteAndBlack,
 								description: "Цвет иконки выбора города",
 							},
 							Background: {
-								value: { base: "#e0e0e0", _dark: "#e0e0e0" },
+								...MotifColor,
 								description: "Задний фон кнопки выбора города",
 							},
 							ColorText: {
-								value: { base: "#373638", _dark: "#000000" },
+								...WhiteAndBlack,
 								description: "Цвет текста кнопки выбора города",
 							},
 						},
 						// Выбор языка виджет
 						ChangeLang: {
 							LangIcon: {
-								...MotifColor,
+								...WhiteAndBlack,
 								description: "Цвет иконки выбора языка",
 							},
 							Background: {
-								value: { base: "#e0e0e0", _dark: "#e0e0e0" },
+								...MotifColor,
 								description: "Задний фон кнопки выбора языка",
 							},
 							ColorText: {
-								value: { base: "#373638", _dark: "#000000" },
+								...WhiteAndBlack,
 								description: "Цвет текста кнопки выбора языка",
 							},
 						},
@@ -145,7 +176,7 @@ const theme = {
 							description: "Навигация фон",
 						},
 						ColorText: {
-							value: { base: "black", _dark: "white" },
+							...BlackAndWhite,
 							description: "Навигация цвет текста",
 						},
 						Category: {
@@ -154,7 +185,7 @@ const theme = {
 								description: "Навигация фон",
 							},
 							ColorText: {
-								value: { base: "white", _dark: "white" },
+								...WhiteAndBlack,
 								description: "Навигация цвет текста",
 							},
 						},
@@ -167,7 +198,7 @@ const theme = {
 						description: "Контент фон",
 					},
 					ColorText: {
-						value: { base: "black", _dark: "white" },
+						...BlackAndWhite,
 						description: "Контент цвет текста",
 					},
 				},
@@ -178,7 +209,7 @@ const theme = {
 						description: "Подвал фон",
 					},
 					ColorText: {
-						value: { base: "black", _dark: "white" },
+						...BlackAndWhite,
 						description: "Подвал цвет текста",
 					},
 				},

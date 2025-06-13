@@ -21,7 +21,7 @@ export default function TopHeader({
 			justify={"space-between"}
 			align={"center"}
 			w={{
-        base: "85%",
+        base: "69%",
         smDown: "100%",
       }}
 			bg="Header.Top.Background"

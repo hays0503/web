@@ -1,5 +1,5 @@
 "use client";
-// import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
+import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import { Button, Group, Icon, Text } from "@chakra-ui/react";
 import { ImLocation } from "react-icons/im";
 
@@ -9,7 +9,10 @@ export default function ChangeCity() {
 	};
 
 	return (
-      // <ErrorBoundaryLogger contextMessage="Ошибка на уровне ChangeCity" fallbackUI={<div>Ошибка на уровне ChangeCity</div>}>
+		<ErrorBoundaryLogger
+			contextMessage="Ошибка на уровне ChangeCity"
+			fallbackUI={<div>Ошибка на уровне ChangeCity</div>}
+		>
 			<Button
 				onClick={fakeChange}
 				variant="subtle"
@@ -24,6 +27,6 @@ export default function ChangeCity() {
 					<Text color={"Header.Top.ChangeCity.ColorText"}>Петропавловск</Text>
 				</Group>
 			</Button>
-      // </ErrorBoundaryLogger>
+		</ErrorBoundaryLogger>
 	);
 }
