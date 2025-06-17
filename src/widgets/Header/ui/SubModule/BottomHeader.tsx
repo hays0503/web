@@ -70,71 +70,73 @@ const BottomHeader: React.FC = () => {
 	}, [updateVisibility]);
 
 	return (
-		<Flex
-			w="85%"
-			bg={"Header.Bottom.Background"}
-			borderRadius="full"
-			p="0"
-			overflow="hidden"
-			align="center"
-			minH="40px"
-		>
-			<Button
-				bg="Header.Bottom.Category.Background"
-				color="Header.Bottom.Category.ColorText"
-				borderRadius="full"
-				px="4"
-				fontWeight="bold"
-				flexShrink={0}
-				style={{
-					borderEndEndRadius: 0,
-					borderStartEndRadius: 0,
-				}}
+    <Flex
+      w="69%"
+      border={"1px solid"}
+      borderColor={"Header.Bottom.BorderColor"}
+      bg={"Header.Bottom.Background"}
+      borderRadius="full"
+      p="0"
+      overflow="hidden"
+      align="center"
+      minH="40px"
+    >
+      <Button
+        bg="Header.Bottom.Category.Background"
+        color="Header.Bottom.Category.ColorText"
+        borderRadius="full"
+        px="4"
+        fontWeight="bold"
+        flexShrink={0}
+        style={{
+          borderEndEndRadius: 0,
+          borderStartEndRadius: 0,
+        }}
         variant="subtle"
         border={"none"}
-			>
-				<Icon as={FiMenu} />
-				Каталог товаров
-			</Button>
+      >
+        <Icon as={FiMenu} />
+        Каталог товаров
+      </Button>
 
-			<HStack ml="4" flex="1" minW="0" ref={containerRef}>
-				{visibleItems.map((label) => (
-					<Text
-						key={label}
-						fontSize="sm"
-						whiteSpace="nowrap"
-						color="gray.700"
-						_hover={{ textDecoration: "underline", cursor: "pointer" }}
-					>
-						{label}
-					</Text>
-				))}
+      <HStack ml="4" flex="1" minW="0" ref={containerRef}>
+        {visibleItems.map((label) => (
+          <Text
+            key={label}
+            fontSize="sm"
+            whiteSpace="nowrap"
+            color="gray.700"
+            _hover={{ textDecoration: "underline", cursor: "pointer" }}
+          >
+            {label}
+          </Text>
+        ))}
 
-				{hiddenItems.length > 0 && (
-					<Menu.Root>
-						<Menu.Trigger asChild>
-							<Button variant="ghost" size="sm" minW="auto" p={1}>
-								<Icon as={BsThreeDots} boxSize={5} />
-							</Button>
-						</Menu.Trigger>
-						<Menu.Positioner>
-							<Menu.Content>
-								{hiddenItems.map((label) => (
-									<Menu.Item
-										key={label}
-										value={label}
-										color={"Header.Bottom.ColorText"}
-									>
-										{label}
-									</Menu.Item>
-								))}
-							</Menu.Content>
-						</Menu.Positioner>
-					</Menu.Root>
-				)}
-			</HStack>
-		</Flex>
-	);
+        {hiddenItems.length > 0 && (
+          <Menu.Root>
+            <Menu.Trigger asChild>
+              <Button variant="ghost" size="sm" minW="auto" p={1}>
+                <Icon as={BsThreeDots} boxSize={5} />
+              </Button>
+            </Menu.Trigger>
+            <Menu.Positioner>
+              <Menu.Content>
+                {hiddenItems.map((label) => (
+                  <Menu.Item
+                    key={label}
+                    value={label}
+                    color={"Header.Bottom.ColorText"}
+                  >
+                    {label}
+                  </Menu.Item>
+                ))}
+              </Menu.Content>
+            </Menu.Positioner>
+          </Menu.Root>
+        )}
+      </HStack>
+    </Flex>
+  );
 };
 
 export default memo(BottomHeader);

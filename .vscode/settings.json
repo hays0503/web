@@ -1,5 +1,9 @@
 {
-	"i18n-ally.localesPaths": ["messages", "src/i18n"],
-	"cSpell.words": ["totalduration"],
-	"i18n-ally.keystyle": "nested"
+  "workbench.tree.indent": 20,
+  "explorer.compactFolders": false,
+  "tree.indentGuidesStroke": "#ff0000",
+  "tree.inactiveIndentGuidesStroke": "#45b8ac",
+  "i18n-ally.localesPaths": ["messages", "src/i18n"],
+  "cSpell.words": ["totalduration"],
+  "i18n-ally.keystyle": "nested"
 }

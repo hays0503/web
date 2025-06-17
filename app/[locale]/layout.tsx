@@ -33,7 +33,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning={true}>
       <body
-        className={`${montserrat} antialiased`}
+        className={`${montserrat.className} antialiased`}
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

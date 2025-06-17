@@ -7,12 +7,13 @@ export const montserrat = Montserrat({
 	fallback: ["Arial", "sans-serif"],
 });
 
-const MainBackgroundColor = "transparent"; //MainBackgroundColor
-const MainBackgroundColorDark = "transparent"; //MainBackgroundColorDark
-const SCKYellow = "#FBD504";
-const MotifColor = { value: { base: "#a484dc", _dark: "white" } };
-const WhiteAndBlack = { value: { base: "white", _dark: "black" } };
-const BlackAndWhite = { value: { base: "black", _dark: "white" } };
+export const MainBackgroundColor = "transparent"; //MainBackgroundColor
+export const MainBackgroundColorDark = "transparent"; //MainBackgroundColorDark
+export const SCKYellow = "#FBD504";
+export const MotifColor = { value: { base: "#a484dc", _dark: "white" } };
+export const WhiteAndBlack = { value: { base: "white", _dark: "black" } };
+export const BlackAndWhite = { value: { base: "black", _dark: "white" } };
+export const MotifColorAndBlack = { value: { base: "#a484dc", _dark: "black" } };
 const theme: SystemConfig = {
 	theme: {
 		tokens: {
@@ -134,12 +135,12 @@ const theme: SystemConfig = {
 								description: "Задний фон в поле поиска",
 							},
 							Color: {
-								value: { base: "#fff", _dark: "#fff" },
+								...WhiteAndBlack,
 								description: "Задний фон в поле поиска",
 							},
 							Login: {
 								Background: {
-									value: { base: "#fff", _dark: "#fff" },
+									...WhiteAndBlack,
 									description: "Задний фон в поле поиска",
 								},
 								Color: {
@@ -147,9 +148,19 @@ const theme: SystemConfig = {
 									description: "цвет внутри",
 								},
 							},
+							Balance: {
+								Background: {
+									...WhiteAndBlack,
+									description: "Задний фон в поле поиска",
+								},
+								Color: {
+									...MotifColor,
+									description: "Цвет внутри",
+								},
+							},
 							Favorite: {
 								Background: {
-									value: { base: "#fff", _dark: "#fff" },
+									...WhiteAndBlack,
 									description: "Задний фон в поле поиска",
 								},
 								Color: {
@@ -159,7 +170,7 @@ const theme: SystemConfig = {
 							},
 							Cart: {
 								Background: {
-									value: { base: "#fff", _dark: "#fff" },
+									...WhiteAndBlack,
 									description: "Задний фон в поле поиска",
 								},
 								Color: {
@@ -171,8 +182,12 @@ const theme: SystemConfig = {
 					},
 					// Заголовок Навигация
 					Bottom: {
+						BorderColor:{
+							...MotifColor,
+							description: "Навигация граница",
+						},
 						Background: {
-							value: { base: "#e6e6e6", _dark: "#e6e6e6" },
+							value: { base: "#ffffff", _dark: "#e6e6e6" },
 							description: "Навигация фон",
 						},
 						ColorText: {

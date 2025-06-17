@@ -6,11 +6,11 @@ const nextConfig: NextConfig = {
 	// 	emotion: true,
 	// },
 	experimental: {
-		// cssChunking: true,
-		// webVitalsAttribution: ["CLS", "LCP", "FID", "FCP", "TTFB"],
-		// viewTransition: true,
-		// reactCompiler: true,
-		// ppr: "incremental",
+		cssChunking: true,
+		webVitalsAttribution: ["CLS", "LCP", "FID", "FCP", "TTFB"],
+		viewTransition: true,
+		reactCompiler: true,
+		ppr: "incremental",
 		optimizePackageImports: ["@chakra-ui/react"],
 	},
 };

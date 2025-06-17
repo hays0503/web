@@ -7,7 +7,7 @@ import { DefaultLoading } from "@/shared/ui/DefaultLoading";
 import { Footer } from "@/widgets/Footer";
 import { Header } from "@/widgets/Header";
 import { LayoutMain } from "@/widgets/LayoutMain";
-import { LayoutTemp } from "@/widgets/LayoutTemp";
+// import { LayoutTemp } from "@/widgets/LayoutTemp";
 import { NavigationLinks } from "@/widgets/NavigationLinks";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";

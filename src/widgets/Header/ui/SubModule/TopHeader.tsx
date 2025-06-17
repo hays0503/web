@@ -15,24 +15,28 @@ export default function TopHeader({
 	NavigationLinks,
 }: TopHeaderProps) {
 	return (
-    <ErrorBoundaryLogger contextMessage="Ошибка на уровне TopHeader" fallbackUI={<div>Ошибка на уровне TopHeader</div>}>
-		<Flex
-			wrap={"wrap"}
-			justify={"space-between"}
-			align={"center"}
-			w={{
-        base: "69%",
-        smDown: "100%",
-      }}
-			bg="Header.Top.Background"
-			color="Header.Top.ColorText"
-		>
-			<Group gap={1}>
-				{ChangeCity}
-				{ChangeLang}
-			</Group>
-			{NavigationLinks}
-		</Flex>
+    <ErrorBoundaryLogger
+      contextMessage="Ошибка на уровне TopHeader"
+      fallbackUI={<div>Ошибка на уровне TopHeader</div>}
+    >
+      <Flex	  
+        wrap={"wrap"}
+        justify={"space-between"}
+        align={"center"}
+        w={{
+          base: "69%",
+          smDown: "100%",
+        }}
+
+        bg="Header.Top.Background"
+        color="Header.Top.ColorText"
+      >
+        <Group gap={1}>
+          {ChangeCity}
+          {ChangeLang}
+        </Group>
+        {NavigationLinks}
+      </Flex>
     </ErrorBoundaryLogger>
-	);
+  );
 }

@@ -11,7 +11,7 @@ export default function Loading() {
       justifyContent: "center",
       alignItems: "center",
     }}>
-      <DefaultLoading info="Loading screen" w="50dvw" h="50dvw" bw="15px"/>
+      <DefaultLoading info="Loading screen" w="80dvh" h="80dvh" bw="15px"/>
     </main>
   )
 }

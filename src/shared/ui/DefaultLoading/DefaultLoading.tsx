@@ -13,21 +13,22 @@ const DefaultLoading: React.FC<{
 		// console.log(`DefaultLoading: no info`);
 	}
 	return (
-		<Box
-			style={
-				{
+    <Box
+      style={
+        {
           width: w ? w : "48px",
           height: h ? h : "48px",
           position: "relative",
+          padding: "1%",
           "--loader-border-width": bw ? bw : "3px",
-					"--loader-width": w ? w : "48px",
-					"--loader-height": h ? h : "48px",
-				} as React.CSSProperties
-			}
-		>
-			<span className="loader"></span>
-		</Box>
-	);
+          "--loader-width": w ? w : "48px",
+          "--loader-height": h ? h : "48px",
+        } as React.CSSProperties
+      }
+    >
+      <span className="loader"></span>
+    </Box>
+  );
 };
 
 export default DefaultLoading;

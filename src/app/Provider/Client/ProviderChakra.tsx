@@ -11,7 +11,7 @@ import {
 	type ColorModeProviderProps,
 } from "../../../shared/ui/ColorMode";
 import theme from "@/shared/style/theme";
-import { EmotionCacheProvider } from "./EmotionCacheProvider";
+// import { EmotionCacheProvider } from "./EmotionCacheProvider";
 
 const config = defineConfig(theme);
 
@@ -19,10 +19,10 @@ const system = createSystem(defaultConfig, config);
 
 export function Provider(props: ColorModeProviderProps) {
 	return (
-		<EmotionCacheProvider>
+		// <EmotionCacheProvider>
 			<ChakraProvider value={system}>
 				<ColorModeProvider {...props} />
 			</ChakraProvider>
-		</EmotionCacheProvider>
+		// </EmotionCacheProvider>
 	);
 }

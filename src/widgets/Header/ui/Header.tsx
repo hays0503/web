@@ -16,14 +16,14 @@ export default async function Header({
 	NavigationLinks,
 }: HeaderProps) {
 	return (
-		<VStack w={"100%"}>
+		<VStack w={"100%"} pt={'15px'} gap={'18px'}>
 			<TopHeader
 				ChangeCity={ChangeCity}
 				ChangeLang={ChangeLang}
 				NavigationLinks={NavigationLinks}
 			/>
 			<CenterHeader />
-      <BottomHeader />
+      		<BottomHeader />
 		</VStack>
 	);
 }
