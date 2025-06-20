@@ -179,7 +179,7 @@ const ProductOfDay: React.FC<{ data: ProductType[] }> = ({ data }) => {
                   align={"center"}
                   justify={"center"}
                 >
-                  <Image src={product.image} h={"250px"} fit="contain" />
+                  <Image src={product.image} h={"250px"} fit="contain" alt={product.name} />
                 </Flex>
               </Flex>
             </VStack>

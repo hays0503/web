@@ -62,7 +62,6 @@ const Banner: React.FC<BannerProps> = ({
   showPagination = true,
   showNavigation = true,
   height = "300px",
-  spaceBetween = 0,
   className = ""
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);

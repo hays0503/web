@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useMeasureWidths, UseMeasureWidthsProps } from "./useMeasureWidths";
 
 interface UseDynamicTextCalcProps extends UseMeasureWidthsProps {
@@ -45,7 +45,7 @@ const useDynamicTextCalc = ({ containerRef,text,gap,font,reservedSpace}: UseDyna
     const observer = new ResizeObserver(updateVisibility);
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
-  }, [updateVisibility]);
+  }, [updateVisibility, containerRef]);
 
   return { visibleItems, hiddenItems };
 };

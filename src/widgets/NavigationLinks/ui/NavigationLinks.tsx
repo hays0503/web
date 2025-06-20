@@ -2,11 +2,9 @@
 
 import { ErrorBoundaryLogger } from "@/shared/ui/ErrorBoundaryLogger";
 import {
-	Box,
 	Flex,
 	Group,
 	Image,
-	Show,
 	Text,
 } from "@chakra-ui/react";
 import { default as NextImage } from "next/image";
@@ -14,9 +12,6 @@ import { default as NextImage } from "next/image";
 import { useState } from "react";
 import { DataLinks } from "../type/DataLinks";
 import { DesktopView, MobileView } from "./View";
-
-
-
 
 const links: DataLinks = [
 	{

@@ -191,6 +191,7 @@ function LayoutTemp({
         color="Body.ColorText"
         align={"center"}
         zIndex={3}
+        gap={2}
       >
         {/* Header */}
         <Flex
@@ -223,15 +224,16 @@ function LayoutTemp({
         {/* Footer */}
         <Flex
           as="footer"
-          bg="Footer.Background"
+          bg="gray.50"
           color={"Footer.ColorText"}
           p={4}
           textAlign="center"
           opacity={showFooter ? 1 : 0}
           transition="opacity 0.3s ease"
           justifyContent={"center"}
+          w={"full"}
         >
-          <Flex w={"full"} justifyContent={"center"}>
+          <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
             {showFooter && Footer}
           </Flex>
         </Flex>

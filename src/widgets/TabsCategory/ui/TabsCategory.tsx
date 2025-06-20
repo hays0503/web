@@ -1,5 +1,5 @@
 import { LinkSCK } from "@/shared/ui";
-import { Box, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Grid, Heading } from "@chakra-ui/react";
 import Image from "next/image";
 
 interface TabsCategoryType {

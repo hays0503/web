@@ -7,7 +7,6 @@ import {
   IconButton,
   Stack,
   Text,
-  useToken,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -134,7 +133,6 @@ const BrandsBanner = ({
   autoplay = true,
   showNavigation = true 
 }: BrandsBannerProps) => {
-  const [gray50] = useToken("colors", ["gray.50"]);
   const swiperRef = useRef<SwiperType | null>(null);
   
   // Адаптивные значения

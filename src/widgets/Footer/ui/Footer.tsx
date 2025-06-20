@@ -10,14 +10,13 @@ import {
   Stack,
   Text,
   SimpleGrid,
-  IconButton
+  IconButton,
 } from "@chakra-ui/react";
 import { BiPhone } from "react-icons/bi";
 import { BsInstagram } from "react-icons/bs";
 import { FiMessageCircle } from "react-icons/fi";
 import { memo } from "react";
 
-// Константы вынесены за пределы компонента для предотвращения пересоздания
 const FOOTER_SECTIONS = [
   {
     id: "marketplace",
@@ -58,20 +57,20 @@ const FOOTER_SECTIONS = [
 ];
 
 const SOCIAL_LINKS = [
-  { 
-    Icon: FiMessageCircle, 
-    href: "https://t.me/sck_marketplace", 
-    label: "Telegram" 
+  {
+    Icon: FiMessageCircle,
+    href: "https://t.me/sck_marketplace",
+    label: "Telegram",
   },
-  { 
-    Icon: BiPhone, 
-    href: "viber://chat?number=%2B77056550000", 
-    label: "Viber" 
+  {
+    Icon: BiPhone,
+    href: "viber://chat?number=%2B77056550000",
+    label: "Viber",
   },
-  { 
-    Icon: BsInstagram, 
-    href: "https://instagram.com/sck_marketplace", 
-    label: "Instagram" 
+  {
+    Icon: BsInstagram,
+    href: "https://instagram.com/sck_marketplace",
+    label: "Instagram",
   },
 ];
 
@@ -79,62 +78,56 @@ const SUPPORT_PHONE = "+7 705 655 00 00";
 const WORKING_HOURS = "Пн-Вс: 9:00–18:00";
 const COPYRIGHT_TEXT = "© SCK 2016–2025. Все права защищены.";
 
-type FooterSectionProps = {
-  section: {
-    id: string;
-    title: string;
-    links: { text: string; href: string }[];
-  };
-};
-
-// Мемоизированный компонент для секции футера
-const FooterSection = memo(({ section }: FooterSectionProps) => (
-  <Box>
-    <Heading 
-      as="h3" 
-      fontSize="md" 
-      fontWeight="semibold"
-      mb={4} 
-      color={'BlackAndWhite'}
-    >
-      {section.title}
-    </Heading>
-    <Stack gap={3}>
-      {section.links.map((link) => (
-        <Link
-          key={link.href}
-          href={link.href}
-          fontSize="sm"
-           color={'BlackAndWhite'}
-          _hover={{ 
-            color:'BlackAndWhite',
-            textDecoration: "none" 
-          }}
-          transition="color 0.2s"
-        >
-          {link.text}
-        </Link>
-      ))}
-    </Stack>
-  </Box>
-));
-
+const FooterSection = memo(
+  ({
+    section,
+  }: {
+    section: {
+      id: string;
+      title: string;
+      links: { text: string; href: string }[];
+    };
+  }) => (
+    <Box textAlign={{ base: "center", lg: "left" }}>
+      <Heading as="h3" fontSize="md" fontWeight="semibold" mb={4} color={"BlackAndWhite"}>
+        {section.title}
+      </Heading>
+      <Stack gap={3}>
+        {section.links.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            fontSize="sm"
+            color={"BlackAndWhite"}
+            _hover={{
+              color: "BlackAndWhite",
+              textDecoration: "none",
+            }}
+            transition="color 0.2s"
+          >
+            {link.text}
+          </Link>
+        ))}
+      </Stack>
+    </Box>
+  )
+);
 FooterSection.displayName = "FooterSection";
 
-// Мемоизированный компонент для социальных ссылок
 const SocialIcons = memo(() => (
-  <HStack gap={3}>
-    {SOCIAL_LINKS.map(({ Icon, href, label }) => (
+  <HStack gap={3} justify="center">
+    {SOCIAL_LINKS.map(({ Icon, label }) => (
       <IconButton
         key={label}
         as={Link}
         aria-label={label}
+
         size="md"
         variant="ghost"
-        bg={'gray.100'}
-        _hover={{ 
-          bg: 'gray.300',
-          transform: "translateY(-2px)" 
+        bg={"Motif"}
+        _hover={{
+          bg: "gray.300",
+          transform: "translateY(-2px)",
         }}
         rounded="full"
         transition="all 0.2s"
@@ -144,24 +137,22 @@ const SocialIcons = memo(() => (
     ))}
   </HStack>
 ));
-
 SocialIcons.displayName = "SocialIcons";
 
-// Мемоизированный компонент поддержки
 const SupportSection = memo(() => {
-  const textColor = 'BlackAndWhite';
-  const mutedColor = 'gray.600';
-  const linkColor = 'blue.600';
-  const linkHoverColor = 'blue.800';
+  const textColor = "BlackAndWhite";
+  const mutedColor = "gray.600";
+  const linkColor = "blue.600";
+  const linkHoverColor = "blue.800";
 
   return (
-    <Stack gap={6}>
+    <Stack gap={6} textAlign={{ base: "center", lg: "left" }} align={{ base: "center", lg: "start" }}>
       <Box>
         <Heading as="h3" fontSize="md" fontWeight="semibold" mb={4} color={textColor}>
           Служба поддержки
         </Heading>
         <Link
-          href={`tel:${SUPPORT_PHONE.replace(/\s/g, '')}`}
+          href={`tel:${SUPPORT_PHONE.replace(/\s/g, "")}`}
           fontSize="lg"
           fontWeight="medium"
           color={linkColor}
@@ -190,16 +181,14 @@ const SupportSection = memo(() => {
     </Stack>
   );
 });
-
 SupportSection.displayName = "SupportSection";
 
-// Основной компонент футера
 export default function SCKFooter() {
-  const bgColor = 'gray.50';
-  const borderColor = 'gray.200';
-  const textColor = 'gray.600';
-  const linkColor = 'gray.600';
-  const linkHoverColor = 'gray.900';
+  const bgColor = "gray.50";
+  const borderColor = "gray.200";
+  const textColor = "gray.600";
+  const linkColor = "gray.600";
+  const linkHoverColor = "gray.900";
 
   return (
     <Box
@@ -207,15 +196,11 @@ export default function SCKFooter() {
       borderTop="1px solid"
       borderColor={borderColor}
       role="contentinfo"
-      w={"100%"}
+      w="100%"
     >
-      <Container maxW="1920px" px={{ base: 4, md: 6 }} py={12}>
+      <Container maxW="1920px" px={{ base: 4, md: 6 }} py={12} centerContent>
         {/* Desktop Layout */}
-        <SimpleGrid 
-          columns={{ base: 1, lg: 4 }} 
-          gap={8}
-          display={{ base: "none", lg: "grid" }}
-        >
+        <SimpleGrid columns={{ base: 1, lg: 4 }} gap={8} display={{ base: "none", lg: "grid" }}>
           {FOOTER_SECTIONS.map((section) => (
             <FooterSection key={section.id} section={section} />
           ))}
@@ -223,7 +208,7 @@ export default function SCKFooter() {
         </SimpleGrid>
 
         {/* Mobile Layout */}
-        <Stack gap={8} display={{ base: "flex", lg: "none" }}>
+        <Stack gap={8} display={{ base: "flex", lg: "none" }} align="center" textAlign="center">
           {FOOTER_SECTIONS.map((section) => (
             <FooterSection key={section.id} section={section} />
           ))}
@@ -233,9 +218,11 @@ export default function SCKFooter() {
         {/* Copyright Section */}
         <Flex
           direction={{ base: "column", md: "row" }}
-          justify="space-between"
-          align={{ base: "flex-start", md: "center" }}
+          justify="center"
+          align="center"
           gap={4}
+          mt={10}
+          textAlign="center"
         >
           <Text fontSize="sm" color={textColor}>
             {COPYRIGHT_TEXT}
@@ -244,9 +231,9 @@ export default function SCKFooter() {
             href="/privacy"
             fontSize="sm"
             color={linkColor}
-            _hover={{ 
-              color: linkHoverColor, 
-              textDecoration: "none" 
+            _hover={{
+              color: linkHoverColor,
+              textDecoration: "none",
             }}
             transition="color 0.2s"
           >
