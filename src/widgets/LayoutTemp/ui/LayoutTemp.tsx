@@ -47,11 +47,14 @@ function LayoutTemp({
 			window.removeEventListener("keyup", handleKeyUp);
 		};
 	}, [showHint]);
+
+  const size = '90%'
+
 	return (
     <Box
       position="relative"
       w="100%"
-      h="5000px"
+      h="8000px"
       overflowX="clip"
       overflowY="auto"
     >
@@ -60,8 +63,9 @@ function LayoutTemp({
         w="100%"
         h="100%"
         backgroundImage={`url('/layoutImg/${LayoutImage}')`}
-		backgroundPositionX={"center"}
-		backgroundRepeat={"no-repeat"}
+        backgroundPositionX={"center"}
+        backgroundRepeat={"no-repeat"}
+        backgroundSize={size}
         opacity={showHint ? 1 : 0}
         transition="opacity 0.8s ease"
         zIndex={2}
@@ -179,36 +183,45 @@ function LayoutTemp({
         </Group>
       </VStack>
       <Flex
-	  	position="absolute"
+        position="absolute"
         direction="column"
         minH="100vh"
-        w="100dvw"
+        w={"100%"}
         bg="Body.Background"
         color="Body.ColorText"
-		zIndex={3}
+        align={"center"}
+        zIndex={3}
       >
         {/* Header */}
-        <Box
+        <Flex
+          w={size}
           as="header"
           opacity={showHeader ? 1 : 0}
           transition="opacity 0.3s ease"
+          justifyContent={"center"}
         >
-          {Header}
-        </Box>
+          <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+            {showHeader && Header}
+          </Flex>
+        </Flex>
 
         {/* Content */}
-        <Box
+        <Flex
+          w={size}
           as="main"
           bg="Content.Background"
           color="Content.ColorText"
           opacity={showMain ? 1 : 0}
           transition="opacity 0.3s ease"
+          justifyContent={"center"}
         >
-          {children}
-        </Box>
+          <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+            {children}
+          </Flex>
+        </Flex>
 
         {/* Footer */}
-        <Box
+        <Flex
           as="footer"
           bg="Footer.Background"
           color={"Footer.ColorText"}
@@ -216,9 +229,12 @@ function LayoutTemp({
           textAlign="center"
           opacity={showFooter ? 1 : 0}
           transition="opacity 0.3s ease"
+          justifyContent={"center"}
         >
-          {showFooter && Footer}
-        </Box>
+          <Flex w={"full"} justifyContent={"center"}>
+            {showFooter && Footer}
+          </Flex>
+        </Flex>
       </Flex>
     </Box>
   );

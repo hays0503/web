@@ -7,8 +7,8 @@ export const montserrat = Montserrat({
 	fallback: ["Arial", "sans-serif"],
 });
 
-export const MainBackgroundColor = "transparent"; //MainBackgroundColor
-export const MainBackgroundColorDark = "transparent"; //MainBackgroundColorDark
+export const MainBackgroundColor = "colors.gray.100"; //MainBackgroundColor
+export const MainBackgroundColorDark = "colors.gray.800"; //MainBackgroundColorDark
 export const SCKYellow = "#FBD504";
 export const MotifColor = { value: { base: "#a484dc", _dark: "white" } };
 export const WhiteAndBlack = { value: { base: "white", _dark: "black" } };
@@ -31,6 +31,24 @@ const theme: SystemConfig = {
 		},
 		semanticTokens: {
 			colors: {
+				Motif:{
+					...MotifColor
+				},
+				MotifColorAndBlack:{
+					...MotifColorAndBlack
+				},
+				SCKYellow:{
+					value:{base:SCKYellow, _dark:SCKYellow},
+					description: "Цвет SCK Yellow",
+				},
+				WhiteAndBlack: {
+					...WhiteAndBlack,
+					description: "Белый и черный цвет",
+				},
+				BlackAndWhite: {
+					...BlackAndWhite,
+					description: "Черный и белый цвет",
+				},
 				Body: {
 					Background: {
 						value: {

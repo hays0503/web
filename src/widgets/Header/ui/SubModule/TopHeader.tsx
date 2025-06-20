@@ -20,13 +20,10 @@ export default function TopHeader({
       fallbackUI={<div>Ошибка на уровне TopHeader</div>}
     >
       <Flex	  
-        wrap={"wrap"}
+        wrap={"nowrap"}
         justify={"space-between"}
         align={"center"}
-        w={{
-          base: "69%",
-          smDown: "100%",
-        }}
+        w={"100%"}
 
         bg="Header.Top.Background"
         color="Header.Top.ColorText"

@@ -26,43 +26,62 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
       asChild
       variant={"plain"}
       p={"0"}
-      color={"Header.Center.Buttons.Login.Color"}
-      bg={"Header.Center.Buttons.Background"}
-      rounded={"full"}
+      // color={"Header.Center.Buttons.Login.Color"}
+      // bg={"Header.Center.Buttons.Background"}
       h={"70px"}
     >
       <Flex
-        minW={"70px"}
-        w={"auto"}
+        // minW={"70px"}
+        w={"fit-content"}
         h={"100%"}
         flexDirection={{
-          smDown: "column",
-          sm: "column",
-          smToMd: "column",
-          base: "row",
+          smDown: "column", // screen < 480px
+          sm: "column", // screen >= 480px
+          smToMd: "column", // screen >= 640px
+          md: "column", // screen >= 768px
+          mdToLg: "column", // screen >= 1024px
+          lg: "column", // screen >= 1280px
+          lgToXl: "column", // screen >= 1440px
+          xl: "row", // screen >= 1536px
+          xlTo2xl: "row", // screen >= 1920px
+          "2xl": "row", // screen >= 2560px
         }}
         alignItems={"center"}
         pl={"10px"}
         pr={"10px"}
         pb={"5px"}
         pt={"5px"}
-        gap={0}
+        gap={1}
+        justifyContent={"center"}
+        alignContent={"center"}
       >
-        <Icon
+        <Icon          
           color={"Header.Center.Buttons.Balance.Color"}
           bg={"Header.Center.Buttons.Balance.Background"}
           rounded={"full"}
-          size={"2xl"}
+          minW={"40px"}
+          maxW={"70px"}
+          minH={"40px"}
+          maxH={"70px"}
           p={1}
-          w={"50px"}
-          h={"50px"}
+          // size={"2xl"}
+          // p={1}
+          // w={"50px"}
+          // h={"50px"}
         >
           {icon}
         </Icon>
         <Text
           color={"Header.Center.Buttons.Color"}
-          paddingBottom={"5px"}
+          paddingBottom={{
+            smDown: "5px", // screen < 480px
+            sm: "5px", // screen >= 480px
+            smToMd: "5px", // screen >= 640px
+            md: "5px", // screen >= 768px
+            base: "0px",
+          }}
           lineHeight={"1"}
+          fontSize={'0.7rem'}
         >
           {text}
         </Text>
@@ -74,26 +93,38 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
 const CenterHeader = () => {
 	return (
     <Flex
-      w={"69%"}
-      gap={"20px"}
+      w={"100%"}
+      gap={"10px"}
       minH={"70px"}
-      wrap={"wrap"}
+      wrap={{
+        base: "nowrap",
+        smDown: "wrap",
+        sm: "wrap",
+        smToMd: "wrap",
+        md: "nowrap",
+        mdToLg: "nowrap",
+      }}
       justifyContent={"space-between"}
       alignItems={"center"}
       bg="Header.Center.Background"
+      direction={{
+        base: "column",
+        smDown: "column",
+        sm: "column",
+        smToMd: "row",
+        md: "row",
+        mdToLg: "row",
+        lg: "row",
+        lgToXl: "row",
+        xl: "row",
+        xlTo2xl: "row",
+        "2xl": "row",
+      }}
     >
       <Flex
         w={{
           smDown: "100%",
-          sm: "100%",
-          smToMd: "25%",
-          md: "25%",
-          mdToLg: "21%",
-          lg: "15%",
-          lgToXl: "15%",
-          xl: "15%",
-          xlTo2xl: "15%",
-          "2xl": "11.5%",
+          base: "150px",
         }}
         h={"70px"}
         rounded={"full"}
@@ -112,22 +143,24 @@ const CenterHeader = () => {
           h={"100%"}
           w={"100%"}
         >
-          <NextImage src="/logo/logo.svg" alt="Logo" fill objectFit="contain" />
+          <NextImage src="/logo/logo.svg" alt="Logo" fill />
         </Link>
       </Flex>
 
       <Flex
         w={{
+          base: "full",
           smDown: "100%",
+          smOnly: "62%",
           sm: "100%",
-          smToMd: "68%",
+          // smToMd: "60%",
           md: "50%",
           mdToLg: "75%",
           lg: "28%",
-          lgToXl: "31%",
-          xl: "25%",
-          xlTo2xl: "35%",
-          "2xl": "29.9%",
+          lgToXl: "full",
+          xl: "full",
+          xlTo2xl: "full",
+          "2xl": "full",
         }}
         rounded={"full"}
         bg={"Header.Center.TextAndInput.Background"}
@@ -184,30 +217,33 @@ const CenterHeader = () => {
 
       <Flex
         direction={"row"}
+        gap={2}
+        pl={"10px"}
+        pr={"10px"}
         w={{
+          base: "fit-content",
           smDown: "100%",
           sm: "100%",
           smToMd: "100%",
           md: "100%",
-          mdToLg: "100%",
-          lg: "40%",
-          lgToXl: "48%",
-          xl: "35%",
-          xlTo2xl: "45%",
-          "2xl": "54.9%",
+          mdToLg: "fit-content",
+          lg: "fit-content",
+          lgToXl: "fit-content",
+          xl: "fit-content",
+          xlTo2xl: "fit-content",
+          "2xl": "fit-content",
         }}
         justify={"space-evenly"}
         align={"center"}
         bg={"Header.Center.Buttons.Background"}
-        rounded={{ base: "full", smDown: "none" }}
-        wrap={"wrap"}
+        rounded={"full"}
+        wrap={"nowrap"}
       >
         <ButtonIconWithText text="Войти" icon={<LuUserRound />} />
         <ButtonIconWithText text="Сравнить" icon={<MdOutlineBalance />} />
         <ButtonIconWithText text="Избранное" icon={<IoHeartOutline />} />
         <ButtonIconWithText text="Корзина" icon={<RiShoppingBasket2Line />} />
       </Flex>
-
     </Flex>
   );
 };

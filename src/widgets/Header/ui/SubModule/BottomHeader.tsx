@@ -71,7 +71,7 @@ const BottomHeader: React.FC = () => {
 
 	return (
     <Flex
-      w="69%"
+      w="100%"
       border={"1px solid"}
       borderColor={"Header.Bottom.BorderColor"}
       bg={"Header.Bottom.Background"}

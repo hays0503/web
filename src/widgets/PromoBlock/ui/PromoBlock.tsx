@@ -1,18 +1,11 @@
 "use client";
-import { HStack, Text,Box } from '@chakra-ui/react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Box, Flex } from '@chakra-ui/react';
+import { css, Global } from '@emotion/react'
+import { ProductType, SlideType } from '../type/Promo';
+import {Promo,ProductOfDay} from './SubModule';
+import { bulletActiveStyle, bulletStyle } from './SubModule/pagination';
 import "swiper/css";
 import 'swiper/css/pagination';
-import { PaginationOptions } from 'swiper/types';
-import { Pagination } from 'swiper/modules';
-import { css, Global } from '@emotion/react'
-import { MotifColor } from '@/shared/style/theme';
-
-type SlideType = {
-    title: string;
-    description: string;
-    image: string;
-}
 
 const SlideData: SlideType[] = [
   {
@@ -29,127 +22,37 @@ const SlideData: SlideType[] = [
   },
 ];
 
-type DeliveryType = {
-    days: string | 'next day' | 'today';
-    pays: string | 'free' | 'paid';
-    selfPickup: boolean;
-}
-
-type ProductType = {
-    id: number;
-    name: string;
-    discount: string | null;
-    price: string;
-    discountPrice: string | null;
-    image: string;
-    rating: number;
-    delivered: DeliveryType;
-}
 
 const ProductOfDayData: ProductType[] = [
-    {
-        id: 1,
-        name: 'Product 1',
-        discount: '20%',
-        price: '$19.99',
-        discountPrice: '$24.99',
-        image: '/promo/promoSlide2.webp',
-        rating: 4.5,
-        delivered:{
-            days:'next day',
-            pays:'free',
-            selfPickup: false,
-        }
+  {
+    id: 1,
+    name: "Product 1",
+    discount: "20%",
+    price: "71 139",
+    discountPrice: "85 366",
+    image: "/promo/promoSlide2.webp",
+    rating: 4.5,
+    delivered: {
+      days: "next day",
+      pays: "free",
+      selfPickup: false,
     },
-]
-
-export const bulletStyle = css`
-  width: 40px;
-  height: 10px;
-  background-color: ${MotifColor.value.base};
-  display: inline-block;
-  margin: 0 4px;
-  border-radius: 4px;
-`;
-
-export const bulletActiveStyle = css`
-  background-color: ${MotifColor.value.base};
-`;
-
-const pagination: PaginationOptions = {
-  clickable: true,
-  type: 'bullets',
-  renderBullet(index: number, className: string) {
-    return `<span class="${className} custom-bullet"></span>`;
   },
-};
-
-const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
-    return (
-      <Swiper
-        modules={[Pagination]}
-        pagination={pagination}
-        spaceBetween={10}
-        slidesPerView={1}
-        autoHeight={true}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
-      >
-        {data.map((slide, index) => (
-          <SwiperSlide
-            key={index}
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundImage: `url(${slide.image})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-            <Box p={"10px"} w={"full"} h={"full"}>
-              <Text textStyle="xl">{slide.title}</Text>
-              <Text>{slide.description}</Text>
-            </Box>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    );
-}
-
-const ProductOfDay: React.FC<{ data: ProductType[] }> = ({ data }) => {
-  return (
-    <Swiper
-      style={{ width: "100%", height: "100%", backgroundColor: "tan" }}
-      spaceBetween={10}
-      slidesPerView={1}
-      autoHeight={true}
-    >
-      {data.map((product, index) => (
-          <SwiperSlide
-            key={index}
-            style={{
-              width: "100%",
-              height: "100%",
-              backgroundImage: `url(${product.image})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-            }}
-          >
-          <Text pos={"absolute"} textStyle="xl" zIndex={1}>
-            {product.name}
-          </Text>
-          <Text pos={"absolute"} zIndex={1}>
-            {product.price}
-          </Text>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  );
-}
+  {
+    id: 2,
+    name: "Product 2",
+    discount: "20%",
+    price: "171 139",
+    discountPrice: "185 366",
+    image: "/promo/promoSlide2.webp",
+    rating: 4.1,
+    delivered: {
+      days: "next day",
+      pays: "free",
+      selfPickup: false,
+    },
+  },
+];
 
 const PromoBlock: React.FC = () => {
   return (
@@ -164,40 +67,70 @@ const PromoBlock: React.FC = () => {
           }
         `}
       />
-      <HStack
-        w={"100%"}
-        h={"30dvh"}
-        minH={"480px"}
-        p={"10px"}
-        justify={"center"}
-      >
-        <HStack
-          w={"69%"}
+      <Flex w={"100%"} minH={"420px"} p={"10px"} justify={"center"}>
+        <Flex
+          w={"100%"}
           h={"full"}
-          gap={"auto"}
+          gap={"1%"}
+          wrap={'wrap'}
           alignItems="stretch"
           justifyContent="space-between"
+          // direction={{
+          //   smDown: "column",
+          //   sm: "column",
+          //   smToMd: "column",
+          //   md: "column",
+          //   mdToLg: "column",
+          //   lg: "column",
+          //   lgToXl: "column",
+          //   xl: "row",
+          //   xlTo2xl: "row",
+          //   "2xl": "row",
+          // }}
         >
           <Box
-            bg={"green"}
-            w={"55%"}
-            h={"full"}
-            rounded={"4xl"}
+            border={"1px solid var(--chakra-colors--motif)"}
+            w={{
+              smDown: "100%",
+              sm: "100%",
+              smToMd: "100%",
+              md: "100%",
+              mdToLg: "100%",
+              lg: "100%",
+              lgToXl: "54%",
+              xl: "54%",
+              xlTo2xl: "54%",
+              "2xl": "54%",
+            }}
+            // h={"full"}
+            rounded={"2xl"}
             overflow={"clip"}
           >
             <Promo data={SlideData} />
           </Box>
           <Box
-            bg={"yellow"}
-            w={"40%"}
-            h={"full"}
-            rounded={"4xl"}
+            border={"1px solid var(--chakra-colors--motif)"}
+            minW={'260px'}
+            w={{
+              smDown: "100%",
+              sm: "100%",
+              smToMd: "100%",
+              md: "100%",
+              mdToLg: "100%",
+              lg: "100%",
+              lgToXl: "45%",
+              xl: "45%",
+              xlTo2xl: "45%",
+              "2xl": "45%",
+            }}
+            // h={"full"}
+            rounded={"2xl"}
             overflow={"clip"}
           >
             <ProductOfDay data={ProductOfDayData} />
           </Box>
-        </HStack>
-      </HStack>
+        </Flex>
+      </Flex>
     </>
   );
 }
