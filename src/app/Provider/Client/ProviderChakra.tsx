@@ -9,7 +9,7 @@ import {
 import {
 	ColorModeProvider,
 	type ColorModeProviderProps,
-} from "../../../shared/ui/ColorMode";
+} from "../../../shared/ui/ColorMode/ColorMode";
 import theme from "@/shared/style/theme";
 // import { EmotionCacheProvider } from "./EmotionCacheProvider";
 

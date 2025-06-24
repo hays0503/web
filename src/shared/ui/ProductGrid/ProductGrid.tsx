@@ -1,121 +1,235 @@
+"use client";
 import ProductCard, { ProductCardProps } from "@/entities/ProductCard/ui/ProductCard";
-import { SimpleGrid } from "@chakra-ui/react";
+import { Box, IconButton, Show, useBreakpointValue } from "@chakra-ui/react";
+import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
+import { Grid, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/grid";
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
+import { useEffect, useRef, useState } from "react";
 
-const products: ProductCardProps[] = [
+const _products: ProductCardProps[] = [
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Shivald WH",
     title: "Водонагреватель Shivald Sh WH 15 50 (50 л)",
     rating: 5.0,
     reviews: 13,
     price: 42000,
     oldPrice: 58000,
-    installment: "5 500 ₽ х 12 мес",
+    installment:{
+      monthlyPayment: 5500,
+      period: 12
+    },
     isHit: true,
     bonusLabel: "5%",
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Flama CE3201",
     title: "Кухонная плита Flama CE3201 (белый)",
     rating: 5.0,
     reviews: 13,
     price: 84986,
-    installment: "8 851 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 8851,
+      period: 12
+    },
     isHit: true,
     bonusLabel: "7%",
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Стендмебель Сорренто",
     title: "Стендмебель Сорренто (коричневый, бежевый)",
     rating: 5.0,
     reviews: 13,
     price: 59800,
-    installment: "8 964 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 8964,
+      period: 12
+    },
     isHit: true,
     bonusLabel: "5%",
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Бирюса 2106X",
     title: "Морозильник Бирюса 2106X (200 л, белый)",
     rating: 5.0,
     reviews: 13,
     price: 98500,
-    installment: "8 703 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 8703,
+      period: 12
+    },
     isHit: true,
     bonusLabel: "8%",
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Shivald TC 100",
     title: "Стиральная машина Shivald TC 100",
     rating: 5.0,
     reviews: 13,
     price: 83954,
-    installment: "5 500 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 5500,
+      period: 12
+    },
     isHit: true,
     bonusLabel: "5%",
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Leadbros AH-6088",
     title: "Утюг Leadbros AH-6088 (черный)",
     rating: 5.0,
     reviews: 13,
     price: 12000,
     oldPrice: 18000,
-    installment: "6 000 ₽ х 3 мес",
+    installment: {
+      monthlyPayment: 6000,
+      period: 3
+    },
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Аксион M32.01",
     title: "Мясорубка Аксион M32.01 (белый)",
     rating: 5.0,
     reviews: 13,
     price: 27968,
-    installment: "1 081 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 1081,
+      period: 12
+    },
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "CENTEK CT1460",
     title: "Шашлычница CENTEK CT1460",
     rating: 5.0,
     reviews: 13,
     price: 17778,
-    installment: "9 844 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 9844,
+      period: 12
+    },
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Бирюса WM-SMSI0/04M",
     title: "Стиральная машина Бирюса WM-SMSI0/04M",
     rating: 5.0,
     reviews: 13,
     price: 127953,
-    installment: "6 209 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 6209,
+      period: 12
+    },
   },
   {
-    image: "/promo/promoSlide3.webp",
+    image: ["/promo/promoSlide5.webp","/promo/promoSlide5.webp"],
     alt: "Willmark WHO-23D1",
     title: "Фен Willmark WHO-23D1 (2000 Вт)",
     rating: 5.0,
     reviews: 13,
     price: 7442,
-    installment: "4 500 ₽ х 12 мес",
+    installment: {
+      monthlyPayment: 4500,
+      period: 12
+    },
   },
 ];
 
+const products: ProductCardProps[] = [..._products, ..._products, ..._products];
+
 const ProductGrid = () => {
+  const [swiperInstance, setSwiperInstance] = useState<SwiperClass>();
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+  const showButtons = useBreakpointValue({ base: false, md: true });
+
+  useEffect(() => {
+    if (swiperInstance && swiperInstance.params?.navigation ) {
+      if (typeof swiperInstance.params.navigation === 'object') {
+        swiperInstance.params.navigation.prevEl = prevRef.current;
+        swiperInstance.params.navigation.nextEl = nextRef.current;
+        swiperInstance.navigation.init();
+        swiperInstance.navigation.update();   
+      }
+    }
+  }, [swiperInstance]);
+
   return (
-    <SimpleGrid
-      columns={{ base: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
-      gap={4}
-    >
-      {products.map((product, idx) => (
-        <ProductCard key={idx} {...product} />
-      ))}
-    </SimpleGrid>
+    <Box position="relative" w="full" py={4}>
+      <Show when={showButtons && products.length > 10 } >
+        <IconButton
+          ref={prevRef}
+          aria-label="Предыдущий"
+          position="absolute"
+          left={2}
+          top="50%"
+          transform="translateY(-50%)"
+          zIndex={2}
+          _hover={{ filter: "brightness(0.8)" }}
+          boxShadow="md"
+          borderRadius="full"
+        >
+          <BiChevronLeft />
+        </IconButton>
+        <IconButton
+          ref={nextRef}
+          aria-label="Следующий"
+          position="absolute"
+          right={2}
+          top="50%"
+          transform="translateY(-50%)"
+          zIndex={2}
+          _hover={{ filter: "brightness(0.8)" }}
+          boxShadow="md"
+          borderRadius="full"
+        >
+          <BiChevronRight />
+        </IconButton>
+      </Show>
+
+      <Swiper
+        modules={[Navigation, Grid]}
+        onSwiper={setSwiperInstance}
+        slidesPerView={5}
+        slidesPerGroup={2}
+        grid={{
+          rows: 2,
+          fill: "row",
+        }}
+        spaceBetween={16}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        onBeforeInit={(swiper: SwiperClass) => {
+          if (typeof swiper.params.navigation === "object") {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }
+        }}
+        breakpoints={{
+          0: { slidesPerView: 2, grid: { rows: 2 } },
+          768: { slidesPerView: 3, grid: { rows: 2 } },
+          1024: { slidesPerView: 4, grid: { rows: 2 } },
+          1280: { slidesPerView: 5, grid: { rows: 2 } },
+        }}
+      >
+        {[...products, ...products, ...products].map((product, idx) => (
+          <SwiperSlide key={idx}>
+            <ProductCard {...product} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Box>
   );
 };
 

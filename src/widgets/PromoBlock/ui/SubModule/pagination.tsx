@@ -9,6 +9,8 @@ export const bulletStyle = css`
   display: inline-block;
   margin-top: 4px;
   border-radius: 4px;
+  position: relative;
+  bottom: -10px;
 `;
 
 export const bulletActiveStyle = css`

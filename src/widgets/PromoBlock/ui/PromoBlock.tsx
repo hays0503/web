@@ -9,16 +9,14 @@ import 'swiper/css/pagination';
 
 const SlideData: SlideType[] = [
   {
-    title: "Welcome to Our Platform",
-    description:
-      "Discover amazing features and services tailored just for you.",
-    image: "/promo/promoSlide1.png",
+    title:"",
+    description:"",
+    image: "/promo/promoSlide4.webp",
   },
   {
-    title: "Welcome to Our Platform 2",
-    description:
-      "Discover amazing features and services tailored just for you. 2",
-    image: "/promo/promoSlide1.png",
+    title: "",
+    description:"",
+    image: "/promo/promoSlide4.webp",
   },
 ];
 
@@ -30,7 +28,7 @@ const ProductOfDayData: ProductType[] = [
     discount: "20%",
     price: "71 139",
     discountPrice: "85 366",
-    image: "/promo/promoSlide2.webp",
+    image: "/promo/promoSlide5.webp",
     rating: 4.5,
     delivered: {
       days: "next day",
@@ -44,7 +42,7 @@ const ProductOfDayData: ProductType[] = [
     discount: "20%",
     price: "171 139",
     discountPrice: "185 366",
-    image: "/promo/promoSlide2.webp",
+    image: "/promo/promoSlide5.webp",
     rating: 4.1,
     delivered: {
       days: "next day",
@@ -75,18 +73,6 @@ const PromoBlock: React.FC = () => {
           wrap={'wrap'}
           alignItems="stretch"
           justifyContent="space-between"
-          // direction={{
-          //   smDown: "column",
-          //   sm: "column",
-          //   smToMd: "column",
-          //   md: "column",
-          //   mdToLg: "column",
-          //   lg: "column",
-          //   lgToXl: "column",
-          //   xl: "row",
-          //   xlTo2xl: "row",
-          //   "2xl": "row",
-          // }}
         >
           <Box
             border={"1px solid var(--chakra-colors--motif)"}
@@ -102,7 +88,6 @@ const PromoBlock: React.FC = () => {
               xlTo2xl: "54%",
               "2xl": "54%",
             }}
-            // h={"full"}
             rounded={"2xl"}
             overflow={"clip"}
           >

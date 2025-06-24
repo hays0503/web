@@ -10,27 +10,27 @@ interface TabsCategoryType {
 
 const TabsCategoryData: TabsCategoryType[] = [
   {
-    img: "/promo/promoSlide3.webp",
+    img: "/promo/promoSlide6.webp",
     text: "Бытовая техника",
     url: "/category/бытовая-техника",
   },
   {
-    img: "/promo/promoSlide3.webp",
+    img: "/promo/promoSlide6.webp",
     text: "Товары для дома и дачи",
     url: "/category/товары-для-дома-и-дачи",
   },
   {
-    img: "/promo/promoSlide3.webp",
+    img: "/promo/promoSlide6.webp",
     text: "Мебель",
     url: "/category/мебель",
   },
   {
-    img: "/promo/promoSlide3.webp",
+    img: "/promo/promoSlide6.webp",
     text: "Красота и здоровье",
     url: "/category/красота-и-здоровье",
   },
   {
-    img: "/promo/promoSlide3.webp",
+    img: "/promo/promoSlide6.webp",
     text: "Телевизоры",
     url: "/category/телевизоры",
   },
