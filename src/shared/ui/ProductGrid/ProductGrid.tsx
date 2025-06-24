@@ -201,6 +201,7 @@ const ProductGrid = () => {
         onSwiper={setSwiperInstance}
         slidesPerView={5}
         slidesPerGroup={2}
+        speed={700}
         grid={{
           rows: 2,
           fill: "row",

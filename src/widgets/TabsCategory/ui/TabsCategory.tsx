@@ -1,6 +1,13 @@
-import { LinkSCK } from "@/shared/ui";
-import { Box, Grid, Heading } from "@chakra-ui/react";
+"use client";
+
+import { Box, Heading } from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/free-mode";
+
 import Image from "next/image";
+import { LinkSCK } from "@/shared/ui";
 
 interface TabsCategoryType {
   readonly img: string;
@@ -37,40 +44,53 @@ const TabsCategoryData: TabsCategoryType[] = [
 ];
 
 const TabsCategory = () => {
+
   return (
-    <Box w="full" px={4} py={6} bg="gray.100" overflowX={"auto"}>
-      <Grid
-        templateColumns="repeat(5, minmax(120px, 1fr))"
-        gap={4}
-        w="full"
-      >
-        {TabsCategoryData.map((item) => (
-          <LinkSCK key={item.url} href={item.url}>
-            <Box textAlign="center" w="full">
-              <Box
-                w="100%"
-                aspectRatio={1}
-                minW="120px"
-                minH="120px"
-                bg="white"
-                borderRadius="2xl"
-                overflow="hidden"
-                position="relative"
-              >
-                <Image
-                  src={item.img}
-                  alt={item.text}
-                  fill
-                  style={{ objectFit: "contain" }}
-                />
-              </Box>
-              <Heading size="2xl" mt={2} fontSize="sm">
-                {item.text}
-              </Heading>
-            </Box>
-          </LinkSCK>
-        ))}
-      </Grid>
+    <Box w="full" px={4} py={6} bg="gray.100">
+      <Box w="full">
+        <Swiper          
+          slidesPerView="auto"
+          spaceBetween={`10%`}
+          freeMode
+          modules={[FreeMode]}
+          style={{ width: "100%"}} // растягивает Swiper
+        >
+          {TabsCategoryData.map((item) => (
+            <SwiperSlide
+              key={item.url}
+              style={{
+                width: "200px",
+                flexShrink: 0,
+              }}
+            >
+              <LinkSCK href={item.url}>
+                <Box textAlign="center" w={"100%"} h={"100%"}>
+                  <Box
+                    w="100%"
+                    aspectRatio={1}
+                    minW="180px"
+                    minH="180px"
+                    bg="white"
+                    borderRadius="2xl"
+                    overflow="hidden"
+                    position="relative"
+                  >
+                    <Image
+                      src={item.img}
+                      alt={item.text}
+                      fill
+                      style={{ objectFit: "contain" }}
+                    />
+                  </Box>
+                  <Heading size="2xl" mt={2} fontSize="sm">
+                    {item.text}
+                  </Heading>
+                </Box>
+              </LinkSCK>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
     </Box>
   );
 };

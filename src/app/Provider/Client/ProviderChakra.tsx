@@ -8,9 +8,9 @@ import {
 } from "@chakra-ui/react";
 import {
 	ColorModeProvider,
-	type ColorModeProviderProps,
 } from "../../../shared/ui/ColorMode/ColorMode";
 import theme from "@/shared/style/theme";
+import { ColorModeProviderProps } from "@/shared/ui";
 // import { EmotionCacheProvider } from "./EmotionCacheProvider";
 
 const config = defineConfig(theme);
