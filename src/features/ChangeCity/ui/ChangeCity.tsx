@@ -17,7 +17,8 @@ export default function ChangeCity() {
   const handleCityChange = () => {
     startTransition(async () => {
       try {
-        const response = await fetch("/api/v1/geo/by-ip", {
+        const response = await fetch("/api-mapping/proxy/api/v1/geo/by-ip", {
+          mode:'no-cors',
           method: "GET",
           headers: {
             accept: "application/json",
