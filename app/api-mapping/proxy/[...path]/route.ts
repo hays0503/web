@@ -6,6 +6,7 @@ async function proxyRequest(req: NextRequest, path: string[]) {
 
   const headers = new Headers(req.headers);
   headers.set("Content-Type", "application/json");
+  headers.set("X-Forwarded-Host", req.headers.get("host") || "");
 
   const method = req.method;
   const body = method !== "GET" && method !== "HEAD" ? await req.text() : undefined;
