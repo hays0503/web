@@ -3,7 +3,6 @@
 import {
   Box,
   Heading,
-  IconButton,
   Stack,
   Text,
   useBreakpointValue,
@@ -12,10 +11,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay, Grid as SwiperGrid } from "swiper/modules";
 import { useRef } from "react";
 import type { Swiper as SwiperType } from "swiper";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
+import ArrowsNavigation from "./ArrowsNavigation";
 
 interface Brand {
   name: string;
@@ -56,6 +55,7 @@ const BrandCard = ({ brand, onClick }: { brand: Brand; onClick?: (b: Brand) => v
     p={4}
     rounded="xl"
     bg="white"
+    _dark={{ bg: "gray.900" }}
     shadow="sm"
     transition="all 0.3s ease"
     _hover={{ shadow: "md", transform: "translateY(-2px)", borderColor: "blue.200" }}
@@ -75,6 +75,59 @@ const BrandCard = ({ brand, onClick }: { brand: Brand; onClick?: (b: Brand) => v
   </Box>
 );
 
+const Slide: React.FC<{
+  autoplay?: boolean;
+  swiperRef: React.RefObject<SwiperType | null>;
+  onBrandClick?: (b: Brand) => void;
+}> = ({ autoplay, swiperRef, onBrandClick }) => {
+  return (
+    <Swiper
+      modules={[SwiperGrid, Navigation, ...(autoplay ? [Autoplay] : [])]}
+      onSwiper={(swiper) => (swiperRef.current = swiper)}
+      autoplay={
+        autoplay
+          ? {
+              delay: AUTOPLAY_DELAY,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }
+          : false
+      }
+      loop
+      grabCursor
+      speed={ANIMATION_DURATION}
+      breakpoints={{
+        0: {
+          slidesPerView: 2,
+          grid: { rows: 2, fill: "row" },
+          spaceBetween: 12,
+        },
+        480: {
+          slidesPerView: 3,
+          grid: { rows: 2, fill: "row" },
+          spaceBetween: 16,
+        },
+        768: {
+          slidesPerView: 4,
+          grid: { rows: 2, fill: "row" },
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 5,
+          grid: { rows: 2, fill: "row" },
+          spaceBetween: 24,
+        },
+      }}
+    >
+      {BRANDS.map((brand) => (
+        <SwiperSlide key={brand.id}>
+          <BrandCard brand={brand} onClick={onBrandClick} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  );
+}; 
+
 const BrandsBanner = ({
   onBrandClick,
   autoplay = true,
@@ -87,20 +140,7 @@ const BrandsBanner = ({
   const swiperRef = useRef<SwiperType | null>(null);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
-  const navBtnStyle = {
-    position: "absolute" as const,
-    top: "50%",
-    transform: "translateY(-50%)",
-    zIndex: 10,
-    bg: "white",
-    shadow: "lg",
-    rounded: "full",
-    sizes: "md",
-    color: "gray.600",
-    _hover: { bg: "gray.50", shadow: "xl" },
-    _active: { transform: "translateY(-50%) scale(0.95)" },
-    transition: `all ${ANIMATION_DURATION}ms ease`,
-  };
+
 
   return (
     <Box w="full" py={6} px={{ base: 4, md: 8 }}>
@@ -109,71 +149,15 @@ const BrandsBanner = ({
       </Heading>
 
       <Box position="relative">
-        {showNavigation && !isMobile && (
-          <>
-            <IconButton
-              aria-label="Назад"
-              onClick={() => swiperRef.current?.slidePrev()}
-              left="-50px"
-              {...navBtnStyle}
-            >
-              <BiChevronLeft />
-            </IconButton>
-            <IconButton
-              aria-label="Вперёд"
-              onClick={() => swiperRef.current?.slideNext()}
-              right="-50px"
-              {...navBtnStyle}
-            >
-              <BiChevronRight />
-            </IconButton>
-          </>
-        )}
-
-        <Swiper
-          modules={[SwiperGrid, Navigation, ...(autoplay ? [Autoplay] : [])]}
-          onSwiper={(swiper) => (swiperRef.current = swiper)}
-          autoplay={
-            autoplay
-              ? {
-                  delay: AUTOPLAY_DELAY,
-                  disableOnInteraction: false,
-                  pauseOnMouseEnter: true,
-                }
-              : false
-          }
-          loop
-          grabCursor
-          speed={ANIMATION_DURATION}
-          breakpoints={{
-            0: {
-              slidesPerView: 2,
-              grid: { rows: 2, fill: "row" },
-              spaceBetween: 12,
-            },
-            480: {
-              slidesPerView: 3,
-              grid: { rows: 2, fill: "row" },
-              spaceBetween: 16,
-            },
-            768: {
-              slidesPerView: 4,
-              grid: { rows: 2, fill: "row" },
-              spaceBetween: 20,
-            },
-            992: {
-              slidesPerView: 5,
-              grid: { rows: 2, fill: "row" },
-              spaceBetween: 24,
-            },
-          }}
-        >
-          {BRANDS.map((brand) => (
-            <SwiperSlide key={brand.id}>
-              <BrandCard brand={brand} onClick={onBrandClick} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        
+        <ArrowsNavigation
+          swiperRef={swiperRef}
+          isMobile={isMobile}
+          showNavigation={showNavigation}
+          animationDuration={ANIMATION_DURATION}
+        />
+        
+        <Slide autoplay={autoplay} swiperRef={swiperRef} onBrandClick={onBrandClick} />
       </Box>
     </Box>
   );

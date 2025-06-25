@@ -26,8 +26,6 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
       asChild
       variant={"plain"}
       p={"0"}
-      // color={"Header.Center.Buttons.Login.Color"}
-      // bg={"Header.Center.Buttons.Background"}
       h={"70px"}
     >
       <Flex
@@ -63,12 +61,7 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
           maxW={"70px"}
           minH={"40px"}
           maxH={"70px"}
-          p={1}
-          // size={"2xl"}
-          // p={1}
-          // w={"50px"}
-          // h={"50px"}
-        >
+          p={1}>
           {icon}
         </Icon>
         <Text
@@ -124,7 +117,16 @@ const CenterHeader = () => {
       <Flex
         w={{
           smDown: "100%",
-          base: "150px",
+          sm: "100%",
+          smToMd: "100%",
+          md: "50%",
+          mdToLg: "75%",
+          lg: "28%",
+          lgToXl: "200px",
+          xl: "200px",
+          xlTo2xl: "200px",
+          "2xl": "200px",
+          base: "200px",
         }}
         h={"70px"}
         rounded={"full"}
@@ -151,9 +153,8 @@ const CenterHeader = () => {
         w={{
           base: "full",
           smDown: "100%",
-          smOnly: "62%",
+          smOnly: "100%",
           sm: "100%",
-          // smToMd: "60%",
           md: "50%",
           mdToLg: "75%",
           lg: "28%",

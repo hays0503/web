@@ -46,6 +46,7 @@ const ProductCard = ({
   return (
     <VStack
       bg="white"
+      _dark={{ bg: "gray.800" }}
       rounded="4xl"
       boxShadow="md"
       overflow="hidden"

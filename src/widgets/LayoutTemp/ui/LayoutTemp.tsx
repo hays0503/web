@@ -1,6 +1,7 @@
 "use client";
 import { memo, ReactNode, useEffect, useState } from "react";
-import { Box, Button, Flex, Group, Kbd, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+import LayoutLayers from "./LayoutLayers";
 
 type LayoutTempProps = {
 	children: ReactNode;
@@ -9,44 +10,138 @@ type LayoutTempProps = {
 	readonly LayoutImage: string;
 };
 
+const HeaderPart: React.FC<{ size: string; showHeader: boolean, Header: React.ReactNode}> = ({size, showHeader, Header}) => {
+  return (
+    <Flex
+      w={size}
+      as="header"
+      opacity={showHeader ? 1 : 0}
+      transition="opacity 0.3s ease"
+      justifyContent={"center"}
+    >
+      <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+        {showHeader && Header}
+      </Flex>
+    </Flex>
+  );
+}
+
+const MainPart: React.FC<{ size: string; showMain: boolean, children: React.ReactNode}> = ({size, showMain, children}) => {
+  return (
+    <Flex
+      w={size}
+      as="main"
+      bg="Content.Background"
+      color="Content.ColorText"
+      opacity={showMain ? 1 : 0}
+      transition="opacity 0.3s ease"
+      justifyContent={"center"}
+    >
+      <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+        {children}
+      </Flex>
+    </Flex>
+  );
+}
+
+const FooterPart: React.FC<{ showFooter: boolean, Footer: React.ReactNode}> = ({showFooter, Footer}) => {
+  return (
+    <Flex
+      as="footer"
+      bg="gray.50"
+      _dark={{ bg: "gray.900" }}
+      color={"Footer.ColorText"}
+      p={4}
+      textAlign="center"
+      opacity={showFooter ? 1 : 0}
+      transition="opacity 0.3s ease"
+      justifyContent={"center"}
+      w={"full"}
+    >
+      <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+        {showFooter && Footer}
+      </Flex>
+    </Flex>
+  );
+}
+
+const Main: React.FC<{ 
+  size: string; 
+  showHeader: boolean, 
+  showMain: boolean, 
+  showFooter: boolean, 
+  Header: React.ReactNode, 
+  Footer: React.ReactNode, 
+  children: React.ReactNode
+}> = ({size, showHeader, showMain, showFooter, Header, Footer, children}) => {
+  return (
+    <Flex
+      position="absolute"
+      direction="column"
+      minH="100vh"
+      w={"100%"}
+      bg="Body.Background"
+      color="Body.ColorText"
+      align={"center"}
+      zIndex={3}
+      gap={2}
+    >
+      {/* Header */}
+      <HeaderPart size={size} showHeader={showHeader} Header={Header} />
+
+      {/* Content */}
+      <MainPart size={size} showMain={showMain}>
+        {children}
+      </MainPart>
+
+      {/* Footer */}
+      <FooterPart showFooter={showFooter} Footer={Footer} />
+    </Flex>
+  );
+}
+
+const useLayoutSettings = () => {
+  const [showHint, setShowHint] = useState(false);
+	const [showHeader, setShowHeader] = useState(true);
+	const [showMain, setShowMain] = useState(true);
+	const [showFooter, setShowFooter] = useState(true);
+	useEffect(() => {
+    const handleKeyUp = (event: KeyboardEvent) => {
+      if (event.altKey) {
+        switch (event.key) {
+          case "2":
+            setShowHeader((prev) => !prev);
+            break;
+          case "3":
+            setShowMain((prev) => !prev);
+            break;
+          case "4":
+            setShowFooter((prev) => !prev);
+            break;
+          case "1":
+            setShowHint((prev) => !prev);
+            break;
+          default:
+            break;
+        }
+      }
+    };
+    window.addEventListener("keyup", handleKeyUp);
+    return () => {
+      window.removeEventListener("keyup", handleKeyUp);
+    };
+  }, [showHint]);
+
+  return { showHint, showHeader, showMain, showFooter, setShowHint, setShowHeader, setShowMain, setShowFooter };
+}
+
 function LayoutTemp({
 	children,
 	Header,
 	Footer,
 	LayoutImage,
 }: LayoutTempProps) {
-	const [showHint, setShowHint] = useState(false);
-	const [showHeader, setShowHeader] = useState(true);
-	const [showMain, setShowMain] = useState(true);
-	const [showFooter, setShowFooter] = useState(true);
-	useEffect(() => {
-		const handleKeyUp = (event: KeyboardEvent) => {
-			if (event.altKey) {
-				switch (event.key) {
-					case "2":
-						setShowHeader((prev) => !prev);
-						break;
-					case "3":
-						setShowMain((prev) => !prev);
-						break;
-					case "4":
-						setShowFooter((prev) => !prev);
-						break;
-					case "1":
-						setShowHint((prev) => !prev);
-						break;
-					default:
-						break;
-				}
-			}
-		};
-
-		window.addEventListener("keyup", handleKeyUp);
-
-		return () => {
-			window.removeEventListener("keyup", handleKeyUp);
-		};
-	}, [showHint]);
+  const Setting = useLayoutSettings();
 
   const size = '90%'
 
@@ -58,186 +153,28 @@ function LayoutTemp({
       overflowX="clip"
       overflowY="auto"
     >
-      <Box
-        position="absolute"
-        w="100%"
-        h="100%"
-        backgroundImage={`url('/layoutImg/${LayoutImage}')`}
-        backgroundPositionX={"center"}
-        backgroundRepeat={"no-repeat"}
-        backgroundSize={size}
-        opacity={showHint ? 1 : 0}
-        transition="opacity 0.8s ease"
-        zIndex={2}
+      <LayoutLayers
+        layoutImage={LayoutImage}
+        size={size}
+        showHint={Setting.showHint}
+        showHeader={Setting.showHeader}
+        showMain={Setting.showMain}
+        showFooter={Setting.showFooter}
+        setShowHint={Setting.setShowHint}
+        setShowHeader={Setting.setShowHeader}
+        setShowMain={Setting.setShowMain}
+        setShowFooter={Setting.setShowFooter}
       />
-      <Box
-        position="absolute"
-        w="100%"
-        h="100%"
-        backgroundImage={`repeating-linear-gradient(
-      -60deg,
-      #555 0,
-      #555 1px,
-      transparent 1px,
-      transparent 5px
-    )`}
-        opacity={showHint ? 1 : 0}
-        transition="opacity 0.8s ease"
-        zIndex={1}
-      />
-      <VStack
-        position="fixed"
-        bottom="10%"
-        left="4"
-        bg="rgba(0,0,0,0.5)"
-        color="white"
-        px="3"
-        py="1"
-        borderRadius="md"
-        fontSize="sm"
-        zIndex="9999"
+      <Main
+        size={size}
+        showHeader={Setting.showHeader}
+        showMain={Setting.showMain}
+        showFooter={Setting.showFooter}
+        Header={Header}
+        Footer={Footer}
       >
-        <Group>
-          <Text mr={"10px"}>
-            Просмотр макета:{" "}
-            <Kbd fontSize={16}>
-              Alt{"  "}+{"  "}1
-            </Kbd>
-          </Text>
-          <Button
-            color={showHint ? "green" : "red"}
-            transition={"background-color 0.3s ease"}
-            variant="surface"
-            size="xs"
-            rounded="full"
-            pt={"0px"}
-            pb={"0px"}
-            h={"21px"}
-            onClick={() => setShowHint(!showHint)}
-          >
-            {showHint ? "Вкл" : "Выкл"}
-          </Button>
-        </Group>
-        <Group>
-          <Text mr={"10px"}>
-            Переключение заголовка:{" "}
-            <Kbd fontSize={16}>
-              Alt{"  "}+{"  "}2
-            </Kbd>
-          </Text>
-          <Button
-            color={showHeader ? "green" : "red"}
-            transition={"background-color 0.3s ease"}
-            variant="surface"
-            size="xs"
-            rounded="full"
-            pt={"0px"}
-            pb={"0px"}
-            h={"21px"}
-            onClick={() => setShowHeader(!showHeader)}
-          >
-            {showHeader ? "Вкл" : "Выкл"}
-          </Button>
-        </Group>
-        <Group>
-          <Text mr={"10px"}>
-            Переключение контента:{" "}
-            <Kbd fontSize={16}>
-              Alt{"  "}+{"  "}3
-            </Kbd>
-          </Text>
-          <Button
-            color={showMain ? "green" : "red"}
-            transition={"background-color 0.3s ease"}
-            variant="surface"
-            size="xs"
-            rounded="full"
-            pt={"0px"}
-            pb={"0px"}
-            h={"21px"}
-            onClick={() => setShowMain(!showMain)}
-          >
-            {showMain ? "Вкл" : "Выкл"}
-          </Button>
-        </Group>
-        <Group>
-          <Text mr={"10px"}>
-            Переключение подвала:{" "}
-            <Kbd fontSize={16}>
-              Alt{"  "}+{"  "}4
-            </Kbd>
-          </Text>
-          <Button
-            color={showFooter ? "green" : "red"}
-            transition={"background-color 0.3s ease"}
-            variant="surface"
-            size="xs"
-            rounded="full"
-            pt={"0px"}
-            pb={"0px"}
-            h={"21px"}
-            onClick={() => setShowFooter(!showFooter)}
-          >
-            {showFooter ? "Вкл" : "Выкл"}
-          </Button>
-        </Group>
-      </VStack>
-      <Flex
-        position="absolute"
-        direction="column"
-        minH="100vh"
-        w={"100%"}
-        bg="Body.Background"
-        color="Body.ColorText"
-        align={"center"}
-        zIndex={3}
-        gap={2}
-      >
-        {/* Header */}
-        <Flex
-          w={size}
-          as="header"
-          opacity={showHeader ? 1 : 0}
-          transition="opacity 0.3s ease"
-          justifyContent={"center"}
-        >
-          <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
-            {showHeader && Header}
-          </Flex>
-        </Flex>
-
-        {/* Content */}
-        <Flex
-          w={size}
-          as="main"
-          bg="Content.Background"
-          color="Content.ColorText"
-          opacity={showMain ? 1 : 0}
-          transition="opacity 0.3s ease"
-          justifyContent={"center"}
-        >
-          <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
-            {children}
-          </Flex>
-        </Flex>
-
-        {/* Footer */}
-        <Flex
-          as="footer"
-          bg="gray.50"
-          color={"Footer.ColorText"}
-          p={4}
-          textAlign="center"
-          opacity={showFooter ? 1 : 0}
-          transition="opacity 0.3s ease"
-          justifyContent={"center"}
-          w={"full"}
-        >
-          <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
-            {showFooter && Footer}
-          </Flex>
-        </Flex>
-      </Flex>
+        {children}
+      </Main>
     </Box>
   );
 }

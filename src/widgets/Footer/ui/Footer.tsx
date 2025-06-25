@@ -193,6 +193,7 @@ export default function SCKFooter() {
   return (
     <Box
       bg={bgColor}
+      _dark={{ bg: "gray.900" }}
       borderTop="1px solid"
       borderColor={borderColor}
       role="contentinfo"

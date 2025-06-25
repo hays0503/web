@@ -11,6 +11,16 @@ const compat = new FlatCompat({
 
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    rules: {
+      // Ограничение глубины JSX
+      "react/jsx-max-depth": ["warn", { max: 3 }],
+      // Ограничение длины функции
+      "max-lines-per-function": ["warn", { max: 50, skipComments: true }],
+      // Ограничение цикломатической сложности
+      "complexity": ["warn", { max: 7 }],
+    },
+  },
 ];
 
 export default eslintConfig;

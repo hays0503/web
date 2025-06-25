@@ -28,7 +28,7 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
             style={{
               width: "100%",
               height: "100%",
-              backgroundColor:'var(--chakra-colors--motif)',
+              backgroundColor:'#a484dc',
               backgroundImage: `url(${slide.image})`,
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
