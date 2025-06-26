@@ -7,7 +7,7 @@ import "swiper/css";
 
 
 const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
-    const minH = '380px'
+    // const minH = '498px'
     return (
       <Swiper
         modules={[Pagination]}
@@ -16,7 +16,7 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
         slidesPerView={1}
         autoHeight={true}
         style={{
-          minHeight:minH,
+          // minHeight:minH,
           width: "100%",
           height: "100%",
           backgroundColor:"#cccccc"
@@ -27,15 +27,16 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
             key={index}
             style={{
               width: "100%",
-              height: "100%",
+              height: "100%",              
+            }}
+          >
+            <Box p={"10px"} w={"full"} h={"full"} style={{
               backgroundColor:'#a484dc',
               backgroundImage: `url(${slide.image})`,
               backgroundPosition: "center center",
               backgroundRepeat: "no-repeat",
               backgroundSize: "contain",
-            }}
-          >
-            <Box p={"10px"} w={"full"} h={"full"}>
+            }}>
               <Text textStyle="xl">{slide.title}</Text>
               <Text>{slide.description}</Text>
             </Box>

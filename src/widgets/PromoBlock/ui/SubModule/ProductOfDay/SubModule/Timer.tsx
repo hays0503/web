@@ -38,15 +38,15 @@ const Timer: React.FC = () => {
 
     return (
       <HStack>
-        <Box bg={"gray.200"} minW={'40px'} rounded={"xl"} p={2} fontWeight={500} textAlign={"center"}>
+        <Box bg={"gray.200"} minW={'40px'} rounded={"xl"} p={2} fontWeight={650} textAlign={"center"}>
           {formatTime(timeLeft.hours)}
         </Box>
         {":"}
-        <Box bg={"gray.200"} minW={'40px'}  rounded={"xl"} p={2} fontWeight={500} textAlign={"center"}>
+        <Box bg={"gray.200"} minW={'40px'}  rounded={"xl"} p={2} fontWeight={650} textAlign={"center"}>
           {formatTime(timeLeft.minutes)}
         </Box>
         {":"}
-        <Box bg={"gray.200"} minW={'40px'} rounded={"xl"} p={2} fontWeight={500} textAlign={"center"}>
+        <Box bg={"gray.200"} minW={'40px'} rounded={"xl"} p={2} fontWeight={650} textAlign={"center"}>
           {formatTime(timeLeft.seconds)}
         </Box>
       </HStack>

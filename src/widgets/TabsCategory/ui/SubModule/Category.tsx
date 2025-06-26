@@ -30,7 +30,7 @@ const Category: React.FC<{item:TabsCategoryType}> = ({item}) => {
               src={item.img}
               alt={item.text}
               fill
-              style={{ objectFit: "contain" }}
+              style={{ objectFit: "contain",borderRadius: "110px" }}
             />
           </Box>
           <Heading size="2xl" mt={2} fontSize="sm">

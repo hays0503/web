@@ -8,11 +8,9 @@ import { memo, useCallback, useEffect, useRef, useState } from "react";
 
 const categories = [
 	"Все акции",
-	"Выгодно",
-	"Кешбэк 20%",
-	"Бытовая техника",
-	"Мягкая мебель",
-	"Все товары",
+  "Сделано в Казахстане",
+  "Рассочка 0-0-24",
+  "Гарантия низкой цены"
 ];
 
 const measureWidths = (): number[] => {

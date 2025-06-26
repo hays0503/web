@@ -8,13 +8,14 @@ import { Header } from "@/widgets/Header";
 import { LayoutTemp } from "@/widgets/LayoutTemp";
 import { MaybeLikeIt } from "@/widgets/MaybeLikeIt";
 import { NavigationLinks } from "@/widgets/NavigationLinks";
-import { PopularBrands } from "@/widgets/PopularBrands";
+import { BrandsBanner } from "@/widgets/BrandsBanner";
 import { PromoBlock } from "@/widgets/PromoBlock";
 import { TabsCategory } from "@/widgets/TabsCategory";
 import { WeRecommend } from "@/widgets/WeRecommend";
 import { VStack } from "@chakra-ui/react";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
+import SCK from "@/widgets/SCK";
 
 export async function generateMetadata({
 	params,
@@ -62,7 +63,8 @@ export default async function OrderPage() {
         <TabsCategory />
         <WeRecommend />
         <Banner />
-        <PopularBrands />
+        <BrandsBanner />
+        <SCK />
         <MaybeLikeIt />
       </VStack>
     </LayoutTemp>

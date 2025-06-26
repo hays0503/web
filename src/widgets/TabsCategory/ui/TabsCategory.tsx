@@ -15,22 +15,22 @@ const TabsCategoryData: TabsCategoryType[] = [
     url: "/category/бытовая-техника",
   },
   {
-    img: "/promo/promoSlide6.webp",
+    img: "/promo/promoSlide9.webp",
     text: "Товары для дома и дачи",
     url: "/category/товары-для-дома-и-дачи",
   },
   {
-    img: "/promo/promoSlide6.webp",
+    img: "/promo/promoSlide10.webp",
     text: "Мебель",
     url: "/category/мебель",
   },
   {
-    img: "/promo/promoSlide6.webp",
+    img: "/promo/promoSlide11.webp",
     text: "Красота и здоровье",
     url: "/category/красота-и-здоровье",
   },
   {
-    img: "/promo/promoSlide6.webp",
+    img: "/promo/promoSlide12.webp",
     text: "Телевизоры",
     url: "/category/телевизоры",
   },
@@ -39,11 +39,11 @@ const TabsCategoryData: TabsCategoryType[] = [
 const TabsCategory: React.FC = () => {
 
   return (
-    <Box w="full" px={4} py={6} bg="gray.100" _dark={{ bg: "gray.800" }}>
+    <Box w="full" px={1} py={6} bg="gray.100" _dark={{ bg: "gray.800" }}>
       <Box w="full">
         <Swiper          
           slidesPerView="auto"
-          spaceBetween={`10%`}
+          spaceBetween={`4%`}
           freeMode
           modules={[FreeMode]}
           style={{ width: "100%"}} // растягивает Swiper
@@ -53,7 +53,7 @@ const TabsCategory: React.FC = () => {
               key={item.url}
               style={{
                 width: "200px",
-                flexShrink: 0,
+                flexShrink: 0,                
               }}
             >
               <Category item={item} />

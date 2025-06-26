@@ -6,7 +6,7 @@ import { ProductOfDay } from "./SubModule";
 const ProductOfDayData: ProductType[] = [
   {
     id: 1,
-    name: "Product 1",
+    name: "Кухонная плита FLAMA SHV-1000 белый",
     discount: "20%",
     price: "71 139",
     discountPrice: "85 366",
@@ -20,7 +20,7 @@ const ProductOfDayData: ProductType[] = [
   },
   {
     id: 2,
-    name: "Product 2",
+    name: "Кухонная плита FLAMA SHV-1000 электрическая белая, много текста",
     discount: "20%",
     price: "171 139",
     discountPrice: "185 366",
@@ -46,10 +46,10 @@ const DayOffer:React.FC = () => {
         md: "100%",
         mdToLg: "100%",
         lg: "100%",
-        lgToXl: "45%",
-        xl: "45%",
-        xlTo2xl: "45%",
-        "2xl": "45%",
+        lgToXl: "35%",
+        xl: "35%",
+        xlTo2xl: "35%",
+        "2xl": "35%",
       }}
       // h={"full"}
       rounded={"2xl"}

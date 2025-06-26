@@ -21,7 +21,7 @@ const ProductOfDay: React.FC<{ data: ProductType[] }> = ({ data }) => {
       justifyContent={"flex-start"}
     >
       <HStack justifyContent={"space-between"} w={"full"} p={3}>
-        <Heading size="xl" fontWeight={600}>
+        <Heading size="3xl" fontWeight={700}>
           Товары дня
         </Heading>
         <Timer />

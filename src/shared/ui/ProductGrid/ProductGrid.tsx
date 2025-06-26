@@ -1,13 +1,14 @@
 "use client";
 import ProductCard, { ProductCardProps } from "@/entities/ProductCard/ui/ProductCard";
-import { Box, IconButton, Show, useBreakpointValue } from "@chakra-ui/react";
+import { Box, useBreakpointValue } from "@chakra-ui/react";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import { Grid, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
-import { BiChevronLeft, BiChevronRight } from "react-icons/bi";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { SwiperNavigation } from "../SwiperNavigation/SwiperNavigation";
+import { useSwiperNavigation } from "../SwiperNavigation/useSwiperNavigation";
 
 const _products: ProductCardProps[] = [
   {
@@ -148,53 +149,17 @@ const products: ProductCardProps[] = [..._products, ..._products, ..._products];
 
 const ProductGrid = () => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperClass>();
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   const showButtons = useBreakpointValue({ base: false, md: true });
 
-  useEffect(() => {
-    if (swiperInstance && swiperInstance.params?.navigation ) {
-      if (typeof swiperInstance.params.navigation === 'object') {
-        swiperInstance.params.navigation.prevEl = prevRef.current;
-        swiperInstance.params.navigation.nextEl = nextRef.current;
-        swiperInstance.navigation.init();
-        swiperInstance.navigation.update();   
-      }
-    }
-  }, [swiperInstance]);
+  const { prevRef, nextRef } = useSwiperNavigation(swiperInstance);
 
   return (
-    <Box position="relative" w="full" py={4}>
-      <Show when={showButtons && products.length > 10 } >
-        <IconButton
-          ref={prevRef}
-          aria-label="Предыдущий"
-          position="absolute"
-          left={2}
-          top="50%"
-          transform="translateY(-50%)"
-          zIndex={2}
-          _hover={{ filter: "brightness(0.8)" }}
-          boxShadow="md"
-          borderRadius="full"
-        >
-          <BiChevronLeft />
-        </IconButton>
-        <IconButton
-          ref={nextRef}
-          aria-label="Следующий"
-          position="absolute"
-          right={2}
-          top="50%"
-          transform="translateY(-50%)"
-          zIndex={2}
-          _hover={{ filter: "brightness(0.8)" }}
-          boxShadow="md"
-          borderRadius="full"
-        >
-          <BiChevronRight />
-        </IconButton>
-      </Show>
+    <Box position="relative" w="full" py={4} overflow="visible">
+      <SwiperNavigation
+        prevRef={prevRef}
+        nextRef={nextRef}
+        isVisible={!!showButtons}
+      />
 
       <Swiper
         modules={[Navigation, Grid]}
@@ -202,20 +167,11 @@ const ProductGrid = () => {
         slidesPerView={5}
         slidesPerGroup={2}
         speed={700}
-        grid={{
-          rows: 2,
-          fill: "row",
-        }}
         spaceBetween={16}
+        grid={{ rows: 2, fill: "row" }}
         navigation={{
           prevEl: prevRef.current,
           nextEl: nextRef.current,
-        }}
-        onBeforeInit={(swiper: SwiperClass) => {
-          if (typeof swiper.params.navigation === "object") {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }
         }}
         breakpoints={{
           0: { slidesPerView: 2, grid: { rows: 2 } },
@@ -224,7 +180,7 @@ const ProductGrid = () => {
           1280: { slidesPerView: 5, grid: { rows: 2 } },
         }}
       >
-        {[...products, ...products, ...products].map((product, idx) => (
+        {[...products].map((product, idx) => (
           <SwiperSlide key={idx}>
             <ProductCard {...product} />
           </SwiperSlide>

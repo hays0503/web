@@ -4,9 +4,9 @@ import { Box, Flex, Group, Text } from "@chakra-ui/react";
 
 const Discount: React.FC<{ product: ProductType }> = ({ product }) => {
     return (
-      <Group rounded={"full"} bg={"Motif"}>
+      <Group rounded={"full"} bg={"Motif"} >
         <Box p={2}>
-          <Text fontWeight={"500"}>Скидка</Text>
+          <Text fontWeight={"600"} textStyle={'xl'} color={'WhiteAndBlack'}>Скидка</Text>
         </Box>
         <Flex
           justifyContent={"center"}

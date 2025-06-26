@@ -10,7 +10,12 @@ type LayoutTempProps = {
 	readonly LayoutImage: string;
 };
 
-const HeaderPart: React.FC<{ size: string; showHeader: boolean, Header: React.ReactNode}> = ({size, showHeader, Header}) => {
+const HeaderPart: React.FC<{
+  maxContentWidth: string;
+  size: string;
+  showHeader: boolean;
+  Header: React.ReactNode;
+}> = ({ size, maxContentWidth, showHeader, Header }) => {
   return (
     <Flex
       w={size}
@@ -19,14 +24,19 @@ const HeaderPart: React.FC<{ size: string; showHeader: boolean, Header: React.Re
       transition="opacity 0.3s ease"
       justifyContent={"center"}
     >
-      <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+      <Flex maxW={maxContentWidth} w={"full"} justifyContent={"center"}>
         {showHeader && Header}
       </Flex>
     </Flex>
   );
-}
+};
 
-const MainPart: React.FC<{ size: string; showMain: boolean, children: React.ReactNode}> = ({size, showMain, children}) => {
+const MainPart: React.FC<{ 
+  maxContentWidth: string;
+  size: string;
+  showMain: boolean,
+  children: React.ReactNode
+}> = ({size, maxContentWidth, showMain, children}) => {
   return (
     <Flex
       w={size}
@@ -37,14 +47,18 @@ const MainPart: React.FC<{ size: string; showMain: boolean, children: React.Reac
       transition="opacity 0.3s ease"
       justifyContent={"center"}
     >
-      <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+      <Flex  maxW={maxContentWidth} w={"full"} justifyContent={"center"}>
         {children}
       </Flex>
     </Flex>
   );
 }
 
-const FooterPart: React.FC<{ showFooter: boolean, Footer: React.ReactNode}> = ({showFooter, Footer}) => {
+const FooterPart: React.FC<{
+  maxContentWidth: string; 
+  showFooter: boolean,
+  Footer: React.ReactNode
+}> = ({maxContentWidth,showFooter, Footer}) => {
   return (
     <Flex
       as="footer"
@@ -58,14 +72,15 @@ const FooterPart: React.FC<{ showFooter: boolean, Footer: React.ReactNode}> = ({
       justifyContent={"center"}
       w={"full"}
     >
-      <Flex maxW={"1920px"} w={"full"} justifyContent={"center"}>
+      <Flex maxW={maxContentWidth} w={"full"} justifyContent={"center"}>
         {showFooter && Footer}
       </Flex>
     </Flex>
   );
 }
 
-const Main: React.FC<{ 
+const Main: React.FC<{
+  maxContentWidth: string; 
   size: string; 
   showHeader: boolean, 
   showMain: boolean, 
@@ -73,7 +88,16 @@ const Main: React.FC<{
   Header: React.ReactNode, 
   Footer: React.ReactNode, 
   children: React.ReactNode
-}> = ({size, showHeader, showMain, showFooter, Header, Footer, children}) => {
+}> = ({
+  maxContentWidth,
+  size,
+  showHeader,
+  showMain,
+  showFooter,
+  Header,
+  Footer,
+  children
+}) => {
   return (
     <Flex
       position="absolute"
@@ -87,15 +111,28 @@ const Main: React.FC<{
       gap={2}
     >
       {/* Header */}
-      <HeaderPart size={size} showHeader={showHeader} Header={Header} />
+      <HeaderPart
+        maxContentWidth={maxContentWidth}
+        size={size}
+        showHeader={showHeader}
+        Header={Header}
+      />
 
       {/* Content */}
-      <MainPart size={size} showMain={showMain}>
+      <MainPart
+        maxContentWidth={maxContentWidth}
+        size={size}
+        showMain={showMain}
+      >
         {children}
       </MainPart>
 
       {/* Footer */}
-      <FooterPart showFooter={showFooter} Footer={Footer} />
+      <FooterPart
+        maxContentWidth={maxContentWidth}
+        showFooter={showFooter}
+        Footer={Footer}
+      />
     </Flex>
   );
 }
@@ -144,6 +181,7 @@ function LayoutTemp({
   const Setting = useLayoutSettings();
 
   const size = '90%'
+  const maxContentWidth = '1200px'
 
 	return (
     <Box
@@ -166,6 +204,7 @@ function LayoutTemp({
         setShowFooter={Setting.setShowFooter}
       />
       <Main
+        maxContentWidth={maxContentWidth}
         size={size}
         showHeader={Setting.showHeader}
         showMain={Setting.showMain}

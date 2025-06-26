@@ -27,10 +27,10 @@ const Banner:React.FC = () => {
         md: "100%",
         mdToLg: "100%",
         lg: "100%",
-        lgToXl: "54%",
-        xl: "54%",
-        xlTo2xl: "54%",
-        "2xl": "54%",
+        lgToXl: "64%",
+        xl: "64%",
+        xlTo2xl: "64%",
+        "2xl": "64%",
       }}
       rounded={"2xl"}
       overflow={"clip"}

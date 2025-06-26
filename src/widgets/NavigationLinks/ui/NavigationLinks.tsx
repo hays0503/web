@@ -25,10 +25,8 @@ const links: DataLinks = [
 		),
 		href: "club",
 	},
-	{ label: "Доставка", href: "delivery" },
-	{ label: "Гарантии", href: "warranty" },
-	{ label: "Оплата", href: "payment" },
-	{ label: "Пункты выдачи", href: "pickup-points" },
+	{ label: "Покупателям", href: "buyers" },
+	{ label: "Полезная информация", href: "information" },
 	{ label: "Сотрудничество", href: "cooperation" },
 	{ label: "+7 705 655 00 00", href: "tel:+7 705 655 00 00" },
 ];
