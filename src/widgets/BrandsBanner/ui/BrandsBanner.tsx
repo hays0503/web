@@ -58,21 +58,17 @@ const BrandCard = ({
   <Box
     as="button"
     onClick={() => onClick?.(brand)}
-    p={4}
+    p={1}
+    h={"125px"}
     rounded="xl"
     bg="white"
     _dark={{ bg: "gray.900" }}
     shadow="sm"
     transition="all 0.3s ease"
     _hover={{
-      shadow: "md",
-      transform: "translateY(-2px)",
-      borderColor: "blue.200",
-    }}
-    _focus={{
-      outline: "2px solid",
-      outlineColor: "blue.500",
-      outlineOffset: "2px",
+      cursor: "pointer",
+      transform: "scale(0.95)",
+      filter: "brightness(0.9)",
     }}
     border="1px solid transparent"
     w="full"
@@ -94,8 +90,10 @@ const BrandCard = ({
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Box position="relative" w="full" py={4} overflow="visible">
-      <Heading as="h2" size="lg" mb={6} color="gray.800">
+    <Box position="relative" w="full" overflow="visible" my={-5}>
+      <Heading as="h2" size="lg" color="gray.800" mb={
+        3
+      }>
         Популярные бренды
       </Heading>
       {children}
@@ -104,15 +102,15 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const isAutoPlay = (autoplay: boolean) => {
-  if(autoplay) {
+  if (autoplay) {
     return {
       delay: 4000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true,
-    }
+    };
   }
-  return false
-}
+  return false;
+};
 
 // --- Основной компонент ---
 const BrandsBanner = ({
@@ -130,34 +128,36 @@ const BrandsBanner = ({
 
   return (
     <Wrapper>
-      <SwiperNavigation
-        prevRef={prevRef}
-        nextRef={nextRef}
-        isVisible={!!showButtons}
-      />
+      <Box position={"relative"}>
+        <SwiperNavigation
+          prevRef={prevRef}
+          nextRef={nextRef}
+          isVisible={!!showButtons}
+        />
 
-      <Swiper
-        modules={[Navigation, SwiperGrid, ...(autoplay ? [Autoplay] : [])]}
-        onSwiper={setSwiperInstance}
-        loop
-        grabCursor
-        speed={300}
-        autoplay={isAutoPlay(autoplay)}
-        slidesPerView={5}
-        slidesPerGroup={5}
-        grid={{ rows: 2, fill: "row" }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        spaceBetween={16}
-      >
-        {[...brands, ...brands].map((brand, idx) => (
-          <SwiperSlide key={`${idx}-${brand.id}`} >
-            <BrandCard brand={brand} onClick={onBrandClick} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+        <Swiper
+          modules={[Navigation, SwiperGrid, ...(autoplay ? [Autoplay] : [])]}
+          onSwiper={setSwiperInstance}
+          loop
+          grabCursor
+          speed={300}
+          autoplay={isAutoPlay(autoplay)}
+          slidesPerView={5}
+          slidesPerGroup={5}
+          grid={{ rows: 2, fill: "row" }}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          spaceBetween={16}
+        >
+          {[...brands, ...brands].map((brand, idx) => (
+            <SwiperSlide key={`${idx}-${brand.id}`}>
+              <BrandCard brand={brand} onClick={onBrandClick} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </Box>
     </Wrapper>
   );
 };

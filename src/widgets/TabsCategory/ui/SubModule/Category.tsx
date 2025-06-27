@@ -14,7 +14,17 @@ export interface TabsCategoryType {
 const Category: React.FC<{item:TabsCategoryType}> = ({item}) => {
     return (
       <LinkSCK href={item.url}>
-        <Box textAlign="center" w={"100%"} h={"100%"}>
+        <Box
+          textAlign="center"
+          w={"100%"}
+          h={"100%"}
+          transition="all 0.3s ease"
+          _hover={{
+            cursor: "pointer",
+            transform: "scale(0.95)",
+            filter: "brightness(0.9)",
+          }}
+        >
           <Box
             w="100%"
             aspectRatio={1}
@@ -30,7 +40,7 @@ const Category: React.FC<{item:TabsCategoryType}> = ({item}) => {
               src={item.img}
               alt={item.text}
               fill
-              style={{ objectFit: "contain",borderRadius: "110px" }}
+              style={{ objectFit: "contain", borderRadius: "110px" }}
             />
           </Box>
           <Heading size="2xl" mt={2} fontSize="sm">

@@ -19,7 +19,7 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
           // minHeight:minH,
           width: "100%",
           height: "100%",
-          backgroundColor:"#cccccc"
+          backgroundColor: "#cccccc",
         }}
       >
         {data.map((slide, index) => (
@@ -27,16 +27,22 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
             key={index}
             style={{
               width: "100%",
-              height: "100%",              
+              height: "100%",
             }}
           >
-            <Box p={"10px"} w={"full"} h={"full"} style={{
-              backgroundColor:'#a484dc',
-              backgroundImage: `url(${slide.image})`,
-              backgroundPosition: "center center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "contain",
-            }}>
+            <Box
+              p={"10px"}
+              w={"full"}
+              h={"full"}
+              cursor={"grab"}
+              style={{
+                backgroundColor: "#a484dc",
+                backgroundImage: `url(${slide.image})`,
+                backgroundPosition: "center center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100% 100%",
+              }}
+            >
               <Text textStyle="xl">{slide.title}</Text>
               <Text>{slide.description}</Text>
             </Box>

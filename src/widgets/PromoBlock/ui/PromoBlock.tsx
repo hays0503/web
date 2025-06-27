@@ -20,7 +20,7 @@ const PromoBlock: React.FC = () => {
           }
         `}
       />
-      <Flex w={"100%"} minH={"500px"} p={"10px"} justify={"center"}>
+      <Flex w={"100%"} minH={"500px"} justify={"center"} mt={5}>
         <Flex
           w={"100%"}
           h={"full"}

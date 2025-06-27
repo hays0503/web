@@ -5,7 +5,7 @@ import { Heading, VStack } from "@chakra-ui/react";
 
 const MaybeLikeIt = () => {
     return (
-      <VStack w={"full"} gap={3} align={"flex-start"}>
+      <VStack w={"full"} align={"flex-start"}>
         <Heading>
             Возможно, вам понравится
         </Heading>

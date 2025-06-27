@@ -3,8 +3,8 @@ import { css } from "@emotion/react";
 import { PaginationOptions } from "swiper/types";
 
 export const bulletStyle = css`
-  width: 40px;
-  height: 10px;
+  width: 20px;
+  height: 8px;
   background-color: ${MotifColor.value.base};
   display: inline-block;
   margin-top: 4px;

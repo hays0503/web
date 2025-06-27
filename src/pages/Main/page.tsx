@@ -58,7 +58,7 @@ export default async function OrderPage() {
       }
       Footer={<Footer />}
     >
-      <VStack w={"100%"} gap={4}>
+      <VStack w={"100%"} gap={10}>
         <PromoBlock />
         <TabsCategory />
         <WeRecommend />

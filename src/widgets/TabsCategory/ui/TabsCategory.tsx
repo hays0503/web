@@ -39,7 +39,7 @@ const TabsCategoryData: TabsCategoryType[] = [
 const TabsCategory: React.FC = () => {
 
   return (
-    <Box w="full" px={1} py={6} bg="gray.100" _dark={{ bg: "gray.800" }}>
+    <Box w="full" _dark={{ bg: "gray.800" }}>
       <Box w="full">
         <Swiper          
           slidesPerView="auto"

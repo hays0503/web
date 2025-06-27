@@ -12,6 +12,7 @@ import PhotoProduct from "./PhotoProduct";
 const Slide: React.FC<{ product: ProductType }> = ({ product }) => {
   return (
     <VStack
+      cursor={"grab"}
       w={"full"}
       h={"full"}
       p={3}
@@ -47,7 +48,7 @@ const Slide: React.FC<{ product: ProductType }> = ({ product }) => {
           <Cost product={product} />
           <Buttons />
         </VStack>
-        <VStack>
+        <VStack justify={'stretch'}>
           <Discount product={product} />
           <PhotoProduct product={product} />
         </VStack>

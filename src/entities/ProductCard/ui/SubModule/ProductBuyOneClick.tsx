@@ -6,8 +6,14 @@ const ProductBuyOneClick: React.FC<{ onQuickBuy?: () => void }> = ({
 }) => {
   return (
     <Button
+      transition="all 0.3s ease"
+      _hover={{
+        bg: "Motif",
+        color: "WhiteAndBlack",
+      }}
       variant="outline"
-      colorScheme="purple"
+      border={"1px solid var(--chakra-colors--motif)"}
+      color={"Motif"}
       size="sm"
       rounded="full"
       w="full"

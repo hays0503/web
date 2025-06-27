@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import {Button, HStack, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 
 type TabItem = {
@@ -19,8 +19,8 @@ export const RecommendChips = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <Box px={{ base: 4, md: 6 }} py={6}>
-      <Text fontSize="xl" fontWeight="bold" mb={4}>
+    <VStack gap={3} align={'flex-start'}>
+      <Text fontSize="xl" fontWeight="bold">
         Рекомендуем вам
       </Text>
       <HStack gap={3} flexWrap="wrap" justifyContent="flex-start">
@@ -28,6 +28,7 @@ export const RecommendChips = () => {
           const isActive = tab.index === activeIndex;
           return (
             <Button
+              transition="all 0.3s ease"
               key={tab.index}
               onClick={() => setActiveIndex(tab.index)}
               variant="outline"
@@ -39,7 +40,10 @@ export const RecommendChips = () => {
               fontSize="sm"
               bg={isActive ? "purple.400" : "transparent"}
               color={isActive ? "white" : "purple.500"}
-              _hover={{ bg: isActive ? "purple.500" : "purple.50" }}
+              _hover={{
+                bg: isActive ? "purple.500" : "purple.50",
+                scale: 0.95,
+              }}
               borderColor="purple.200"
             >
               {tab.label}
@@ -47,7 +51,7 @@ export const RecommendChips = () => {
           );
         })}
       </HStack>
-    </Box>
+    </VStack>
   );
 };
 

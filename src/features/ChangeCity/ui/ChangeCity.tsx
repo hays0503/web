@@ -40,6 +40,11 @@ export default function ChangeCity() {
       fallbackUI={<div>Ошибка на уровне ChangeCity</div>}
     >
       <Button
+        transition="all 0.3s ease"
+        _hover={{
+          scale: "0.95",
+          filter: "brightness(0.9)",
+        }}
         onClick={handleCityChange}
         variant="subtle"
         p="0px 10px"
@@ -50,10 +55,10 @@ export default function ChangeCity() {
       >
         <Group gap={1}>
           <Icon as={ImLocation} color="Header.Top.ChangeCity.LocationIcon" />
-          {isPending ? (<Spinner size="xs" color="Header.Top.ChangeCity.ColorText" />) : (
-            <Text color="Header.Top.ChangeCity.ColorText">
-              {city}
-            </Text>
+          {isPending ? (
+            <Spinner size="xs" color="Header.Top.ChangeCity.ColorText" />
+          ) : (
+            <Text color="Header.Top.ChangeCity.ColorText">{city}</Text>
           )}
         </Group>
       </Button>

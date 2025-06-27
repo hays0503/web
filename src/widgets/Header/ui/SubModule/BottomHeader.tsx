@@ -97,14 +97,26 @@ const BottomHeader: React.FC = () => {
         Каталог товаров
       </Button>
 
-      <HStack ml="4" flex="1" minW="0" ref={containerRef}>
+      <HStack
+        ml="4"
+        flex="1"
+        minW="0"
+        justifyContent={"space-around"}
+        ref={containerRef}
+      >
         {visibleItems.map((label) => (
           <Text
             key={label}
             fontSize="sm"
             whiteSpace="nowrap"
             color="gray.700"
-            _hover={{ textDecoration: "underline", cursor: "pointer" }}
+            transition="all 0.3s ease"
+            _hover={{
+              textDecoration: "underline",
+              cursor: "pointer",
+              scale: "0.95",
+              filter: "brightness(0.9)",
+            }}
           >
             {label}
           </Text>

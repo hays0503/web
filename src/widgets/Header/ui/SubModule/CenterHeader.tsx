@@ -22,14 +22,13 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
   icon,
 }) => {
   return (
-    <Button
-      asChild
-      variant={"plain"}
-      p={"0"}
-      h={"70px"}
-    >
+    <Button asChild variant={"plain"} p={"0"} h={"70px"}>
       <Flex
-        // minW={"70px"}
+        transition="all 0.3s ease"
+        _hover={{
+          scale:"0.95",
+          filter:"brightness(0.9)"
+        }}
         w={"fit-content"}
         h={"100%"}
         flexDirection={{
@@ -39,7 +38,7 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
           md: "column", // screen >= 768px
           mdToLg: "column", // screen >= 1024px
           lg: "column", // screen >= 1280px
-          lgToXl: "column", // screen >= 1440px
+          lgToXl: "row", // screen >= 1440px
           xl: "row", // screen >= 1536px
           xlTo2xl: "row", // screen >= 1920px
           "2xl": "row", // screen >= 2560px
@@ -53,7 +52,7 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
         justifyContent={"center"}
         alignContent={"center"}
       >
-        <Icon          
+        <Icon
           color={"Header.Center.Buttons.Balance.Color"}
           bg={"Header.Center.Buttons.Balance.Background"}
           rounded={"full"}
@@ -61,7 +60,8 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
           maxW={"70px"}
           minH={"40px"}
           maxH={"70px"}
-          p={1}>
+          p={1}
+        >
           {icon}
         </Icon>
         <Text
@@ -74,7 +74,7 @@ const ButtonIconWithText: React.FC<{ text: string; icon: ReactNode }> = ({
             base: "0px",
           }}
           lineHeight={"1"}
-          fontSize={'0.7rem'}
+          fontSize={"0.7rem"}
         >
           {text}
         </Text>
@@ -115,18 +115,23 @@ const CenterHeader = () => {
       }}
     >
       <Flex
+        transition="all 0.3s ease"
+        _hover={{
+          scale: "0.95",
+          filter: "brightness(0.9)",
+        }}
         w={{
           smDown: "100%",
           sm: "100%",
           smToMd: "100%",
           md: "50%",
-          mdToLg: "75%",
+          mdToLg: "55%",
           lg: "28%",
-          lgToXl: "200px",
-          xl: "200px",
-          xlTo2xl: "200px",
-          "2xl": "200px",
-          base: "200px",
+          lgToXl: "300px",
+          xl: "300px",
+          xlTo2xl: "300px",
+          "2xl": "300px",
+          base: "300px",
         }}
         h={"70px"}
         rounded={"full"}
@@ -177,6 +182,11 @@ const CenterHeader = () => {
           p={0}
           endElement={
             <Button
+              transition="all 0.3s ease"
+              _hover={{
+                scale: "0.95",
+                filter: "brightness(0.9)",
+              }}
               aria-label="Search"
               bg={"Header.Center.TextAndInput.SCKText"}
               color={

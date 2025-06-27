@@ -28,8 +28,6 @@ export interface ProductCardProps {
 }
 
 
-
-
 const ProductCard = ({
   image,
   alt,
@@ -60,22 +58,15 @@ const ProductCard = ({
     >
       {/* Верхние бейджи */}
       <Tags isHit={isHit} bonusLabel={bonusLabel} />
-
       {/* Обёртка для изображения */}
       <ProductImage image={image} alt={alt} />
-
       {/* Основная информация */}
       <VStack w={"full"}>
         <ProductName title={title} />
-
         <ProductRating rating={rating} reviews={reviews} />
-
         <ProductPrice price={price} oldPrice={oldPrice} />
-
         <ProductInstallmentPlan installment={installment} />
-
         <ProductBuyOneClick onQuickBuy={onQuickBuy} />
-
         <ProductButtons />
       </VStack>
     </VStack>

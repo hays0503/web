@@ -13,7 +13,11 @@ export default function ChangeLang() {
 			contextMessage="Ошибка на уровне ChangeLang"
 			fallbackUI={<div>Ошибка на уровне ChangeLang</div>}
 		>
-			<Button
+			<Button              transition="all 0.3s ease"
+              _hover={{
+                scale: "0.95",
+                filter: "brightness(0.9)",
+              }}
 				onClick={fakeChange}
 				variant="subtle"
 				p={"0px 10px"}

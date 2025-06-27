@@ -55,21 +55,33 @@ const DesktopView:React.FC<{
           ref={containerRef}
           gap={`${gap}px`}
           alignItems="center"
-          justifyContent="flex-end"
+          justifyContent="space-evenly"
           w="full"
           as="ul"
           wrap={"wrap"}
           whiteSpace={"nowrap"}
         >
           {visibleItems.map((link, index) => (
-            <Link as="li" asChild key={links[index].href}>
+            <Link
+              as="li"
+              asChild
+              key={links[index].href}
+              transition="all 0.3s ease"
+              _hover={{
+                scale: "0.95",
+                filter: "brightness(0.9)",
+              }}
+            >
               <LinkSCK href={links[index].href}>{links[index].label}</LinkSCK>
             </Link>
           ))}
         </Flex>
         <Box ref={elementsMenu}>
           <Show when={hiddenItems.length > 0}>
-            <Menu.Root onPointerDownOutside={() => setIsOpen(false)} open={isOpen}>
+            <Menu.Root
+              onPointerDownOutside={() => setIsOpen(false)}
+              open={isOpen}
+            >
               <Menu.Trigger asChild>
                 <IconButton
                   aria-label="Открыть меню"

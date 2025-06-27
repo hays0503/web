@@ -154,7 +154,7 @@ const ProductGrid = () => {
   const { prevRef, nextRef } = useSwiperNavigation(swiperInstance);
 
   return (
-    <Box position="relative" w="full" py={4} overflow="visible">
+    <Box position="relative" w="full" py={2} overflow="visible">
       <SwiperNavigation
         prevRef={prevRef}
         nextRef={nextRef}
@@ -162,6 +162,7 @@ const ProductGrid = () => {
       />
 
       <Swiper
+        grabCursor
         modules={[Navigation, Grid]}
         onSwiper={setSwiperInstance}
         slidesPerView={5}
