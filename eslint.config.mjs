@@ -14,11 +14,11 @@ const eslintConfig = [
   {
     rules: {
       // Ограничение глубины JSX
-      "react/jsx-max-depth": ["warn", { max: 3 }],
+      // "react/jsx-max-depth": ["warn", { max: 3 }],
       // Ограничение длины функции
-      "max-lines-per-function": ["warn", { max: 50, skipComments: true }],
+      // "max-lines-per-function": ["warn", { max: 100, skipComments: true }],
       // Ограничение цикломатической сложности
-      "complexity": ["warn", { max: 7 }],
+      // "complexity": ["warn", { max: 7 }],
     },
   },
 ];

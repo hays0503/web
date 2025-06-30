@@ -5,6 +5,7 @@ import { Menu } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
 import { FiMenu } from "react-icons/fi";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
+import CategoryMenu from "@/widgets/CategoryMenu/CategoryMenu";
 
 const categories = [
 	"Все акции",
@@ -79,6 +80,7 @@ const BottomHeader: React.FC = () => {
       align="center"
       minH="40px"
     >
+      <CategoryMenu>
       <Button
         bg="Header.Bottom.Category.Background"
         color="Header.Bottom.Category.ColorText"
@@ -96,6 +98,7 @@ const BottomHeader: React.FC = () => {
         <Icon as={FiMenu} />
         Каталог товаров
       </Button>
+      </CategoryMenu>
 
       <HStack
         ml="4"
