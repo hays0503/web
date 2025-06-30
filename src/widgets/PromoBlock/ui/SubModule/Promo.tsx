@@ -34,6 +34,11 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
               p={"10px"}
               w={"full"}
               h={"full"}
+              minH={{
+                smDown:"200px",
+                sm:"350px",
+                smToMd:"350px",
+              }}
               cursor={"grab"}
               style={{
                 backgroundColor: "#a484dc",

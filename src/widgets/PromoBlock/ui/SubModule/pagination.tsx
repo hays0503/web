@@ -10,7 +10,7 @@ export const bulletStyle = css`
   margin-top: 4px;
   border-radius: 4px;
   position: relative;
-  bottom: -15px;
+  bottom: -5px;
   border: 1px solid white;
   box-shadow: 4px 4px 8px 0px rgba(36, 36, 36, 0.2);
   padding:1px

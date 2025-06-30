@@ -11,6 +11,7 @@ const PhotoProduct: React.FC<{ product: ProductType }> = ({ product }) => {
       wrap={"wrap"}
       align={"center"}
       justify={"center"}
+      p={3}
     >
       <Image src={product.image} h={"250px"} fit="contain" alt={product.name} />
     </Flex>
