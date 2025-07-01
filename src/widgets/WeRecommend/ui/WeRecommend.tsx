@@ -6,7 +6,7 @@ import ProductGrid from "../../../shared/ui/ProductGrid/ProductGrid";
 
 const WeRecommend = () => {
     return (
-      <VStack w={"full"} align={"flex-start"} gap={3}>
+      <VStack w={"full"} align={"flex-start"} gap={"10px"} bg={'fuchsia'}>
         <RecommendChips />
         <ProductGrid />
       </VStack>

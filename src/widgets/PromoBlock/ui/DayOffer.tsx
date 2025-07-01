@@ -39,6 +39,19 @@ const DayOffer:React.FC = () => {
     <Box
       border={"1px solid var(--chakra-colors--motif)"}
       minW={"260px"}
+      mb={{
+        base: "0",
+        smDown: "8px",
+        sm: "8px",
+        smToMd: "8px",
+        md: "8px",
+        mdToLg: "8px",
+        lg: "8px",
+        lgToXl: "0",
+        xl: "0",
+        xlTo2xl: "0",
+        "2xl": "0",
+      }}
       w={{
         smDown: "100%",
         sm: "100%",

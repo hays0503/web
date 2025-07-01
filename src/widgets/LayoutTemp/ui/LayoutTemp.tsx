@@ -1,13 +1,13 @@
 "use client";
 import { memo, ReactNode, useEffect, useState } from "react";
 import { Box, Flex } from "@chakra-ui/react";
-import LayoutLayers from "./LayoutLayers";
+// import LayoutLayers from "./LayoutLayers";
 
 type LayoutTempProps = {
 	children: ReactNode;
 	readonly Header: React.ReactNode;
 	readonly Footer: React.ReactNode;
-	readonly LayoutImage: string;
+	// readonly LayoutImage: string;
 };
 
 const HeaderPart: React.FC<{
@@ -176,7 +176,7 @@ function LayoutTemp({
 	children,
 	Header,
 	Footer,
-	LayoutImage,
+	// LayoutImage,
 }: LayoutTempProps) {
   const Setting = useLayoutSettings();
 
@@ -191,7 +191,7 @@ function LayoutTemp({
       overflowX="clip"
       overflowY="auto"
     >
-      <LayoutLayers
+      {/* <LayoutLayers
         layoutImage={LayoutImage}
         size={size}
         showHint={Setting.showHint}
@@ -202,7 +202,7 @@ function LayoutTemp({
         setShowHeader={Setting.setShowHeader}
         setShowMain={Setting.setShowMain}
         setShowFooter={Setting.setShowFooter}
-      />
+      /> */}
       <Main
         maxContentWidth={maxContentWidth}
         size={size}

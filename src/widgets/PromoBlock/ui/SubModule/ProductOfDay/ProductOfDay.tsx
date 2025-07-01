@@ -1,12 +1,13 @@
 "use client"
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ProductType } from "../../../type/Promo";
-import { Heading, HStack, VStack } from "@chakra-ui/react";
+import { Flex, VStack } from "@chakra-ui/react";
 import { pagination } from "../pagination";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import Timer from "./SubModule/Timer";
 import Slide from "./SubModule/Slide";
+import { HeaderSCK } from "@/shared/ui";
 
 
 const ProductOfDay: React.FC<{ data: ProductType[] }> = ({ data }) => {
@@ -20,12 +21,19 @@ const ProductOfDay: React.FC<{ data: ProductType[] }> = ({ data }) => {
       alignItems={"center"}
       justifyContent={"flex-start"}
     >
-      <HStack justifyContent={"space-between"} w={"full"} p={3}>
-        <Heading size="3xl" fontWeight={700}>
+      <Flex
+        wrap={"wrap"}
+        justifyContent={{base:"space-between",smDown:"center"}}
+        w={"full"}
+        p={3}
+        gap={"10px"}
+        align={"center"}
+      >
+        <HeaderSCK>
           Товары дня
-        </Heading>
+        </HeaderSCK>
         <Timer />
-      </HStack>
+      </Flex>
       <Swiper
         modules={[Pagination]}
         pagination={pagination}

@@ -9,7 +9,7 @@ const ProductPrice: React.FC<{ price: number, oldPrice?: number }> = ({ price, o
           price={price}
           fontWeight="bold"
           fontSize="xl"
-          color="purple.600"
+          color="Motif"
         />
 
         <Show when={oldPrice}>

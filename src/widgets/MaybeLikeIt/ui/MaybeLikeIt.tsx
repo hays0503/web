@@ -1,14 +1,15 @@
 "use client";
+import { HeaderSCK } from "@/shared/ui";
 import { ProductGrid } from "@/shared/ui/ProductGrid";
-import { Heading, VStack } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 
 
 const MaybeLikeIt = () => {
     return (
-      <VStack w={"full"} align={"flex-start"}>
-        <Heading>
+      <VStack w={"full"} align={"flex-start"} bg={'fuchsia'}>
+        <HeaderSCK>
             Возможно, вам понравится
-        </Heading>
+        </HeaderSCK>
         <ProductGrid />
       </VStack>
     );

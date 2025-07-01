@@ -154,7 +154,7 @@ const ProductGrid = () => {
   const { prevRef, nextRef } = useSwiperNavigation(swiperInstance);
 
   return (
-    <Box position="relative" w="full" py={2} overflow="visible">
+    <Box position="relative" w="full" overflow="visible">
       <SwiperNavigation
         prevRef={prevRef}
         nextRef={nextRef}
@@ -175,7 +175,9 @@ const ProductGrid = () => {
           nextEl: nextRef.current,
         }}
         breakpoints={{
-          0: { slidesPerView: 2, grid: { rows: 2 } },
+          0: { slidesPerView: 1, grid: { rows: 1 } },
+          320: { slidesPerView: 1, grid: { rows: 1 } },
+          480: { slidesPerView: 2, grid: { rows: 2 } },
           768: { slidesPerView: 3, grid: { rows: 2 } },
           1024: { slidesPerView: 4, grid: { rows: 2 } },
           1280: { slidesPerView: 5, grid: { rows: 2 } },

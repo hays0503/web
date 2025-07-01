@@ -16,7 +16,7 @@ export default async function Header({
 	NavigationLinks,
 }: HeaderProps) {
 	return (
-		<VStack w={"100%"} pt={'5px'} gap={'10px'}>
+		<VStack w={"100%"} pt={'10px'} gap={'10px'} bg={'red'}>
 			<TopHeader
 				ChangeCity={ChangeCity}
 				ChangeLang={ChangeLang}

@@ -14,8 +14,8 @@ import {
 } from "@chakra-ui/react";
 import { BiPhone } from "react-icons/bi";
 import { BsInstagram } from "react-icons/bs";
-import { FiMessageCircle } from "react-icons/fi";
 import { memo } from "react";
+import { FaTelegramPlane } from "react-icons/fa";
 
 const FOOTER_SECTIONS = [
   {
@@ -41,24 +41,24 @@ const FOOTER_SECTIONS = [
       { text: "Доставка", href: "/delivery" },
       { text: "Возврат товаров", href: "/returns" },
       { text: "Адреса пунктов выдачи заказов", href: "/pickup-points" },
-      { text: "Условия обработки данных", href: "/data-processing" },
     ],
   },
   {
-    id: "sellers",
-    title: "Продавцам и партнёрам",
+    id: "information",
+    title: "Полезная информация",
     links: [
-      { text: "Стать продавцом", href: "/become-seller" },
-      { text: "Стать партнёром", href: "/become-partner" },
-      { text: "Открыть пункт выдачи", href: "/open-pickup-point" },
-      { text: "Правила продажи", href: "/selling-rules" },
+      { text: "База знаний", href: "/become-seller" },
+      { text: "Статьи", href: "/become-partner" },
+      { text: "Акции", href: "/open-pickup-point" },
+      { text: "Частые вопросы", href: "/selling-rules" },
+      { text: "Условия обработки данных", href: "/data-processing" },
     ],
   },
 ];
 
 const SOCIAL_LINKS = [
   {
-    Icon: FiMessageCircle,
+    Icon: FaTelegramPlane,
     href: "https://t.me/sck_marketplace",
     label: "Telegram",
   },
@@ -121,7 +121,7 @@ const SocialIcons = memo(() => (
         key={label}
         as={Link}
         aria-label={label}
-
+        color={'WhiteAndBlack'}
         size="md"
         variant="ghost"
         bg={"Motif"}

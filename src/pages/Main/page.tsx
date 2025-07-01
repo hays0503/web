@@ -16,6 +16,7 @@ import { VStack } from "@chakra-ui/react";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import SCK from "@/widgets/SCK";
+import { UsefulInformation } from "@/widgets/UsefulInformation";
 
 export async function generateMetadata({
 	params,
@@ -34,7 +35,7 @@ export async function generateMetadata({
 export default async function OrderPage() {
 	return (
     <LayoutTemp
-      LayoutImage="MainCenter.webp"
+      // LayoutImage="MainCenter.webp"
       Header={
         <Header
           ChangeCity={
@@ -58,7 +59,7 @@ export default async function OrderPage() {
       }
       Footer={<Footer />}
     >
-      <VStack w={"100%"} gap={10}>
+      <VStack w={"100%"} gap={"10px"}>
         <PromoBlock />
         <TabsCategory />
         <WeRecommend />
@@ -66,6 +67,7 @@ export default async function OrderPage() {
         <BrandsBanner />
         <SCK />
         <MaybeLikeIt />
+        <UsefulInformation />
       </VStack>
     </LayoutTemp>
   );

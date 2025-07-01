@@ -2,21 +2,21 @@
 
 import {
   Box,
-  Heading,
-  Stack,
   Text,
   Image,
   useBreakpointValue,
+  VStack,
 } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Grid as SwiperGrid, Autoplay } from "swiper/modules";
-import { useState } from "react";
+import { Navigation, Grid as SwiperGrid } from "swiper/modules";
+import React, { useState } from "react";
 import type { Swiper as SwiperType } from "swiper";
 import { SwiperNavigation, useSwiperNavigation } from "@/shared/ui/SwiperNavigation";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/grid";
+import { HeaderSCK } from "@/shared/ui";
 
 // --- Константы ---
 const BRAND_IDS = [
@@ -59,7 +59,8 @@ const BrandCard = ({
     as="button"
     onClick={() => onClick?.(brand)}
     p={1}
-    h={"125px"}
+    h={"100%"}
+    minH={"150px"}
     rounded="xl"
     bg="white"
     _dark={{ bg: "gray.900" }}
@@ -74,89 +75,99 @@ const BrandCard = ({
     w="full"
     textAlign="center"
   >
-    <Stack align="center" gap={2} h="16">
+    <VStack align="center" justify={'stretch'} gap={2} h="16">
       <Image
         src={brand.imagePath}
         alt={`Логотип ${brand.name}`}
-        maxH="40px"
-        objectFit="contain"
+        h={"100%"}
+        w={"100%"}
+        objectFit="cover"
       />
-      <Text fontSize="sm" fontWeight="semibold" color="gray.700" lineHeight={1}>
+      <Text fontSize="sm" fontWeight="semibold" color="gray.700" lineHeight={1} >
         {brand.name}
       </Text>
-    </Stack>
+    </VStack>
   </Box>
 );
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <Box position="relative" w="full" overflow="visible" my={-5}>
-      <Heading as="h2" size="lg" color="gray.800" mb={
-        3
-      }>
-        Популярные бренды
-      </Heading>
-      {children}
-    </Box>
+    <VStack w="full" align={"flex-start"} gap={"10px"} bg={"rebeccapurple"}>
+      <HeaderSCK>Популярные бренды</HeaderSCK>
+      <Box position="relative" w="full" overflow="visible">
+        {children}
+      </Box>
+    </VStack>
   );
 };
 
-const isAutoPlay = (autoplay: boolean) => {
-  if (autoplay) {
-    return {
-      delay: 4000,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    };
-  }
-  return false;
-};
 
-// --- Основной компонент ---
 const BrandsBanner = ({
   onBrandClick,
-  autoplay = true,
 }: {
   onBrandClick?: (b: Brand) => void;
-  autoplay?: boolean;
 }) => {
   const [swiperInstance, setSwiperInstance] = useState<SwiperType>();
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const showButtons = useBreakpointValue({ base: false, md: true });
 
   const { prevRef, nextRef } = useSwiperNavigation(swiperInstance);
-  const brands = getBrandList();
+  const _brands = getBrandList();
+  const brands = [..._brands, ..._brands];
 
   return (
     <Wrapper>
-      <Box position={"relative"}>
-        <SwiperNavigation
-          prevRef={prevRef}
-          nextRef={nextRef}
-          isVisible={!!showButtons}
-        />
+      <Box position="relative">
+        {showButtons && (
+          <SwiperNavigation
+            prevRef={prevRef}
+            nextRef={nextRef}
+            isVisible={showButtons}
+          />
+        )}
 
-        <Swiper
-          modules={[Navigation, SwiperGrid, ...(autoplay ? [Autoplay] : [])]}
-          onSwiper={setSwiperInstance}
-          loop
-          grabCursor
-          speed={300}
-          autoplay={isAutoPlay(autoplay)}
-          slidesPerView={5}
-          slidesPerGroup={5}
-          grid={{ rows: 2, fill: "row" }}
-          navigation={{
-            prevEl: prevRef.current,
-            nextEl: nextRef.current,
-          }}
-          spaceBetween={16}
-        >
-          {[...brands, ...brands].map((brand, idx) => (
-            <SwiperSlide key={`${idx}-${brand.id}`}>
-              <BrandCard brand={brand} onClick={onBrandClick} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {/* === Mobile version === */}
+        {isMobile ? (
+          <Swiper
+            modules={[Navigation]}
+            onSwiper={setSwiperInstance}
+            grabCursor
+            loop
+            speed={300}
+            slidesPerView={2.2}
+            slidesPerGroup={2}
+            spaceBetween={12}
+          >
+            {brands.map((brand, idx) => (
+              <SwiperSlide key={`${idx}-${brand.id}`}>
+                <BrandCard brand={brand} onClick={onBrandClick} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        ) : (
+          /* === Desktop version === */
+          <Swiper
+            modules={[Navigation, SwiperGrid]}
+            onSwiper={setSwiperInstance}
+            grabCursor
+            loop
+            speed={300}
+            slidesPerView={5}
+            slidesPerGroup={5}
+            grid={{ rows: 2, fill: "row" }}
+            spaceBetween={16}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+          >
+            {brands.map((brand, idx) => (
+              <SwiperSlide key={`${idx}-${brand.id}`}>
+                <BrandCard brand={brand} onClick={onBrandClick} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </Box>
     </Wrapper>
   );

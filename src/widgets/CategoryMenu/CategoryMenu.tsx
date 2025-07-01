@@ -19,11 +19,11 @@ import { IoArrowBackCircleOutline } from "react-icons/io5";
 // =======================
 // Анимации и обёртки
 // =======================
-const MotionBox = motion(Box);
-const AnimatedColumn: React.FC<{ children: React.ReactNode; keyId: string }> = ({
-  children,
-  keyId,
-}) => (
+const MotionBox = motion.create(Box);
+const AnimatedColumn: React.FC<{
+  children: React.ReactNode;
+  keyId: string;
+}> = ({ children, keyId }) => (
   <AnimatePresence mode="wait">
     <motion.div
       key={keyId}

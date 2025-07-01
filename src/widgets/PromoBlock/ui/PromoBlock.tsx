@@ -20,12 +20,12 @@ const PromoBlock: React.FC = () => {
           }
         `}
       />
-      <Flex w={"100%"} minH={"500px"} justify={"center"} mt={5}>
+      <Flex w={"100%"} minH={"500px"} justify={"center"} bg={'gold'}>
         <Flex
           w={"100%"}
           h={"full"}
           gap={"1%"}
-          wrap={'wrap'}
+          wrap={"wrap"}
           alignItems="stretch"
           justifyContent="space-between"
         >

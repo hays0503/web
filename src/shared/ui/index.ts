@@ -8,3 +8,5 @@ export * from "./PriceText";
 export * from "./ProductGrid";
 export * from "./Toaster";
 export * from "./Tooltip";
+export * from "./SwiperNavigation";
+export * from "./HeaderSCK";

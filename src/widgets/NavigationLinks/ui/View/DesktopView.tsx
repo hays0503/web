@@ -87,12 +87,12 @@ const DesktopView:React.FC<{
                   aria-label="Открыть меню"
                   variant="outline"
                   onClick={toggleMenu}
-                  mt={2}
+                   width={"30px"} height={"30px"}
                 >
                   {isOpen ? (
-                    <IoCloseCircleOutline />
+                    <IoCloseCircleOutline/>
                   ) : (
-                    <BiDotsHorizontalRounded />
+                    <BiDotsHorizontalRounded/>
                   )}
                 </IconButton>
               </Menu.Trigger>

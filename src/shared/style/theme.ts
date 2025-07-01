@@ -11,9 +11,9 @@ export const MainBackgroundColor = "colors.gray.100"; //MainBackgroundColor
 export const MainBackgroundColorDark = "colors.gray.800"; //MainBackgroundColorDark
 export const SCKYellow = "#FBD504";
 export const MotifColor = { value: { base: "#a484dc", _dark: "white" } };
-export const WhiteAndBlack = { value: { base: "white", _dark: "black" } };
-export const BlackAndWhite = { value: { base: "black", _dark: "white" } };
-export const MotifColorAndBlack = { value: { base: "#a484dc", _dark: "black" } };
+export const WhiteAndBlack = { value: { base: "white", _dark: "#2B2A29" } };
+export const BlackAndWhite = { value: { base: "#2B2A29", _dark: "white" } };
+export const MotifColorAndBlack = { value: { base: "#a484dc", _dark: "#2B2A29" } };
 const theme: SystemConfig = {
 	theme: {
 		tokens: {

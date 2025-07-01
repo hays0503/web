@@ -28,17 +28,20 @@ const Slide: React.FC<{ product: ProductType }> = ({ product }) => {
         direction={{
           smDown: "column-reverse",
           sm: "column-reverse",
-          smToMd: "column-reverse",
-          md: "column-reverse",
-          mdToLg: "column-reverse",
-          lg: "column-reverse",
+          smToMd: "row",
+          md: "row",
+          mdToLg: "row",
+          lg: "row",
           lgToXl: "row",
           xl: "row",
           xlTo2xl: "row",
           "2xl": "row",
         }}
       >
-        <VStack w={"100%"} h={"100%"} wrap={"wrap"}>
+        <VStack w={"100%"} h={"100%"} wrap={"wrap"} align={{
+          base:"flex-start",
+          smDown:'center',
+        }}>
           <Text fontWeight={"500"} lineClamp="2">
             {product.name}
           </Text>

@@ -24,8 +24,7 @@ export default function TopHeader({
         justify={"space-between"}
         align={"center"}
         w={"100%"}
-        minH={"48px"}
-        bg="Header.Top.Background"
+        minH={"36px"}
         color="Header.Top.ColorText"
       >
         <Group gap={1}>
