@@ -164,7 +164,7 @@ const SupportSection = memo(() => {
       </Box>
 
       <Box>
-        <Text fontWeight="medium" fontSize="sm" color={textColor} mb={2}>
+        <Text fontWeight="700" fontSize="sm" color={textColor} mb={2}>
           Время работы:
         </Text>
         <Text fontSize="sm" color={mutedColor}>
@@ -173,7 +173,7 @@ const SupportSection = memo(() => {
       </Box>
 
       <Box>
-        <Text fontWeight="medium" fontSize="sm" color={textColor} mb={3}>
+        <Text fontSize="sm" color={textColor} mb={3}>
           SCK в социальных сетях
         </Text>
         <SocialIcons />
@@ -218,12 +218,13 @@ export default function SCKFooter() {
 
         {/* Copyright Section */}
         <Flex
-          direction={{ base: "column", md: "row" }}
-          justify="center"
-          align="center"
-          gap={4}
+          w={"90%"}
+          direction={"column"}
+          justify="flex-start"
+          align="flex-start"
+          gap={"10px"}
           mt={10}
-          textAlign="center"
+          textAlign="left"
         >
           <Text fontSize="sm" color={textColor}>
             {COPYRIGHT_TEXT}
