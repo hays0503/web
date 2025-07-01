@@ -3,7 +3,7 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react"
 
 const Cost: React.FC<{product: ProductType}> = ({ product }) => {
     return (
-      <VStack gap={0} minW={'150px'} justify={"center"} alignItems={"flex-end"} >
+      <VStack gap={0} minW={'150px'} justify={"center"} alignItems={"flex-start"} >
         <Box>
           <Box position="relative" display="inline-block">
             <Text textStyle={"sm"} textAlign={"right"}>
