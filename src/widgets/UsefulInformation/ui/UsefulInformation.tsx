@@ -1,3 +1,4 @@
+import { HeaderSCK } from "@/shared/ui";
 import { Box, Heading, HStack, Image, Show, Tabs, Text, VStack } from "@chakra-ui/react";
 
 type SlideProps = {
@@ -131,7 +132,10 @@ const TabsContentFor: React.FC<{Data: TabsProps[]}> = ({Data}) => {
 
 const UsefulInformation = () => {
     return (
-      <VStack align={"flex-start"} bg={"red.100"} w={"full"}>
+      <VStack align={"flex-start"} w={"full"} gap={"20px"}>
+        <HeaderSCK>
+          Полезная информация
+        </HeaderSCK>
         <Tabs.Root
           defaultValue={"Все рубрики"}
         >

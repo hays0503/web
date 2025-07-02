@@ -20,18 +20,19 @@ const Banner:React.FC = () => {
   return (
     <Box
       border={"1px solid var(--chakra-colors--motif)"}
-      w={{
-        smDown: "100%",
-        sm: "100%",
-        smToMd: "100%",
-        md: "100%",
-        mdToLg: "100%",
-        lg: "100%",
-        lgToXl: "64%",
-        xl: "64%",
-        xlTo2xl: "64%",
-        "2xl": "64%",
-      }}
+      // w={{
+      //   smDown: "100%",
+      //   sm: "100%",
+      //   smToMd: "100%",
+      //   md: "100%",
+      //   mdToLg: "100%",
+      //   lg: "100%",
+      //   lgToXl: "64%",
+      //   xl: "64%",
+      //   xlTo2xl: "64%",
+      //   "2xl": "64%",
+      // }}
+      w={"800px"}
       rounded={"2xl"}
       overflow={"clip"}
       bg={'transparent'}

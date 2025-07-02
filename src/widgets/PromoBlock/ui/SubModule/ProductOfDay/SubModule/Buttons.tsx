@@ -6,7 +6,7 @@ const Buttons: React.FC = () => {
 
 
     return (
-      <VStack>
+      <VStack gap={"20px"}>
         <Button
           transition="all 0.3s ease"
           rounded="full"

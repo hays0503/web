@@ -52,18 +52,19 @@ const DayOffer:React.FC = () => {
         xlTo2xl: "0",
         "2xl": "0",
       }}
-      w={{
-        smDown: "100%",
-        sm: "100%",
-        smToMd: "100%",
-        md: "100%",
-        mdToLg: "100%",
-        lg: "100%",
-        lgToXl: "35%",
-        xl: "35%",
-        xlTo2xl: "35%",
-        "2xl": "35%",
-      }}
+      // w={{
+      //   smDown: "100%",
+      //   sm: "100%",
+      //   smToMd: "100%",
+      //   md: "100%",
+      //   mdToLg: "100%",
+      //   lg: "100%",
+      //   lgToXl: "35%",
+      //   xl: "35%",
+      //   xlTo2xl: "35%",
+      //   "2xl": "35%",
+      // }}
+      w={"370px"}
       // h={"full"}
       rounded={"2xl"}
       overflow={"clip"}

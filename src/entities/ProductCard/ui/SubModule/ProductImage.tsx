@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
+import { pagination } from "@/widgets/PromoBlock/ui/SubModule/pagination";
 
 interface ProductImageProps {
   image: string[];
@@ -24,8 +25,8 @@ const ProductImage: React.FC<ProductImageProps> = ({ image, alt }) => {
       }}
     >
       <Swiper
+        pagination={pagination}
         grabCursor={true}
-        pagination={{ clickable: true }}
         modules={[Pagination]}
         style={{ width: "100%", height: "100%" }}
       >

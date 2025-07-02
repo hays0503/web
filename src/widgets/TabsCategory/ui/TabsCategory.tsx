@@ -39,11 +39,11 @@ const TabsCategoryData: TabsCategoryType[] = [
 const TabsCategory: React.FC = () => {
 
   return (
-    <Box w="full" h={'auto'} _dark={{ bg: "gray.800" }} bg={"rebeccapurple"}>
+    <Box w="full" h={'auto'} _dark={{ bg: "gray.800" }}>
       <Box w="full">
         <Swiper          
           slidesPerView="auto"
-          spaceBetween={`4%`}
+          spaceBetween={`4.20%`}
           freeMode
           modules={[FreeMode]}
           style={{ width: "100%"}} // растягивает Swiper

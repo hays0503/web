@@ -20,11 +20,11 @@ export const RecommendChips = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <VStack gap={"10px"} align={'flex-start'}>
+    <VStack gap={"20px"} align={'flex-start'}>
       <HeaderSCK>
         Рекомендуем вам
       </HeaderSCK>
-      <HStack gap={"10px"} flexWrap="wrap" justifyContent="flex-start">
+      <HStack gap={"15px"} flexWrap="wrap" justifyContent="flex-start">
         {tabs.map((tab) => {
           const isActive = tab.index === activeIndex;
           return (
@@ -39,13 +39,13 @@ export const RecommendChips = () => {
               py={2}
               fontWeight="medium"
               fontSize="sm"
-              bg={isActive ? "purple.400" : "transparent"}
-              color={isActive ? "white" : "purple.500"}
+              bg={isActive ? "Motif" : "transparent"}
+              color={isActive ? "white" : "Motif"}
               _hover={{
-                bg: isActive ? "purple.500" : "purple.50",
+                bg: isActive ? "Motif" : "purple.50",
                 scale: 0.95,
               }}
-              borderColor="purple.200"
+              borderColor="Motif"
             >
               {tab.label}
             </Button>

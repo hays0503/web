@@ -9,6 +9,7 @@ import "swiper/css/grid";
 import { useState } from "react";
 import { SwiperNavigation } from "../SwiperNavigation/SwiperNavigation";
 import { useSwiperNavigation } from "../SwiperNavigation/useSwiperNavigation";
+import { pagination } from "@/widgets/PromoBlock/ui/SubModule/pagination";
 
 const _products: ProductCardProps[] = [
   {
@@ -162,6 +163,7 @@ const ProductGrid = () => {
       />
 
       <Swiper
+        pagination={pagination}
         grabCursor
         modules={[Navigation, Grid]}
         onSwiper={setSwiperInstance}

@@ -12,10 +12,9 @@ import {
   SimpleGrid,
   IconButton,
 } from "@chakra-ui/react";
-import { BiPhone } from "react-icons/bi";
 import { BsInstagram } from "react-icons/bs";
 import { memo } from "react";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 
 const FOOTER_SECTIONS = [
   {
@@ -63,8 +62,8 @@ const SOCIAL_LINKS = [
     label: "Telegram",
   },
   {
-    Icon: BiPhone,
-    href: "viber://chat?number=%2B77056550000",
+    Icon: FaWhatsapp,
+    href: "whatsapp://chat?number=%2B77056550000",
     label: "Viber",
   },
   {
@@ -142,20 +141,28 @@ SocialIcons.displayName = "SocialIcons";
 const SupportSection = memo(() => {
   const textColor = "BlackAndWhite";
   const mutedColor = "gray.600";
-  const linkColor = "blue.600";
   const linkHoverColor = "blue.800";
 
   return (
-    <Stack gap={6} textAlign={{ base: "center", lg: "left" }} align={{ base: "center", lg: "start" }}>
+    <Stack
+      gap={6}
+      textAlign={{ base: "center", lg: "left" }}
+      align={{ base: "center", lg: "start" }}
+    >
       <Box>
-        <Heading as="h3" fontSize="md" fontWeight="semibold" mb={4} color={textColor}>
+        <Heading
+          as="h3"
+          fontSize="md"
+          fontWeight="semibold"
+          mb={4}
+          color={textColor}
+        >
           Служба поддержки
         </Heading>
         <Link
           href={`tel:${SUPPORT_PHONE.replace(/\s/g, "")}`}
-          fontSize="lg"
+          fontSize="18px"
           fontWeight="medium"
-          color={linkColor}
           _hover={{ color: linkHoverColor, textDecoration: "none" }}
           transition="color 0.2s"
         >
@@ -164,9 +171,15 @@ const SupportSection = memo(() => {
       </Box>
 
       <Box>
-        <Text fontWeight="700" fontSize="sm" color={textColor} mb={2}>
+        <Heading
+          as="h3"
+          fontSize="md"
+          fontWeight="semibold"
+          mb={4}
+          color={textColor}
+        >
           Время работы:
-        </Text>
+        </Heading>
         <Text fontSize="sm" color={mutedColor}>
           {WORKING_HOURS}
         </Text>
@@ -194,14 +207,17 @@ export default function SCKFooter() {
     <Box
       bg={bgColor}
       _dark={{ bg: "gray.900" }}
-      borderTop="1px solid"
       borderColor={borderColor}
       role="contentinfo"
       w="100%"
     >
-      <Container maxW="1920px" px={{ base: 4, md: 6 }} py={12} centerContent>
+      <Container maxW="1920px" px={0} py={"30px"} w={"100%"}>
         {/* Desktop Layout */}
-        <SimpleGrid columns={{ base: 1, lg: 4 }} gap={8} display={{ base: "none", lg: "grid" }}>
+        <SimpleGrid
+          columns={{ base: 1, lg: 4 }}
+          gap={8}
+          display={{ base: "none", lg: "grid" }}
+        >
           {FOOTER_SECTIONS.map((section) => (
             <FooterSection key={section.id} section={section} />
           ))}
@@ -209,7 +225,12 @@ export default function SCKFooter() {
         </SimpleGrid>
 
         {/* Mobile Layout */}
-        <Stack gap={8} display={{ base: "flex", lg: "none" }} align="center" textAlign="center">
+        <Stack
+          gap={8}
+          display={{ base: "flex", lg: "none" }}
+          align="center"
+          textAlign="center"
+        >
           {FOOTER_SECTIONS.map((section) => (
             <FooterSection key={section.id} section={section} />
           ))}
@@ -218,12 +239,14 @@ export default function SCKFooter() {
 
         {/* Copyright Section */}
         <Flex
+          borderTop={"3px solid #f4f4f5"}
           w={"90%"}
-          direction={"column"}
+          direction={"row"}
           justify="flex-start"
           align="flex-start"
-          gap={"10px"}
-          mt={10}
+          gap={"5px"}
+          mt={"30px"}
+          pt={"30px"}
           textAlign="left"
         >
           <Text fontSize="sm" color={textColor}>

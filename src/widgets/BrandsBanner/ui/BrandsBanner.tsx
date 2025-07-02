@@ -92,7 +92,7 @@ const BrandCard = ({
 
 const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <VStack w="full" align={"flex-start"} gap={"10px"} bg={"rebeccapurple"}>
+    <VStack w="full" align={"flex-start"} gap={"20px"}>
       <HeaderSCK>Популярные бренды</HeaderSCK>
       <Box position="relative" w="full" overflow="visible">
         {children}

@@ -65,7 +65,6 @@ const FooterPart: React.FC<{
       bg="gray.50"
       _dark={{ bg: "gray.900" }}
       color={"Footer.ColorText"}
-      p={4}
       textAlign="center"
       opacity={showFooter ? 1 : 0}
       transition="opacity 0.3s ease"
@@ -187,7 +186,6 @@ function LayoutTemp({
     <Box
       position="relative"
       w="100%"
-      h="8000px"
       overflowX="clip"
       overflowY="auto"
     >

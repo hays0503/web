@@ -6,7 +6,7 @@ import { VStack } from "@chakra-ui/react";
 
 const MaybeLikeIt = () => {
     return (
-      <VStack w={"full"} align={"flex-start"} bg={'fuchsia'}>
+      <VStack w={"full"} align={"flex-start"} gap={"20px"}>
         <HeaderSCK>
             Возможно, вам понравится
         </HeaderSCK>

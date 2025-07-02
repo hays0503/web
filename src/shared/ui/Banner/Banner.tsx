@@ -23,7 +23,7 @@ export default function SimpleBanner() {
   const { prevRef, nextRef } = useSwiperNavigation(swiperInstance);
 
   return (
-    <Box position="relative" w="full" overflow="visible" bg={"teal"}>
+    <Box position="relative" w="full" overflow="visible">
       <SwiperNavigation
         prevRef={prevRef}
         nextRef={nextRef}
@@ -39,10 +39,7 @@ export default function SimpleBanner() {
           prevEl: prevRef.current,
           nextEl: nextRef.current,
         }}
-        style={{
-          marginTop: "-25px",
-          marginBottom: "-10px",
-        }}
+
       >
         {banners.map((src, idx) => (
           <SwiperSlide
@@ -55,9 +52,7 @@ export default function SimpleBanner() {
             <Image
               src={src}
               alt={`Slide ${idx + 1}`}
-              style={{
-                padding: "25px 0px",
-              }}
+
             />
           </SwiperSlide>
         ))}
