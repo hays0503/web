@@ -19,7 +19,7 @@ const SlideData: SlideType[] = [
 const Banner:React.FC = () => {
   return (
     <Box
-      border={"1px solid var(--chakra-colors--motif)"}
+      // border={"1px solid var(--chakra-colors--motif)"}
       // w={{
       //   smDown: "100%",
       //   sm: "100%",
