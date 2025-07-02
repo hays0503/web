@@ -186,6 +186,7 @@ function LayoutTemp({
     <Box
       position="relative"
       w="100%"
+      h="100vh"
       overflowX="clip"
       overflowY="auto"
     >
