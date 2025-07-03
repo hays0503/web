@@ -1,5 +1,7 @@
+"use client";
 import { HeaderSCK } from "@/shared/ui";
-import { Box, Heading, HStack, Image, Show, Tabs, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, Image, Tabs, Text, VStack } from "@chakra-ui/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 type SlideProps = {
     title: string;
@@ -73,7 +75,12 @@ const Data: TabsProps[] = [
 
 const TabsListFor: React.FC<{Data: TabsProps[]}> = ({Data}) => {
     return (
-      <Tabs.List>
+      <Tabs.List
+        overflowX="auto"
+        overflowY={"clip"}
+        scrollbar={'hidden'}
+        w={"90dvw"}
+      >
         {Data.map((item) => (
           <Tabs.Trigger
             key={item.id}
@@ -82,10 +89,12 @@ const TabsListFor: React.FC<{Data: TabsProps[]}> = ({Data}) => {
               "&:is([aria-selected=true], [data-selected])": {
                 color: "Motif",
               },
-              "&:is([aria-selected=true], [data-selected])[data-orientation=horizontal]": {
-                  "--indicator-color": "var(--chakra-colors--motif)"
-              }
+              "&:is([aria-selected=true], [data-selected])[data-orientation=horizontal]":
+                {
+                  "--indicator-color": "var(--chakra-colors--motif)",
+                },
             }}
+            minW={"fit-content"}
           >
             {item.Title}
           </Tabs.Trigger>
@@ -107,27 +116,29 @@ const Content:React.FC<{Data: SlideProps}> = ({Data}) => {
     );
 }
 
-const TabsContentFor: React.FC<{Data: TabsProps[]}> = ({Data}) => {
-    return (
-      <>
-        {Data.map((item) => (
-          <Tabs.Content key={item.id} value={item.Title}>
-            <Show when={item.slide}>
-              <HStack>
-                {item.slide &&
-                  item.slide?.map((itemSlide, index) => (
-                    <Content
-                      key={`${index}-${itemSlide.title}`}
-                      Data={itemSlide}
-                    />
-                  ))}
-              </HStack>
-            </Show>
-          </Tabs.Content>
-        ))}
-      </>
-    );
-}
+const TabsContentFor: React.FC<{ Data: TabsProps[] }> = ({ Data }) => {
+  return (
+    <>
+      {Data.map((item) => (
+        <Tabs.Content key={item.id} value={item.Title}>
+          {item.slide && (
+            <Swiper
+              spaceBetween={16}
+              slidesPerView="auto"
+              style={{ padding: "8px 0" }}
+            >
+              {item.slide.map((itemSlide, index) => (
+                <SwiperSlide key={`${index}-${itemSlide.title}`} style={{ width: "auto" }}>
+                  <Content Data={itemSlide} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </Tabs.Content>
+      ))}
+    </>
+  );
+};
 
 
 const UsefulInformation = () => {

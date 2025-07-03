@@ -87,11 +87,17 @@ const FooterSection = memo(
       links: { text: string; href: string }[];
     };
   }) => (
-    <Box textAlign={{ base: "center", lg: "left" }}>
-      <Heading as="h3" fontSize="md" fontWeight="semibold" mb={4} color={"BlackAndWhite"}>
+    <Box textAlign={{ base: "center", lg: "left" }} w={{base: "50%", lg: "100%"}}>
+      <Heading
+        as="h3"
+        fontSize="md"
+        fontWeight="semibold"
+        mb={4}
+        color={"BlackAndWhite"}
+      >
         {section.title}
       </Heading>
-      <Stack gap={3}>
+      <Stack gap={3} textAlign={"left"}>
         {section.links.map((link) => (
           <Link
             key={link.href}
@@ -230,6 +236,7 @@ export default function SCKFooter() {
           display={{ base: "flex", lg: "none" }}
           align="center"
           textAlign="center"
+          w={"100%"}
         >
           {FOOTER_SECTIONS.map((section) => (
             <FooterSection key={section.id} section={section} />
@@ -241,9 +248,9 @@ export default function SCKFooter() {
         <Flex
           borderTop={"3px solid #f4f4f5"}
           w={"90%"}
-          direction={"row"}
-          justify="flex-start"
-          align="flex-start"
+          direction={{base: "column", lg: "row"}}
+          justify={{base: "center", lg: "flex-start"}}
+          align={{base: "center", lg: "flex-start"}}
           gap={"5px"}
           mt={"30px"}
           pt={"30px"}

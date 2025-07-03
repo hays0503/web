@@ -2,7 +2,7 @@ import { IconButton, Link, Menu, Portal } from "@chakra-ui/react";
 import { DataLinks } from "../../type/DataLinks";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { ColorModeButton, LinkSCK } from "@/shared/ui";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const MobileView:React.FC<{
 	readonly toggleMenu:React.MouseEventHandler<HTMLButtonElement>,
@@ -17,9 +17,12 @@ const MobileView:React.FC<{
           variant="outline"
           display={{ base: "inline-flex", md: "none" }}
           onClick={toggleMenu}
-          mt={2}
+          bg={'Motif'}
+          color={'WhiteAndBlack'}
+          rounded={'full'}
+
         >
-          {isOpen ? <IoCloseCircleOutline /> : <BiDotsHorizontalRounded />} 
+          {isOpen ? <IoCloseCircleOutline /> : <GiHamburgerMenu/>} 
         </IconButton>
       </Menu.Trigger>
 

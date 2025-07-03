@@ -41,7 +41,7 @@ export default function NavigationLinks() {
       contextMessage="Ошибка на уровне NavigationLinks"
       fallbackUI={<div>Ошибка на уровне NavigationLinks</div>}
     >
-      <Flex as="nav" w="full" justify={"flex-end"} align={"center"}>
+      <Flex as="nav" w="full" justify={"flex-end"} align={"center"}> 
 
           {/* Desktop */}
           <DesktopView links={links} />

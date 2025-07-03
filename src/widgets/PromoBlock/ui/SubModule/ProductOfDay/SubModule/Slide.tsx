@@ -1,6 +1,6 @@
 import React from "react";
 import { ProductType } from "@/widgets/PromoBlock/type/Promo";
-import { Flex, Text, VStack } from "@chakra-ui/react";
+import { Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import Discount from "./Discount";
 import Rating from "./Rating";
 import Delivery from "./Delivery";
@@ -38,21 +38,47 @@ const Slide: React.FC<{ product: ProductType }> = ({ product }) => {
           "2xl": "row",
         }}
       >
-        <VStack w={"100%"} h={"100%"} wrap={"wrap"} align={{
-          base:"flex-start",
-          smDown:'center',
-        }}>
+        <VStack
+          w={"100%"}
+          h={"100%"}
+          wrap={"wrap"}
+          align={{
+            base: "flex-start",
+            smDown: "center",
+          }}
+        >
           <Text fontWeight={"500"} lineClamp="2">
             {product.name}
           </Text>
           <Rating product={product} />
           <Delivery />
           <Pickup />
-          <Cost product={product} />
-          <Buttons />
+          <Flex
+            w={"100%"}
+            direction={{
+              base: "column",
+              smDown: "column",
+              sm: "column",
+              smToMd: "column",
+              md: "column",
+              mdToLg: "column",
+              lg: "column",
+              lgToXl: "column",
+              xl: "column",
+              xlTo2xl: "column",
+              "2xl": "column",
+            }}
+            align={{ base: "flex-start", smDown: "center" }}
+            justify={"space-between"}
+          >
+            <Cost product={product} />
+            <Buttons />
+          </Flex>
         </VStack>
-        <VStack justify={'stretch'}>
-          <Discount product={product} />
+        <VStack justify={"stretch"}>
+          <HStack w={"100%"} justify={"flex-end"}>
+            <Discount product={product} />
+          </HStack>
           <PhotoProduct product={product} />
         </VStack>
       </Flex>

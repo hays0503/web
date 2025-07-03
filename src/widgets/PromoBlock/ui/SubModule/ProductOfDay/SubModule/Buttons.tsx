@@ -6,19 +6,27 @@ const Buttons: React.FC = () => {
 
 
     return (
-      <Flex gap={"20px"} direction={{ 
-        base: "column",
-        smDown: "column",
-        sm: "column",
-        smToMd: "row",
-        md: "row",
-        mdToLg: "row",
-        lg: "row",
-        lgToXl: "row",
-        xl: "row",
-        xlTo2xl: "column",
-        "2xl": "column",        
-       }}>
+      <Flex
+        gap={"20px"}
+        pb={{
+          base:'0px',
+          smDown:'35px'
+        }}
+        direction={{
+          base: "column",
+          smDown: "column",
+          sm: "column",
+          smToMd: "column",
+          md: "row",
+          mdToLg: "row",
+          lg: "row",
+          lgToXl: "row",
+          xl: "column",
+          xlTo2xl: "column",
+          "2xl": "column",
+        }}
+      
+      >
         <Button
           transition="all 0.3s ease"
           rounded="full"

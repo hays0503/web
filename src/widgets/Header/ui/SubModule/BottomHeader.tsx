@@ -3,9 +3,9 @@
 import { Button, Flex, HStack, Icon, Text } from "@chakra-ui/react";
 import { Menu } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
-import { FiMenu } from "react-icons/fi";
 import { memo, useCallback, useEffect, useRef, useState } from "react";
 import CategoryMenu from "@/widgets/CategoryMenu/CategoryMenu";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const categories = [
 	"Все акции",
@@ -95,7 +95,7 @@ const BottomHeader: React.FC = () => {
         variant="subtle"
         border={"none"}
       >
-        <Icon as={FiMenu} />
+        <Icon as={GiHamburgerMenu} />
         Каталог товаров
       </Button>
       </CategoryMenu>

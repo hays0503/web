@@ -2,6 +2,7 @@ export type SlideType = {
     title: string;
     description: string;
     image: string;
+    imageMobile: string;
 }
 
 
