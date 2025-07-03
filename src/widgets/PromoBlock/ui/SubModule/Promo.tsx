@@ -2,7 +2,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideType } from "../../type/Promo";
 import { pagination } from "./pagination";
 import { Box, Text } from "@chakra-ui/react";
-import { Pagination } from 'swiper/modules';
+import { Pagination,EffectCreative } from 'swiper/modules';
+import 'swiper/css/effect-creative';
 import "swiper/css";
 
 
@@ -10,8 +11,18 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
     // const minH = '498px'
     return (
       <Swiper
-        modules={[Pagination]}
+        modules={[Pagination, EffectCreative]}
         pagination={pagination}
+        effect={"creative"}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: [0, 0, -400],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        }}
         spaceBetween={10}
         slidesPerView={1}
         autoHeight={true}
@@ -35,9 +46,9 @@ const Promo: React.FC<{ data: SlideType[] }> = ({ data }) => {
               w={"full"}
               h={"full"}
               minH={{
-                smDown:"200px",
-                sm:"350px",
-                smToMd:"350px",
+                smDown: "200px",
+                sm: "350px",
+                smToMd: "350px",
               }}
               cursor={"grab"}
               style={{

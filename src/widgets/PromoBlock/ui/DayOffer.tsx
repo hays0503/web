@@ -37,8 +37,20 @@ const ProductOfDayData: ProductType[] = [
 const DayOffer:React.FC = () => {
   return (
     <Box
-      border={"1px solid var(--chakra-colors--motif)"}
-      minW={"260px"}
+      // border={"1px solid var(--chakra-colors--motif)"}
+      minW={{
+        base: "260px",
+        smDown: "260px",
+        sm: "260px",
+        smToMd: "260px",
+        md: "260px",
+        mdToLg: "260px",
+        lg: "260px",
+        lgToXl: "260px",
+        xl: "260px",
+        xlTo2xl: "260px",
+        "2xl": "260px",
+      }}
       mb={{
         base: "0",
         smDown: "8px",

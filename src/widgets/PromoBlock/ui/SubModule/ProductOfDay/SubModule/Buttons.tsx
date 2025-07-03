@@ -1,4 +1,4 @@
-import { Button, Group, Icon, Text, VStack } from "@chakra-ui/react"
+import { Button, Flex, Group, Icon, Text } from "@chakra-ui/react"
 import { MdShoppingCart } from "react-icons/md"
 
 
@@ -6,7 +6,19 @@ const Buttons: React.FC = () => {
 
 
     return (
-      <VStack gap={"20px"}>
+      <Flex gap={"20px"} direction={{ 
+        base: "column",
+        smDown: "column",
+        sm: "column",
+        smToMd: "row",
+        md: "row",
+        mdToLg: "row",
+        lg: "row",
+        lgToXl: "row",
+        xl: "row",
+        xlTo2xl: "column",
+        "2xl": "column",        
+       }}>
         <Button
           transition="all 0.3s ease"
           rounded="full"
@@ -42,7 +54,7 @@ const Buttons: React.FC = () => {
             Купить в 1 клик
           </Text>
         </Button>
-      </VStack>
+      </Flex>
     );
 }
 

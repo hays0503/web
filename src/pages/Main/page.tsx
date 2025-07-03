@@ -17,6 +17,7 @@ import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 import SCK from "@/widgets/SCK";
 import { UsefulInformation } from "@/widgets/UsefulInformation";
+import { UpButton } from "@/widgets/UpButton/ui";
 
 export async function generateMetadata({
 	params,
@@ -35,6 +36,7 @@ export async function generateMetadata({
 export default async function OrderPage() {
 	return (
     <LayoutTemp
+      id="#Main"
       // LayoutImage="MainCenter.webp"
       Header={
         <Header
@@ -68,6 +70,7 @@ export default async function OrderPage() {
         <SCK />
         <MaybeLikeIt />
         <UsefulInformation />
+        <UpButton/>
       </VStack>
     </LayoutTemp>
   );

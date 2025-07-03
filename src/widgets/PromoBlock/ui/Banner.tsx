@@ -32,7 +32,7 @@ const Banner:React.FC = () => {
       //   xlTo2xl: "64%",
       //   "2xl": "64%",
       // }}
-      w={"800px"}
+      w={"740px"}
       rounded={"2xl"}
       overflow={"clip"}
       bg={'transparent'}

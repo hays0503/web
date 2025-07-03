@@ -4,6 +4,7 @@ import { Box, Flex } from "@chakra-ui/react";
 // import LayoutLayers from "./LayoutLayers";
 
 type LayoutTempProps = {
+  id: string;
 	children: ReactNode;
 	readonly Header: React.ReactNode;
 	readonly Footer: React.ReactNode;
@@ -172,6 +173,7 @@ const useLayoutSettings = () => {
 }
 
 function LayoutTemp({
+  id,
 	children,
 	Header,
 	Footer,
@@ -184,6 +186,7 @@ function LayoutTemp({
 
 	return (
     <Box
+      id={id}
       position="relative"
       w="100%"
       h="100vh"
