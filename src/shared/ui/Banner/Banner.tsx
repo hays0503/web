@@ -11,9 +11,9 @@ import { SwiperNavigation, useSwiperNavigation } from "../SwiperNavigation";
 import { pagination } from "@/widgets/PromoBlock/ui/SubModule/pagination";
 
 const banners = [
-  "/promo/promoSlide7.webp",
-  "/promo/promoSlide7.webp",
-  "/promo/promoSlide7.webp",
+  {desktop:"/promo/promoSlide7.webp", mobile:"/promo/promoSlide7-mobile1.webp"},
+  {desktop:"/promo/promoSlide7.webp", mobile:"/promo/promoSlide7-mobile1.webp"},
+  {desktop:"/promo/promoSlide7.webp", mobile:"/promo/promoSlide7-mobile1.webp"},
 ];
 
 export default function SimpleBanner() {
@@ -22,8 +22,10 @@ export default function SimpleBanner() {
 
   const { prevRef, nextRef } = useSwiperNavigation(swiperInstance);
 
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
-    <Box position="relative" w="full" overflow="visible">
+    <Box position="relative" w="full" overflow="clip" rounded={"2xl"}>
       <SwiperNavigation
         prevRef={prevRef}
         nextRef={nextRef}
@@ -41,7 +43,7 @@ export default function SimpleBanner() {
         }}
 
       >
-        {banners.map((src, idx) => (
+        {banners.map((src:{desktop:string,mobile:string}, idx) => (
           <SwiperSlide
             key={idx}
             style={{
@@ -50,7 +52,7 @@ export default function SimpleBanner() {
             }}
           >
             <Image
-              src={src}
+              src={isMobile?src.mobile:src.desktop}
               alt={`Slide ${idx + 1}`}
 
             />
