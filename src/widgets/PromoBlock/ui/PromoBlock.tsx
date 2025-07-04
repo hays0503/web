@@ -28,7 +28,7 @@ const PromoBlock: React.FC = () => {
         <Flex
           w={"100%"}
           h={"full"}
-          gap={"10px"}
+          gap={"20px"}
           wrap={"wrap"}
           alignItems="stretch"
           justifyContent="space-between"

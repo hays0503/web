@@ -38,8 +38,8 @@ const DayOffer:React.FC = () => {
   return (
     <Box
       // border={"1px solid var(--chakra-colors--motif)"}
-      minW={{
-        base: "260px",
+      w={{
+        base: "370px",
         smDown: "100%",
         sm: "100%",
         smToMd: "100%",
@@ -47,9 +47,9 @@ const DayOffer:React.FC = () => {
         mdToLg: "100%",
         lg: "100%",
         lgToXl: "100%",
-        xl: "260px",
-        xlTo2xl: "260px",
-        "2xl": "260px",
+        xl: "370px",
+        xlTo2xl: "370px",
+        "2xl": "370px",
       }}
       mb={{
         base: "0",
@@ -76,7 +76,7 @@ const DayOffer:React.FC = () => {
       //   xlTo2xl: "35%",
       //   "2xl": "35%",
       // }}
-      w={"370px"}
+      // w={"370px"}
       // h={"full"}
       rounded={"2xl"}
       overflow={"clip"}

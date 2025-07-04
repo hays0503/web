@@ -41,15 +41,22 @@ export default function NavigationLinks() {
       contextMessage="Ошибка на уровне NavigationLinks"
       fallbackUI={<div>Ошибка на уровне NavigationLinks</div>}
     >
-      <Flex as="nav" w="full" justify={"flex-end"} align={"center"}> 
+      <Flex
+        as="nav"
+        w="full"
+        justify={"flex-end"}
+        align={"center"}
+        onBlur={() => {
+          if (isOpen) {
+            setIsOpen(false);
+          }
+        }}
+      >
+        {/* Desktop */}
+        <DesktopView links={links} />
 
-          {/* Desktop */}
-          <DesktopView links={links} />
-
-
-          {/* Mobile */}
-          <MobileView toggleMenu={toggleMenu} isOpen={isOpen} links={links} />
-
+        {/* Mobile */}
+        <MobileView toggleMenu={toggleMenu} isOpen={isOpen} links={links} />
       </Flex>
     </ErrorBoundaryLogger>
   );

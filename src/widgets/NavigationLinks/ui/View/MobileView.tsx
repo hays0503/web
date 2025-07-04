@@ -20,7 +20,7 @@ const MobileView:React.FC<{
           bg={'Motif'}
           color={'WhiteAndBlack'}
           rounded={'full'}
-
+          focusRing={'none'}
         >
           {isOpen ? <IoCloseCircleOutline /> : <GiHamburgerMenu/>} 
         </IconButton>
@@ -36,7 +36,7 @@ const MobileView:React.FC<{
                 </Link>
               </Menu.Item>
             ))}
-            <Menu.Item asChild value="Тема">
+            <Menu.Item value="Тема" justifyContent={"center"}>
               <ColorModeButton />
             </Menu.Item>
           </Menu.Content>

@@ -4,8 +4,8 @@ import { DataLinks } from "../../type/DataLinks";
 import { Box, Flex, IconButton, Link, Menu, Portal, Show, VStack } from "@chakra-ui/react";
 import { useDynamicTextCalc } from "@/shared/hooks/useDynamicTextCalc";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 const DesktopView:React.FC<{
     readonly links:DataLinks
@@ -92,7 +92,7 @@ const DesktopView:React.FC<{
                   {isOpen ? (
                     <IoCloseCircleOutline/>
                   ) : (
-                    <BiDotsHorizontalRounded/>
+                    <GiHamburgerMenu/>
                   )}
                 </IconButton>
               </Menu.Trigger>

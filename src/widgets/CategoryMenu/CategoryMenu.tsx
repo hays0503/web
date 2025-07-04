@@ -344,7 +344,7 @@ const CategoryMenu: React.FC<{ children: React.ReactNode }> = ({ children }) => 
     const push = (item: Category) => item.children && setStack((s) => [...s, item]);
 
     return (
-      <Box position="relative" w="80vw" h="100vh">
+      <Box position="relative" w="80vw" h="80vw">
         <AnimatePresence mode="wait" initial={false}>
           <MobileLayer
             key={current?.slug || "root"}
@@ -365,9 +365,10 @@ const CategoryMenu: React.FC<{ children: React.ReactNode }> = ({ children }) => 
       <Portal>
         <Popover.Positioner zIndex={20}>
           <Popover.Content
-            w={isMobile ? "90vw" : "90vw"}
+            w={isMobile ? "90dvw" : "90dvw"}
             maxW="1200px"
-            h={isMobile ? "90vh" : "auto"}
+            h={"100%"}
+            // h={isMobile ? "auto" : "auto"}
             bg="Body.Background"
             p={0}
             overflow="hidden"
