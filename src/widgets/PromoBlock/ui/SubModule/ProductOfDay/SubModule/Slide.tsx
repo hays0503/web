@@ -41,6 +41,7 @@ const Slide: React.FC<{ product: ProductType }> = ({ product }) => {
         <VStack
           w={"100%"}
           h={"100%"}
+          gap={"8px"}
           wrap={"wrap"}
           align={{
             base: "flex-start",
@@ -55,6 +56,7 @@ const Slide: React.FC<{ product: ProductType }> = ({ product }) => {
           <Pickup />
           <Flex
             w={"100%"}
+            gap={"8px"}
             direction={{
               base: "column",
               smDown: "column",

@@ -1,5 +1,5 @@
 
-import { ColorModeButton, LinkSCK } from "@/shared/ui";
+import { LinkSCK } from "@/shared/ui";
 import { DataLinks } from "../../type/DataLinks";
 import { Box, Flex, IconButton, Link, Menu, Portal, Show, VStack } from "@chakra-ui/react";
 import { useDynamicTextCalc } from "@/shared/hooks/useDynamicTextCalc";
@@ -115,17 +115,17 @@ const DesktopView:React.FC<{
                         </Link>
                       ))}
                     </VStack>
-                    <Menu.Item asChild value="Тема">
+                    {/* <Menu.Item asChild value="Тема">
                       <ColorModeButton />
-                    </Menu.Item>
+                    </Menu.Item> */}
                   </Menu.Content>
                 </Menu.Positioner>
               </Portal>
             </Menu.Root>
           </Show>
-          <Show when={hiddenItems.length === 0}>
+          {/* <Show when={hiddenItems.length === 0}>
             <ColorModeButton />
-          </Show>
+          </Show> */}
         </Box>
       </Flex>
     );

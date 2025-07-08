@@ -371,8 +371,11 @@ const CategoryMenu: React.FC<{ children: React.ReactNode }> = ({ children }) => 
             // h={isMobile ? "auto" : "auto"}
             bg="Body.Background"
             p={0}
-            overflow="hidden"
+            overflow="hidden"            
             borderRadius={isMobile ? "none" : "md"}
+            style={{
+              transform: "translateX(-1px)",
+            }}
           >
             <Popover.Body p={isMobile ? 0 : 4}>
               {isMobile ? renderMobile() : renderDesktop()}

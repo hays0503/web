@@ -1,4 +1,5 @@
 import {
+  Show,
   VStack,
 } from "@chakra-ui/react";
 import Tags from "./SubModule/Tags";
@@ -14,7 +15,7 @@ export interface ProductCardProps {
   image: string[];
   alt: string;
   title: string;
-  rating: number;
+  rating?: number;
   reviews: number;
   price: number;
   oldPrice?: number;
@@ -63,7 +64,9 @@ const ProductCard = ({
       {/* Основная информация */}
       <VStack w={"full"}>
         <ProductName title={title} />
-        <ProductRating rating={rating} reviews={reviews} />
+        <Show when={rating} fallback={<span style={{ opacity: 1, height: '18px',width: '100%',marginBottom:'8px' }}></span>}>
+          {rating && <ProductRating rating={rating} reviews={reviews} />}
+        </Show>
         <ProductPrice price={price} oldPrice={oldPrice} />
         <ProductInstallmentPlan installment={installment} />
         <ProductBuyOneClick onQuickBuy={onQuickBuy} />

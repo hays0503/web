@@ -3,7 +3,7 @@ import { Box, Image } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Mousewheel, Pagination } from 'swiper/modules';
 import { pagination } from "@/widgets/PromoBlock/ui/SubModule/pagination";
 
 interface ProductImageProps {
@@ -27,7 +27,9 @@ const ProductImage: React.FC<ProductImageProps> = ({ image, alt }) => {
       <Swiper
         pagination={pagination}
         grabCursor={true}
-        modules={[Pagination]}
+        mousewheel={true}
+        direction={'vertical'}
+        modules={[ Pagination, Mousewheel]}
         style={{ width: "100%", height: "100%" }}
       >
         {image.map((src, index) => (

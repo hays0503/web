@@ -1,7 +1,7 @@
 import { IconButton, Link, Menu, Portal } from "@chakra-ui/react";
 import { DataLinks } from "../../type/DataLinks";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { ColorModeButton, LinkSCK } from "@/shared/ui";
+import { LinkSCK } from "@/shared/ui";
 import { GiHamburgerMenu } from "react-icons/gi";
 
 const MobileView:React.FC<{
@@ -36,9 +36,9 @@ const MobileView:React.FC<{
                 </Link>
               </Menu.Item>
             ))}
-            <Menu.Item value="Тема" justifyContent={"center"}>
+            {/* <Menu.Item value="Тема" justifyContent={"center"}>
               <ColorModeButton />
-            </Menu.Item>
+            </Menu.Item> */}
           </Menu.Content>
         </Menu.Positioner>
       </Portal>

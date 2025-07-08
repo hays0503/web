@@ -120,7 +120,7 @@ const FooterSection = memo(
 FooterSection.displayName = "FooterSection";
 
 const SocialIcons = memo(() => (
-  <HStack gap={3} justify="center">
+  <HStack gap={3} justify={{base: "center", lg: "flex-start"}}>
     {SOCIAL_LINKS.map(({ Icon, label }) => (
       <IconButton
         key={label}
