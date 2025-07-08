@@ -9,7 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { default as NextImage } from "next/image";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { DataLinks } from "../type/DataLinks";
 import { DesktopView, MobileView } from "./View";
 
@@ -31,10 +31,39 @@ const links: DataLinks = [
 	{ label: "+7 705 655 00 00", href: "tel:+7 705 655 00 00" },
 ];
 
-export default function NavigationLinks() {
-	const [isOpen, setIsOpen] = useState(false);
+/**
+ * Hook that runs a callback when clicking outside of the given ref
+ */
+function useOutsideAlerter(
+  ref: React.RefObject<HTMLElement|null>,
+  callback: () => void
+) {
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        ref.current &&
+        event.target instanceof Node &&
+        !ref.current.contains(event.target)
+      ) {
+        callback();
+      }
+    }
 
-	const toggleMenu = () => setIsOpen(!isOpen);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref, callback]);
+}
+
+export default function NavigationLinks() {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  useOutsideAlerter(wrapperRef, () => setIsOpen(false));
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen)
+  };
 
 	return (
     <ErrorBoundaryLogger
@@ -42,15 +71,11 @@ export default function NavigationLinks() {
       fallbackUI={<div>Ошибка на уровне NavigationLinks</div>}
     >
       <Flex
+        ref={wrapperRef}
         as="nav"
         w="full"
         justify={"flex-end"}
         align={"center"}
-        onBlur={() => {
-          if (isOpen) {
-            setIsOpen(false);
-          }
-        }}
       >
         {/* Desktop */}
         <DesktopView links={links} />
